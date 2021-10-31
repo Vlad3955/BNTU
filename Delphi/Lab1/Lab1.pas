@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, math;
 
 type
   TForm1 = class(TForm)
@@ -45,7 +45,7 @@ end;
      procedure TForm1.Button1Click(Sender: TObject);
 var
 x, y, z : real;
-a, b, c, u : real;
+d, b, c, a : real;
 begin
    x := StrToFloat(Edit1.Text);   // Считывается значение x
 // Вывод x в окно Memo1
@@ -57,12 +57,12 @@ begin
 // Вывод z в окно Memo1
   Memo1.Lines.Add('z = ' + Edit3.Text);
 // Вычисляем арифметическое выражение
-  a := Sqr(Sin(x+y) / Cos(x+y));
-  b := Exp(y-z);
-  c := Sqrt(Cos(Sqr(x))+Sin(Sqr(z)));
-  u:= a - b*c;
+  a := ln(power(y, -abs(x)));
+  b := x - (y / 2);
+  c := sin(sqr(2)) * arctan(z);
+  d:= a * b + c;
 //Выводим результат в окно Memo1
-  Memo1.Lines.Add('Результат u:= ' + FloatToStrF(u, ffFixed, 8, 3));
+  Memo1.Lines.Add('Результат d:= ' + FloatToStrF(d, ffFixed, 8, 3));
 
 end;
 
