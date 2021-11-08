@@ -4,7 +4,7 @@
 
 using namespace std;
 
-StopWatch::StopWatch()
+/*StopWatch::StopWatch()
 {
 	start = false;
 	create = clock();
@@ -46,5 +46,7 @@ void StopWatch::Show()
 	else
 	{
 		cout << "Время на секундамере: " << value << "сек." << endl << endl;
-	}
-}
+	}	
+}*/
+
+

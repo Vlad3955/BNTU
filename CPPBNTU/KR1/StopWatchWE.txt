@@ -1,0 +1,76 @@
+#include <iostream>
+#include <ctime>
+#include <clocale>
+#include <windows.h>
+#include <stdio.h>
+using namespace std;
+
+class stopwatch {
+    double begin, end;
+public:
+    stopwatch();
+    ~stopwatch();
+    void start();
+    void stop();
+    void show();
+    inline bool IsKeyDown(int Key);
+};
+stopwatch::stopwatch()
+{
+    begin = end = 0.0;
+}
+stopwatch::~stopwatch()
+{
+    cout << "Удаление объекта stopwatch ...";
+    show();
+}
+
+inline bool stopwatch::IsKeyDown(int Key)
+{
+    return (GetKeyState(Key) & 0x8000) != 0;
+}
+
+void stopwatch::start()
+{
+    begin = (double)clock() / CLOCKS_PER_SEC;
+}
+
+void stopwatch::stop()
+{
+    end = (double)clock() / CLOCKS_PER_SEC;
+}
+
+void stopwatch::show()
+{
+    cout << " Затрачено время : " << end - begin;
+    cout << "\n";
+}
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+    stopwatch watch;
+    watch.start();
+    cout << "Для остановки нажмите - s" << "\n";
+    int sec = 1;
+    while (true) // бесконечный цикл
+    {
+        
+       
+
+      
+            cout << sec << endl;
+            Sleep(1000);
+
+            if (watch.IsKeyDown(0x53))
+            {
+                break;
+            }
+
+            sec++;
+        
+    }
+    watch.stop();
+    watch.show();
+    getchar();
+    return 0;
+}

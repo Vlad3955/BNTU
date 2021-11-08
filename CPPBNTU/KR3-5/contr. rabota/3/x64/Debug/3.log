@@ -1,0 +1,9 @@
+﻿  main.cpp
+  geometrics.cpp
+D:\GB\BNTU\BNTU\CPPBNTU\KR3-5\contr. rabota\3\geometrics.cpp(72,20): warning C4018: <: несоответствие типов со знаком и без знака
+D:\GB\BNTU\BNTU\CPPBNTU\KR3-5\contr. rabota\3\geometrics.cpp(80,20): warning C4018: <: несоответствие типов со знаком и без знака
+D:\GB\BNTU\BNTU\CPPBNTU\KR3-5\contr. rabota\3\geometrics.cpp(93,12): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+D:\GB\BNTU\BNTU\CPPBNTU\KR3-5\contr. rabota\3\geometrics.cpp(277,14): warning C4838: Преобразование из "int" в "SHORT" требует сужающего преобразования.
+D:\GB\BNTU\BNTU\CPPBNTU\KR3-5\contr. rabota\3\geometrics.cpp(277,17): warning C4838: Преобразование из "int" в "SHORT" требует сужающего преобразования.
+  Создание кода...
+  3.vcxproj -> D:\GB\BNTU\BNTU\CPPBNTU\KR3-5\contr. rabota\x64\Debug\3.exe
