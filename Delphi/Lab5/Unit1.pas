@@ -53,33 +53,53 @@ begin
 end;
 
 procedure TForm1.ComboBox1Click(Sender: TObject);
+const
+  D = ['0', '1'];
 var
   St : string;
-  n, i, nst, ind  : integer;
+  i, Len, Cnt, Cnt1, CntRes, nSt  : integer;
 begin
-   n   := 0; //Содержит число слов выбранной строки
-  ind := 0; //Содержит число слов
 //Определение номера выбранной строки
   nSt := ComboBox1.ItemIndex;
 //Занесение выбранной строки в переменную st
   St := ComboBox1.Items[nst];
+  Len := Length(St);
+  Cnt := 0;
+  Cnt1 := 0;
+  CntRes := 0;
 //Просмотр всех символов строки st
-  for i := 1 to Length(St) do
+  for i := 1 to Len do
   begin
-    Case ind of
-      0: if St[i] <>' ' then
-         begin
-             //Если встретился символ после пробела
-             //число слов увеличивается на единицу
-             ind := 1;
-             inc(n);
-         end;
-// Если встретился пробел после символов
-      1: if St[i] =' ' then ind := 0;
-     end; //Case
-   Label3.Caption := IntToStr(n); //Вывод числа слов в Label3
 
-end;
+     // Пропускаем символы не принадлежащие множеству D.
+     if not (St[i] in D) then
+     begin
+     Continue;
+     end;
+
+     // Подсчет элементов в группе.
+     Inc(Cnt);
+
+     // Подсчет едениц в группе.
+     if (St[i] = '1') then
+     begin
+     Inc(Cnt1);
+     end;
+
+     // Конец очередной группы.
+     if (i = Len) or (not (St[i + 1] in D)) then // если i = длинне строки,
+     // или следующий помле i символ не является множеством D.
+     begin
+       if (Cnt mod 2 <> 0) then
+       begin
+       CntRes := CntRes + Cnt1;
+       end;
+
+       Cnt := 0;
+       Cnt1 := 0;
+     end;
+  end;
+   Label3.Caption := IntToStr(CntRes); //Вывод числа слов в Label3
 
 end;
 
