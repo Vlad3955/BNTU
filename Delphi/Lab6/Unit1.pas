@@ -93,8 +93,8 @@ begin
     otc[2] := StrToInt(Edit3.Text);
     otc[3] := StrToInt(Edit4.Text);
     sball  := (otc[1] + otc[2] + otc[3])/3;
-    Memo1.Lines.Add(fio + '' + IntToStr(otc[1 ]) +
-      ' ' + IntToStr(otc[2]) + '' + IntToStr(otc[3]));
+    Memo1.Lines.Add(fio + ' ' + IntToStr(otc[1 ]) +
+      ' ' + IntToStr(otc[2]) + ' ' + IntToStr(otc[3]));
   end;
 
   Write(fz, Stud[nzap]);   //Запись в файл
@@ -164,8 +164,8 @@ begin
   for i := 1 to nzap do
 // Вывод в окно Memo1 отсортированных записей
   with stud[i] do
-    Memo1.Lines.Add(IntToStr(i) + '' +
-    fio + '' + FloatToStrF(sball, ffFixed, 4, 2));
+    Memo1.Lines.Add(IntToStr(i) + ' ' +
+    fio + ' ' + FloatToStrF(sball, ffFixed, 4, 2));
 end;
 
 
@@ -194,7 +194,8 @@ end;
 
  procedure TForm1.BitBtn1Click(Sender: TObject);
 begin
- // CloseFile(fz);
+   if SaveDialog1.Execute then
+  CloseFile(fz);
 // Закрытие файла записей при нажатии на кнопку "Close"
 end;
 
