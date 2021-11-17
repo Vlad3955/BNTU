@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Menus,
   Vcl.Imaging.jpeg, math, VclTee.TeeGDIPlus, VCLTee.TeEngine, VCLTee.Series,
-  VCLTee.TeeProcs, VCLTee.Chart;
+  VCLTee.TeeProcs, VCLTee.Chart, Vcl.Buttons;
 
 type
   TForm1 = class(TForm)
@@ -19,7 +19,6 @@ type
     Label3: TLabel;
     Chart1: TChart;
     Series1: TLineSeries;
-    Button2: TButton;
     Series2: TLineSeries;
     Edit4: TEdit;
     Edit5: TEdit;
@@ -30,6 +29,12 @@ type
     Label5: TLabel;
     Label6: TLabel;
     Label7: TLabel;
+    Label8: TLabel;
+    Edit8: TEdit;
+    BitBtn1: TBitBtn;
+    procedure FormCreate(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
 
   private
     { Private declarations }
@@ -39,10 +44,63 @@ type
 
 var
   Form1: TForm1;
-   Xmin, Xmax, Ymin, Ymax, Hx, Hy, h : extended;
+   Xmin, Xmax, Ymin, Ymax, Hx, Hy, h, Z : double;
+
 
 implementation
 
 {$R *.dfm}
 
+
+
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  Xmin := StrToFloat(Edit1.Text);
+  Xmax := StrToFloat(Edit2.Text);
+  Ymin := StrToFloat(Edit3.Text);
+  Ymax := StrToFloat(Edit4.Text);
+  Z    := StrToFloat(Edit8.Text);
+  Hx   := StrToFloat(Edit5.Text);
+  Hy   := StrToFloat(Edit6.Text);
+  H    := StrToFloat(Edit7.Text);
+
+
+
+  Chart1.BottomAxis.Automatic := False;
+  Chart1.BottomAxis.Minimum := Xmin;
+  Chart1.BottomAxis.Maximum := Xmax;
+
+  Chart1.LeftAxis.Automatic := False;
+  Chart1.LeftAxis.Minimum   := Ymin;
+  Chart1.LeftAxis.Maximum   := Ymax;
+  Chart1.BottomAxis.Increment := Hx;
+  Chart1.LeftAxis.Increment   := Hy;
+end;
+
+
+
+procedure TForm1.Button3Click(Sender: TObject);
+  var
+  x, y1, y2 : extended;
+begin
+  Series1.Clear;
+  Series2.Clear;
+  Xmin := StrToFloat(Edit1.Text);
+  Xmax := StrToFloat(Edit2.Text);
+  h := StrToFloat(Edit7.Text);
+  x := Xmin;
+  Repeat
+    y1 := sin(x);
+    Series1.AddXY(x, y1, '', clTeeColor);
+    y2 := cos(x);
+    Series2.AddXY(x, y2, '', clTeeColor);
+    x := x + h;
+  Until (x > Xmax);
+end;
+
+ procedure TForm1.Button1Click(Sender: TObject);
+begin
+  Halt //Exit
+end;
 end.

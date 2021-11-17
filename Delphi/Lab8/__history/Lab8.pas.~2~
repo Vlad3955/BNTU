@@ -1,0 +1,78 @@
+unit Lab8;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Menus,
+  Vcl.Imaging.jpeg, math, VclTee.TeeGDIPlus, VCLTee.TeEngine, VCLTee.Series,
+  VCLTee.TeeProcs, VCLTee.Chart;
+
+type
+  TForm1 = class(TForm)
+    Button1: TButton;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Chart1: TChart;
+    Series1: TLineSeries;
+    Series2: TLineSeries;
+    Edit4: TEdit;
+    Edit5: TEdit;
+    Edit6: TEdit;
+    Button3: TButton;
+    Edit7: TEdit;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Edit8: TEdit;
+    procedure FormCreate(Sender: TObject);
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+   Xmin, Xmax, Ymin, Ymax, Hx, Hy, h : extended;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  Xmin := 0;
+  Xmax := 2 * Pi;
+  Ymin := -1;
+  Ymax := 1;
+  Hx   := pi/2;
+  Hy   := 0.5;
+  h    := 0.01;
+  Edit1.Text := FloatToStr(Xmin);
+  Edit2.Text := FloatToStr(Xmax);
+  Edit3.Text := FloatToStr(Ymin);
+  Edit4.Text := FloatToStr(Ymin);
+  Edit5.Text := FloatToStr(Hx);
+  Edit6.Text := FloatToStr(Hy);
+  Edit7.Text := FloatToStr(h);
+
+  Chart1.BottomAxis.Automatic := False;
+  Chart1.BottomAxis.Minimum := Xmin;
+  Chart1.BottomAxis.Maximum := Xmax;
+
+  Chart1.LeftAxis.Automatic := False;
+  Chart1.LeftAxis.Minimum   := Ymin;
+  Chart1.LeftAxis.Maximum   := Ymax;
+  Chart1.BottomAxis.Increment := Hx;
+  Chart1.LeftAxis.Increment   := Hy;
+end;
+
+end.

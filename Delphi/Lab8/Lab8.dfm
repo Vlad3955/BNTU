@@ -10,6 +10,7 @@ object Form1: TForm1
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 15
   object Label1: TLabel
@@ -32,7 +33,6 @@ object Form1: TForm1
     Width = 30
     Height = 15
     Caption = 'Ymin:'
-    OnClick = Label3Click
   end
   object Label4: TLabel
     Left = 24
@@ -42,15 +42,15 @@ object Form1: TForm1
     Caption = 'Ymax:'
   end
   object Label5: TLabel
-    Left = 24
-    Top = 268
+    Left = 21
+    Top = 324
     Width = 106
     Height = 15
     Caption = #1064#1072#1075' '#1088#1072#1079#1084#1077#1090#1082#1080' '#1087#1086' X:'
   end
   object Label6: TLabel
     Left = 24
-    Top = 322
+    Top = 378
     Width = 106
     Height = 15
     Caption = #1064#1072#1075' '#1088#1072#1079#1084#1077#1090#1082#1080' '#1087#1086' Y:'
@@ -62,6 +62,13 @@ object Form1: TForm1
     Height = 15
     Caption = #1064#1072#1075' '#1088#1072#1089#1095#1077#1090#1072' '#1090#1072#1073#1083#1080#1094#1099':'
   end
+  object Label8: TLabel
+    Left = 22
+    Top = 272
+    Width = 7
+    Height = 15
+    Caption = 'Z'
+  end
   object Button1: TButton
     Left = 408
     Top = 504
@@ -69,6 +76,7 @@ object Form1: TForm1
     Height = 27
     Caption = #1055#1086#1089#1090#1088#1086#1080#1090#1100' '#1075#1088#1072#1092#1080#1082
     TabOrder = 0
+    OnClick = Button1Click
   end
   object Edit1: TEdit
     Left = 168
@@ -131,34 +139,26 @@ object Form1: TForm1
       YValues.Order = loNone
     end
   end
-  object Button2: TButton
-    Left = 640
-    Top = 505
-    Width = 75
-    Height = 25
-    Caption = 'Close'
-    TabOrder = 5
-  end
   object Edit4: TEdit
     Left = 168
     Top = 214
     Width = 106
     Height = 23
-    TabOrder = 6
+    TabOrder = 5
   end
   object Edit5: TEdit
     Left = 200
-    Top = 265
+    Top = 321
     Width = 74
     Height = 23
-    TabOrder = 7
+    TabOrder = 6
   end
   object Edit6: TEdit
     Left = 200
-    Top = 319
+    Top = 375
     Width = 74
     Height = 23
-    TabOrder = 8
+    TabOrder = 7
   end
   object Button3: TButton
     Left = 96
@@ -166,13 +166,29 @@ object Form1: TForm1
     Width = 121
     Height = 27
     Caption = #1056#1072#1079#1084#1077#1089#1090#1080#1090#1100' '#1086#1089#1080
-    TabOrder = 9
+    TabOrder = 8
+    OnClick = Button3Click
   end
   object Edit7: TEdit
     Left = 208
     Top = 487
     Width = 74
     Height = 23
+    TabOrder = 9
+  end
+  object Edit8: TEdit
+    Left = 168
+    Top = 269
+    Width = 106
+    Height = 23
     TabOrder = 10
+  end
+  object BitBtn1: TBitBtn
+    Left = 688
+    Top = 505
+    Width = 75
+    Height = 25
+    Caption = 'Close'
+    TabOrder = 11
   end
 end
