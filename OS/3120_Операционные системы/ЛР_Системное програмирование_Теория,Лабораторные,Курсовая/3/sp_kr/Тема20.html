@@ -1,0 +1,138 @@
+<html>
+
+<head>
+<title>Методические указания к выполнению курсовых работ по курсу "Системное програмирование"</title>
+</head>
+
+<body bgcolor=#F5DEB3 leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0" marginwidth="0">
+<center>
+<table border="3">
+<tr>
+<td width="700"> <font color="#0000FF">
+<h2><center>20.Асинхронный ввод вывод (Files).</center></h2>
+<p align="justify">&nbsp&nbsp&nbspРазработать программу, которая позволяет просматривать и изменять содержимое текстовых файлов.</p>
+</td>
+<tr>
+<td bgcolor="#FFFAFA" width="700"><center><h3><font color="#00008B">В этом разделе будут рассотрены примеры работы с файлами</font></h3></center>   
+
+<pre>#include 
+#include 
+
+void main( void ) 
+{
+FILE *file;
+char* file_name = "file.txt";
+char load_string[50] = "none";
+
+file = fopen( file_name, "w" ); 
+
+fputs( "string", file );
+
+fclose( file );
+
+file = fopen( file_name, "r" );
+if( file != 0 )
+{
+fgets( load_string, 50 , file ); 
+cout << "load_string = " << load_string << endl;
+}
+else
+{
+cout << "File not found !!!" << endl;
+}
+fclose(file);
+}
+</pre>
+
+<p align="justify">Описание функций работы с файломи находятся в библиотеке stdio.h</p>
+
+<p align="justify">Сначала надо создать указатель на переменную типа FILE ( FILE* file; ). Открытие файла производится вызовом функции fopen ( file = fopen( file_name, "w" ); ) Первый параметр этой функции - имя файла, второй - указывает в каком режиме должен быть открыт файл. "w" - открыть для записи, "r" - открыть для чтения, "a" - дополнение файла( это наиболее используемые режимы, хотя есть и другие ). Запись и считывание данных из файла осуществляется следующими функциями : fputc, fputs, fgetc, fgets, fprintf, fscanf( описание этих функций смотрите в stdio.h). Закрытие файла осуществляется вызовом функции fclose ( fclose( file ); ).</p>
+
+<p align="justify"><strong>Работа с файлами с помощью MFC( классы CFile, CStdioFile, ... ).</strong></p>
+
+<p align="justify">В библиотеку MFC включено несколько классов для обеспечения работы с файлами. Рассматриваемые ниже классы наследуются от базового класса CFile. </p>
+
+<p><strong>Класс CFile</strong></p>
+
+<p align="justify">Класс CFile предназначен для обеспечения работы с файлами. Он позволяет упростить использование файлов, представляя файл как объект, который можно создать, читать, записывать и т.д.</p>
+
+<p align="justify">
+Чтобы получить доступ к файлу, сначала надо создать объект класса CFile. Конструктор класса позволяет сразу после создания такого объекта открыть файл. Но можно открыть файл и позднее, воспользовавшись методом Open.</p>
+
+<p><strong>Открытие и создание файлов</strong></p>
+
+<p>После создания объекта класса CFile можно открыть файл, вызвав метод Open. Методу надо указать путь к открываемому файлу и режим его использования. Прототип метода Open имеет следующий вид:</p>
+
+<pre>virtual BOOL Open(LPCTSTR lpszFileName,
+          UINT nOpenFlags, CFileException* pError=NULL); </pre>
+
+<p align="justify">В качестве параметра lpszFileName надо указать имя открываемого файла. Можно указать только имя файла или полное имя файла, включающее полный путь к нему.</p>
+
+<p align="justify">Второй параметр nOpenFlags определяет действие, выполняемое методом Open с файлом, а также атрибуты файла. Ниже представлены некоторые возможеые значения параметра nOpenFlags:</p>
+
+<ul>
+	<li>CFile::modeCreate - Создается новый файл. Если указанный файл существует, то его содержимое стирается и длина файла устанавливается равной нулю.</li>
+	<li>CFile::modeNoTruncate - Этот файл предназначен для использования совместно с файлом</li>
+	<li>CFile::modeCreate. Если создается уже существующий файл, то его содержимое не будет удалено.</li>
+	<li>CFile::modeRead - Файл открывается только для чтения.</li>
+	<li>CFile::modeReadWrite - Файл открывается для записи и для чтения.</li>
+	<li>CFile::modeWrite - Файл открывается только для записи.</li>
+	<li>CFile::typeText - Используется классами, порожденными от класса CFile, например CStdioFile, для работы с файлами в текстовом режиме. Текстовый режим обеспечивает преобразование комбинации символа возврата каретки и символа перевода строки.</li>
+	<li>CFile::Binary - Используется классами, порожденными от класса CFile, например CStdioFile, для работы с файлами в двоичном режиме.</li>
+</ul>
+
+<p align="justify">Необязательный параметр pError, который является указателем на объект класса CFileException, используется только в том случае, если выполнение операции с файлом вызовет ошибку. При этом в объект, указываемый pError, будет записана дополнительная информация.</p>
+
+<p align="justify">Метод Open возвращает не нулевое значение, если файл открыт и нуль в случае ошибки. Ошибка при открытии файла может случиться, например, если методу Open указан для чтения несуществующий файл.</p>
+
+<p align="justify"><strong>Примеры записи и чтения из файла</strong></p>
+
+<p align="justify">Приведем фрагменты кода, в которых демонстрируется использование стандартных диалоговых панелей выбора файла и процедуры чтения и записи в файл.</p>
+
+<p align="justify">Открытие файла и чтение из него</p>
+
+<pre>	CString m_Text;	// создание стандартной панели выбора файла Open
+ 	CFileDialog DlgOpen(TRUE,(LPCSTR)"txt",NULL,
+		OFN_HIDEREADONLY,(LPCSTR)" Text Files (*.txt) |*.txt||");
+  	// отображение стандартной панели выбора файла Open
+	if(DlgOpen.DoModal()==IDOK) 
+   	{	// создание объекта и открытие файла для чтения
+		CStdioFile File(DlgOpen.GetPathName(),CFile::
+                           modeRead|CFile::typeBinary);
+		// чтение из файла строки
+ 		CString& ref=m_Text;
+ 		File.ReadString(ref); // передается ссылка на строку m_Text
+ 	} 
+
+</pre>
+
+<p align="justify">Запустите программу - Build / Rebuild all ( будут ошибки ), выберите Build / Set active configuration - Win 32 Realise, выберите пункт меню "Project", далее "Settings...", закладку "C/C++", Category - Code Generation и в пункте "Use run-time library" выберите "Multithreaded". После этого сделайте опять Build / Rebuild all и программа будет работать.</p>
+
+<p align="justify"><strong>Открытие файла и запись из него</strong></p>
+
+<pre>	CString m_Text;	// создание стандартной панели выбора файла SaveAs
+	CFileDialog DlgSaveAs(FALSE,(LPCSTR)"txt",NULL,
+		OFN_HIDEREADONLY|OFN_OVERWRITEPROMPT,
+		(LPCSTR)" Text Files (*.txt) |*.txt||");
+		// отображение стандартной панели выбора файла SaveAs
+	if(DlgSaveAs.DoModal()==IDOK)
+	{ // создание объекта и открытие файла для записи
+ 		CStdioFile File(DlgSaveAs.GetPathName(),
+ 			CFile::modeCreate|CFile::modeWrite|CFile::typeBinary);
+  		// запись в файл строки
+ 		File.WriteString((LPCTSTR)m_Text);
+	} 
+
+</pre>
+
+<p align="justify">Запустите программу - Build / Rebuild all ( будут ошибки ), выберите Build / Set active configuration - Win 32 Realise, выберите пункт меню "Project", далее "Settings...", закладку "C/C++", Category - Code Generation и в пункте "Use run-time library" выберите "Multithreaded". После этого сделайте опять Build / Rebuild all и программа будет работать.</p>
+
+</td></tr>
+</table>
+</center>
+<br><br><font color="#0000FF"><a href="index.html">Вернуться к списку тем.</a></font>
+
+</body>
+
+
+</html>

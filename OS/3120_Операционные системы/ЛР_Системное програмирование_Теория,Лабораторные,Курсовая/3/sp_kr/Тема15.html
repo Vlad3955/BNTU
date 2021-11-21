@@ -1,0 +1,125 @@
+<html>
+
+<head>
+<title>Методические указания к выполнению курсовых работ по курсу "Системное програмирование"</title>
+</head>
+
+<body bgcolor=#F5DEB3 leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0" marginwidth="0">
+<center>
+<table border="3">
+<tr>
+<td width="700"> <font color="#0000FF">
+<h2><center>15.Оконные интерфейсы (Windows Station and Desktops).</center></h2>
+<p align="justify">&nbsp&nbsp&nbspРазработать программу, которая создает несколько рабочих столов и предоставляет возможность переключаться между ними.</p>
+</td>
+<tr>
+<td bgcolor="#FFFAFA" width="700"><center><h3><font color="#00008B">Создание, удаление, переключение</font></h3></center>   
+
+<p align="justify">Существует множество программ, создающих виртуальные рабочие столы и работающие как в Windows NT, так и в Win9x. Такие программы прибегают к различным ухищрениям, например, скрывают окна программ,находящихся на "другом рабочем столе". Но в Windows NT существует стандартный способ создания рабочих столов, который мы и рассмотрим.</p>
+
+<p align="justify">Создадим рабочий стол "NewDesktop".</p>
+
+<pre>
+THandle hDesktop: ; (или HDESK)
+{...}
+hDesktop=CreateDesktop('NewDesktop',null,null,DF_ALLOWOTHERACCOUNTHOOK,
+DESKTOP_CREATEMENU + DESKTOP_CREATEWINDOW + DESKTOP_ENUMERATE + DESKTOP_HOOKCONTROL + 
+DESKTOP_READOBJECTS + DESKTOP_SWITCHDESKTOP + DESKTOP_WRITEOBJECTS,null);
+if hDesktop<>0 then Рабочий стол создан else ошибка;
+</pre>
+
+<p align="justify">Далее на созданном столе надо запустить оболочку (shell). По умолчанию оболочкой у нас будет являться explorer.exe. Его мы и запустим.</p>
+
+<pre>
+var
+_PROCESS_INFORMATION ;
+_STARTUPINFOA si;
+{...}
+</pre>
+
+<p align="justify">Запуск программы с помощью CreateProcess.</p>
+
+<pre>
+FillMemory( @si, sizeof( si ), 0 );
+si.cb = sizeof( si );
+si.dwFlags = STARTF_USESHOWWINDOW;
+si.wShowWindow = SW_SHOWMAXIMIZED;
+</pre>
+
+<p align="justify">Но запускаем программу не на обычном рабочем столе, а на вновь созданом</p>
+
+<pre>
+Si.lpDesktop = PChar('Winsta0\NewDesktop');
+CreateProcess(null,'explorer.exe',null,null,false,NORMAL_PRIORITY_CLASS,null,null,Si,pi);
+</pre>
+
+<p align="justify">Вообще-то вместо explorer.exe лучше запускать userinit.exe. Эта программа запускает оболочку.</p>
+
+<p align="justify">Теперь у нас на новом рабочем столе запущен shell и можно переключаться на новый рабочий стол (на него можно переключаться и без запуска программы, но смотреть там нечего :))
+Переключение производится функцией SwitchDesktop.</p>
+
+<pre>if SwitchDesktop(hDesktop) then переключились на новый рабочий стол else ошибка;
+</pre>
+
+<p align="justify">но переключиться обратно мы не сможем, если не запустим на этом столе другую программу , которая бы переключила нас на "родной" десктоп. Но об этом позже, а пока сделаем так:</p>
+
+<pre>Sleep(10000); 
+HDesk hOldDesktop;</pre>
+
+<p align="justify">И через 10 секунд переключимся назад. Для этого нам нужен дескриптор "Winsta0\Default". Но где его взять? А получить его можно 2 способами:
+1) Т.к. наш потом был запущен на "родном"("Winsta0\Default") столе, то можно вызвать функцию GetThreadDesktop:</p>
+
+<pre>hOldDesktop = GetThreadDesktop(GetCurrentThreadId); </pre>
+
+<p align="justify">2) Нам известно название первоначального рабочего стола - "Default". Выполняем OpenDesktop:</p>
+
+<pre>hOldDesktop = OpenDesktop('Default', DF_ALLOWOTHERACCOUNTHOOK, false,
+DESKTOP_CREATEMENU, DESKTOP_CREATEWINDOW, DESKTOP_ENUMERATE, DESKTOP_HOOKCONTROL,
+DESKTOP_JOURNALPLAYBACK, DESKTOP_JOURNALRECORD, DESKTOP_READOBJECTS,
+DESKTOP_SWITCHDESKTOP, DESKTOP_WRITEOBJECTS);
+if hOldDesktop<>0 then Все отлично else Ошибка;
+</pre>
+
+<p align="justify">Перед переключением выведем например сообщение об этом. Просто MessageBox выведет сообщение на старый рабочий стол и мы его не увидим :(. Поэтому сделаем так:
+Переключим вывод на новый рабочий стол:</p>
+
+<pre>SetThreadDesktop(hDesktop);</pre>
+
+<p align="justify">Для удачного выполнения этой функции у нашего потока не должно быть открыто никаких окон. Если окна есть, то или закрываем их или создаем новый поток.
+Итак, функция выполнилась удачно. Теперь посылаем сообщние</p>
+
+<pre>MessageBox(0,'Переключение рабочего стола','Hello',mb_ok);
+</pre>
+
+<p align="justify">Окошко должно вывестись на видимом рабочем столе! 
+Т.к. окно не модальное, то дадим пользователю еще 10 секунд и после этого переключим его на старый рабочий стол.</p>
+
+<pre>Sleep(10000);
+</pre>
+
+<p align="justify">За это время желательно, чтобы пользователь нажал на OK в сообщении - оставлять окна на убиваемом рабочем столе - плохая примета :)</p>
+
+<pre>SetThreadDesktop(hOldDesktop);
+SwitchDesktop(hOldDesktop);
+</pre>
+
+<p align="justify">Теперь завершаем explorer на NewDesktop и закрываем этот рабочий стол.</p>
+
+<pre>TerminateProcess(pi.hProcess,1);
+CloseHandle(pi.hThread);
+CloseHandle(pi.hProcess); 
+if CloseDesktop(hDesktop) then закрыли рабочий стол else ошибка;</pre>
+
+<p align="justify">Ну и наверное стоит удалить дескриптор hOldDesktop</p>
+
+<pre>CloseHandle(hOldDesktop);</pre>
+
+</td></tr>
+</table>
+</center>
+<br><br><font color="#0000FF"><a href="index.html">Вернуться к списку тем.</a></font>
+
+</body>
+
+
+</html>

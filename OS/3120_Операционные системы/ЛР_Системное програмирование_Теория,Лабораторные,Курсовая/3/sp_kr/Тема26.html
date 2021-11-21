@@ -1,0 +1,135 @@
+<html>
+
+<head>
+<title>Методические указания к выполнению курсовых работ по курсу "Системное програмирование"</title>
+</head>
+
+<body bgcolor=#F5DEB3 leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0" marginwidth="0">
+<center>
+<table border="3">
+<tr>
+<td width="700"> <font color="#0000FF">
+<h2><center>26.Управление энергосбережением (Power Management).</center></h2>
+<p align="justify">&nbsp&nbsp&nbspПока поток работает, система не должна перейти в спящий режим.</p>
+</td>
+<tr>
+<td bgcolor="#FFFAFA" width="700"><center><h3><font color="#00008B">Управление энергосбережением</font></h3></center>
+
+<p align="justify">НИже приведена таблица со списком функций обеспечивающих управление энергосбережением.</p>
+
+<TABLE>
+<TR>
+	<TH>Функция</TH>
+	<TH>Описание</TH>
+</TR>
+<TR>
+	<TD><b>CallNtPowerInformation</b></TD>
+	<TD>Устанавливает или получает информацию о питании.</TD>
+</TR>
+<TR>
+	<TD><b>CanUserWritePwrScheme</b></TD>
+	<TD>Получает информацию о том, имеет ли текущий пользователь право записывать схему питания компьютера.</TD>
+</TR>
+<TR>
+	<TD><b>DeletePwrScheme</b></TD>
+	<TD>Удаляет определенную схему питания.</TD>
+</TR>
+<TR>
+	<TD><b>EnumPwrSchemes</b></TD>
+	<TD>Перечисляет все схемы питания.</TD>
+</TR>
+<TR>
+	<TD><b>GetActivePwrScheme</b></TD>
+	<TD>Получает номер активной схемы питания.</TD>
+</TR>
+<TR>
+	<TD><b>GetCurrentPowerPolicies</b></TD>
+	<TD>Получает текущие настройки политики системного питания.</TD>
+</TR>
+<TR>
+	<TD><b>GetDevicePowerState</b></TD>
+	<TD>Получает текущее состояние энергообеспечения выбранного устройства.</TD>
+</TR>
+<TR>
+	<TD><b>GetPwrCapabilities</b></TD>
+	<TD>Получает информацию о возможностях системного энергообеспечения.</TD>
+</TR>
+<TR>
+	<TD><b>GetPwrDiskSpindownRange</b></TD>
+	<TD>Получает диапазон останова диска.</TD>
+</TR>
+<TR>
+	<TD><b>GetSystemPowerStatus</b></TD>
+	<TD>Получает статус питания системы.</TD>
+</TR>
+<TR>
+	<TD><b>IsPwrHibernateAllowed</b></TD>
+	<TD>Определяет поддерживает ли компьютер режим hibernation.</TD>
+</TR>
+<TR>
+	<TD><b>IsPwrShutdownAllowed</b></TD>
+	<TD>Определяет поддерживает ли компьютер "the soft off" состояние питания.</TD>
+</TR>
+<TR>
+	<TD><b>IsPwrSuspendAllowed</b></TD>
+	<TD>Определяет поддерживает ли компьютер спящий режим.</TD>
+</TR>
+<TR>
+	<TD><b>IsSystemResumeAutomatic</b></TD>
+	<TD>Указывает текущее состояние компьютера.</TD>
+</TR>
+<TR>
+	<TD><b>ReadGlobalPwrPolicy</b></TD>
+	<TD>Получает текущие настройки глобальной политики питания.</TD>
+</TR>
+<TR>
+	<TD><b>ReadProcessorPwrScheme</b></TD>
+	<TD>Получает политику питания процессора для определенной схемы энергосбережения.</TD>
+</TR>
+<TR>
+	<TD><b>ReadPwrScheme</b></TD>
+	<TD>Получает настройки политики, которые уникальны для определенной схемы энергосбережения.</TD>
+</TR>
+<TR>
+	<TD><b>RequestWakeupLatency</b></TD>
+	<TD>Приблизительно определяет как скоро компьютер может перейти в рабочее состояние.</TD>
+</TR>
+<TR>
+	<TD><b>SetActivePwrScheme</b></TD>
+	<TD>Устанавливает активную схему энергосбережения.</TD>
+</TR>
+<TR>
+	<TD><b>SetSuspendState</b></TD>
+	<TD>Устанавливает состояние приостановки системы.</TD>
+</TR>
+<TR>
+	<TD><b>SetSystemPowerState</b></TD>
+	<TD>Приостанавливает систему путем отключения питания.</TD>
+</TR>
+<TR>
+	<TD><b>SetThreadExecutionState</b></TD>
+	<TD>Разрешает приложениям информировать систему что что они используются.</TD>
+</TR>
+<TR>
+	<TD><b>WriteGlobalPwrPolicy</b></TD>
+	<TD>Записывает глобальную политику питания.</TD>
+</TR>
+<TR>
+	<TD><b>WriteProcessorPwrScheme</b></TD>
+	<TD>Записывает политику питания процессора для выбранной схемы энерносбережения.</TD>
+</TR>
+<TR>
+	<TD><b>WritePwrScheme</b></TD>
+	<TD>Записывает политиеку которая уникальна для схемы энергосбережения.</TD>
+</TR>
+</TABLE>
+
+</td></tr>
+</table>
+</center>
+<br><br><font color="#0000FF"><a href="index.html">Вернуться к списку тем.</a></font>
+
+</body>
+
+
+</html>

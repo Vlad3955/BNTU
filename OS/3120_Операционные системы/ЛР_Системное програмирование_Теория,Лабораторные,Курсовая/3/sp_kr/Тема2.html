@@ -1,0 +1,131 @@
+<html>
+
+<head>
+<title>Методические указания к выполнению курсовых работ по курсу "Системное програмирование"</title>
+</head>
+
+<body bgcolor=#F5DEB3 leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0" marginwidth="0">
+<center>
+<table border="3">
+<tr>
+<td width="700"> <font color="#0000FF">
+<h2><center>2.Сетевое окружение (Windows Networking).</center></h2>
+<p align="justify">&nbsp&nbsp&nbspРазработать программу, которая сканирует доступные 
+ресурсы указанного компьютера в сети. Перед тем как сканировать программа должна проверить 
+есть ли в сети такой компьютер. Программа должна позволять подключать сетевые диски.</p>
+</td>
+<tr>
+<td bgcolor="#FFFAFA" width="700"><center><h3><font color="#00008B">Как перечислить сетевые подключения</font></h3></center>
+
+<p align="justify">Из командной строки MS-DOS, для просмотра сетевых ресурсов (дисков), к которым подключён компьютер, используется следующая команда:<br />
+<strong>net use</strong><br />
+Прогрммно, для того, чтобы начать перечисление подключённых сетевых ресурсов необходимо вызвать функцию WNetOpenEnum() и WNetEnumResources() для продолжения перечисления.</p>
+<p align="justify">Следующий пример перечисляет сетевые соединения.</p>
+<p align="justify">ЗАМЕЧАНИЕ: Необходимо включить в проект библиотеку mpr.lib, в которой хранятся функции WNet*.
+</p>
+
+<p>Пример кода</p>
+
+<pre>
+#include <windows.h>
+   #include <stdio.h>
+
+   void main()
+   {
+      DWORD dwResult;
+      HANDLE hEnum;
+      DWORD cbBuffer = 16384;
+      DWORD cEntries = 0xFFFFFFFF;
+      LPNETRESOURCE lpnrDrv;
+      DWORD i;
+
+      dwResult = WNetOpenEnum( RESOURCE_CONNECTED,
+                               RESOURCETYPE_ANY,
+                               0,
+                               NULL,
+                               &hEnum );
+
+      if (dwResult != NO_ERROR)
+      {
+         printf( "\nCannot enumerate network drives.\n" );
+         return;
+      }
+
+      printf( "\nNetwork drives:\n\n" );
+
+      do
+      {
+         lpnrDrv = (LPNETRESOURCE) GlobalAlloc( GPTR, cbBuffer );
+
+         dwResult = WNetEnumResource( hEnum, &cEntries, lpnrDrv, &cbBuffer
+   );
+
+         if (dwResult == NO_ERROR)
+         {
+            for( i = 0; i < cEntries; i++ )
+            {
+               if( lpnrDrv[i].lpLocalName != NULL )
+               {
+                  printf( "%s\t%s\n", lpnrDrv[i].lpLocalName,
+                                      lpnrDrv[i].lpRemoteName );
+               }
+            }
+         }
+         else if( dwResult != ERROR_NO_MORE_ITEMS )
+         {
+            printf( "Cannot complete network drive enumeration" );
+            GlobalFree( (HGLOBAL) lpnrDrv );
+            break;
+         }
+         GlobalFree( (HGLOBAL) lpnrDrv );
+      }
+      while( dwResult != ERROR_NO_MORE_ITEMS );
+
+      WNetCloseEnum(hEnum);
+   }
+</pre>
+
+<center><h3><font color="#00008B">Как программно подключить сетевой диск.</font></h3></center>
+
+<p align="justify">Для подключения сетевого диска можно воспользоваться примером:</p>
+
+<pre>
+   NETRESOURCE netResource;
+
+   ZeroMemory(&netResource, sizeof(NETRESOURCE));
+   netResource.dwType = RESOURCETYPE_DISK;
+   netResource.lpLocalName = "Q:";
+   netResource.lpRemoteName = "\\\\SPIKE\\homedir";
+
+   if(WNetAddConnection2(&netResource, "firebird", "djf", NULL) != NO_ERROR)
+   {
+       LPVOID lpMsgBuf;
+
+       FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER |
+                     FORMAT_MESSAGE_FROM_SYSTEM,
+                     NULL, 
+                     GetLastError(), 
+                     MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
+                     (LPTSTR)&lpMsgBuf, 
+                     0, 
+                     NULL);
+
+       MessageBox(Application->Handle, 
+                  (const char *)lpMsgBuf, 
+                  "GetLastError",
+                  MB_OK | MB_ICONINFORMATION);
+
+       LocalFree(lpMsgBuf);
+   }
+
+</pre>
+
+</td></tr>
+</table>
+</center>
+<br><br><font color="#0000FF"><a href="index.html">Вернуться к списку тем.</a></font>
+
+</body>
+
+
+</html>

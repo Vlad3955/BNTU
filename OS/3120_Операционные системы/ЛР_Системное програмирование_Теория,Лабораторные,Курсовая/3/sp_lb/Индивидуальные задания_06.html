@@ -1,0 +1,106 @@
+<html>
+<head>
+<title>ЗАДАНИЯ К ЛАБОРАТОРНОЙ РАБОТЕ №6</title>
+<link href=style.css rel=stylesheet type=text/css>
+</head>
+<body>
+<div class="title"><A name=REF_1_C></A>ЗАДАНИЯ К ЛАБОРАТОРНОЙ РАБОТЕ №6</div><br>
+<p>Условием выполнения данной работы является выполненная (и имеющаяся в наличии) предыдущая работа.
+<br>Для всех вариантов необходимо выполнить следующее:
+<ul>
+	<li>функции, определенные в работах 4 и 5, оформить в виде библиотеки DLL;
+	<li>создать новый проект для демонстрации работы с DLL и функциями;
+	<li>в <b>нечетных</b> номерах заданий необходимо использовать динамическое связывание без импорта, в <b>четных</b> – статическое связывание с импортом;
+	<li>при динамическом связывании необходимо в проекте с главной программой объявить указатели на функции, содержащиеся в DLL (см. п. 2.4.4);
+	<li>при статическом связывании необходимо создать специальный заголовочный файл с объявлениями функций (см. п. 2.4.3);
+</ul>
+</p>
+<div class="title"><A name=REF_1_1_1></A>ПРИМЕРЫ</div>
+
+<p>
+<b>1)</b>  Динамическое связывание:
+
+<p>Файл MyDate.cpp
+<pre><div class="code">
+struct Date {
+	//...
+};
+__declspec(dllexport) void GetDate(Date * d)
+{
+	//...
+}
+//...
+</div></pre>
+Текст основной программы
+<pre><div class="code">
+struct Date {
+	//...
+}
+typedef void(__cdecl * PFGETDATE)(Date *);
+//...
+typedef void (__cdecl * PFWRITEDATE)(char *, Date *, int);
+//...
+void main()
+{
+	HANDLE hLibrary;
+	PFGETDATE pfGetDate;
+	//...
+	Date dt;
+	hLibrary = LoadLibrary("MyDate.dll");
+	if (!hLibrary) return;
+	pfGetDate = 
+		(PFGETDATE)GetProcAddress(hLibrary,"GetDate");
+	if (pfGetDate) pfGetDate(&dt);
+
+	//...
+	FreeLibrary(hLibrary);
+}
+</div></pre>
+</p>
+<p>
+<b>2)</b>  Статическое связывание:
+
+<p>Заголовочный файл MyTime.h
+<pre><div class="code">
+#ifndef	MYLIBAPI
+	#define	MYLIBAPI __declspec(dllimport)
+#endif
+
+MYLIBAPI struct Time
+{
+	//...
+};
+MYLIBAPI void GetTime(Time *);
+//...
+void WriteTime(char *, Time *, int);
+//...
+
+Файл MyTime.cpp
+
+#define	MYLIBAPI	__declspec(dllexport)
+#include "MyTime.h"
+
+MYLIBAPI void GetTime(Time * t)
+{
+	//...
+}
+//...
+</div></pre>
+Текст основной программы
+<pre><div class="code">
+//укзание компоновщику, что при компоновке необходимо использовать MyTime.lib
+#pragma comment(linker, "MyTime.lib")
+
+#include "MyTime.h"
+
+void main()
+{
+	Time t;
+	GetTime(&t);
+	//...
+}
+</div></pre>
+</p>
+
+</body>
+</html>
