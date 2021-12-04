@@ -1,0 +1,15 @@
+<xml xmlns:o="urn:schemas-microsoft-com:office:office">
+ <o:MainFile HRef="../lab.htm"/>
+
+ <o:File HRef="лаб2.gif"/>
+ <o:File HRef="лаб3.gif"/>
+ <o:File HRef="лаб4.gif"/>
+ <o:File HRef="лаб5.gif"/>
+ <o:File HRef="лаб6.gif"/>
+ <o:File HRef="лаб7.gif"/>
+ <o:File HRef="лаб8.gif"/>
+ <o:File HRef="лаб9.gif"/>
+ <o:File HRef="лаб10.gif"/>
+ 
+ <o:File HRef="filelist.xml"/>
+</xml>
