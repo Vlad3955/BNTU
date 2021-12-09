@@ -1,0 +1,213 @@
+<html>
+<head>
+<title>ЗАДАНИЯ К ЛАБОРАТОРНОЙ РАБОТЕ №4</title>
+<link href=style.css rel=stylesheet type=text/css>
+</head>
+<body>
+<div class="title"><A name=REF_1_C></A>ЗАДАНИЯ К ЛАБОРАТОРНОЙ РАБОТЕ №4</div><br>
+
+<p>Для всех вариантов необходимо выполнить следующее:
+<ul>
+	<li>определить типы и функции в соответствии с вариантом задания;
+	<li>в функции <b>main()</b> реализовать демонстрацию работы созданных функций;
+</ul>
+</p>
+
+
+<div class="header">Варианты заданий</div>
+<p>
+<b>Вариант №1</b>
+<br>  Определите структуру Date для хранения даты:
+<pre><div class="code">
+<br>struct Date
+<br>{
+<br>	unsigned y;	//год
+<br>	unsigned m;	//месяц
+<br>	unsigned d;	//день
+<br>};
+</div></pre>
+<br>Определите следующие функции:
+<pre><div class="code">
+<br>void GetDate(Date* d); // ввод даты с клавиатуры в формате «дд.мм.гггг»;
+<br>void PutDate(Date d); // вывод даты в формате «дд.мм.гггг»;
+<br>void AddDate(Date* d1, Date d2); // сложение двух дат (результат помещается в d1);
+<br>int DiffDate(Date d1, Date d2); // вычисляет разницу в днях между двумя датами.
+</div></pre>
+<br>Високосными годами можно пренебречь. Для определения количества дней в месяце можно определить следующий массив:
+<pre><div class="code">
+<br>int M[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+</div></pre>
+</p>
+<p>
+<b>Вариант №2</b>
+<br>  Определите структуру Time для хранения времени:
+<pre><div class="code">
+<br>struct Time
+<br>{
+<br>	unsigned h;	//часы
+<br>	unsigned m;	//минуты
+<br>	unsigned s;	//секунды
+<br>};
+</div></pre>
+<br>Определите следующие функции:
+<pre><div class="code">
+<br>void GetTime(Time* t); // ввод времени с клавиатуры в формате «чч:мм:сс»;
+<br>void PutTime(Time t); // вывод времени в формате «чч:мм:сс»;
+<br>void AddTime(Time* t1, Time t2); // сложение двух времен (результат помещается в t1);
+<br>int DiffTime(Time t1, Time t2); // вычисляет разницу в секундах между двумя временами.
+</div></pre>
+</p>
+<p>
+<b>Вариант №3</b> 
+<br>Имеется узел бинарного дерева:
+<pre><div class="code">
+<br>struct Node
+<br>{
+<br>	char name[20];	//имя узла
+<br>	Node * left;		//левая ветвь
+<br>	Node * right;		//правая ветвь
+<br>};
+</div></pre>
+<br>Определите следующие функции:
+<pre><div class="code">
+<br>Node* AddNode(Node* node, char* name); // добавление нового узла в дерево (если у узла отсутствует левая ветвь, то узел добавляется слева, иначе, если отсутствует правая ветвь, то узел добавляется справа, иначе узел не добавляется). Функция должна возвращать указатель на добавленный узел или 0;
+<br>void DelLeftNode(Node* node); void DelRightNode(Node* node); // удаление левых и правых поддеревьев;
+<br>void PrintTree(Node* node); // рекурсивная функция вывода бинарного дерева на экран.
+</div></pre>
+</p>
+<p>
+<b>Вариант №4</b> 
+<br> Имеется элемент односвязного списка:
+<pre><div class="code">
+<br>struct List
+<br>{
+<br>	char * data;	//указатель на данные
+<br>	List * next;	//указатель на следующий элемент
+<br>}
+<br>* head;			//указатель на начало списка
+</div></pre>
+<br>Определите следующие функции:
+<pre><div class="code">
+<br>void Add(List** list, int i); // добавление нового элемента в список после i-го элемента;
+<br>void PrintList(List* list); // вывод содержимого списка на экран;
+<br>void Delete(List** list, int i); // удалить i-й элемент из списка.
+</div></pre>
+</p>
+<p>
+<b>Вариант №5</b>
+ <br>Имеется элемент стека (дисциплина обслуживания LIFO):
+<pre><div class="code">
+<br>struct Stack
+<br>{
+<br>	char * data;	//указатель на данные
+<br>	Stack * prev;	//указатель на предыдущий элемент
+<br>}
+<br>* top;			//указатель на вершину стека
+</div></pre>
+<br>Определите следующие функции:
+<pre><div class="code">
+<br>void Push(Stack** stack, char* data); // поместить данные в стек;
+<br>char* Pop(Stack** stack); // извлечь данные из стека (при этом элемент удаляется из стека);
+<br>PrintStack(Stack* stack); // вывод на экран содержимого стека.
+</div></pre>
+</p>
+<p>
+<b>Вариант №6</b> 
+<>Бинарное дерево называется сбалансированным тогда и только тогда, когда высоты двух его поддеревьев отличаются не более чем на единицу. Используя описание узла дерева из задания 3 определите рекурсивную функцию
+<pbrre><div class="code">
+int TreeHeight(Node* node);
+</div></pre>
+<br>которая вычисляет высоту дерева. Высота дерева, состоящего из единственного узла равна 0. Если узел имеет ветви, то высота такого дерева вычисляется рекуррентно следующим образом:
+<pre><div class="code">
+высота = 1 + max(высота_левого_поддерева, высота_правого_поддерева)
+</div></pre>
+<br>Определите функцию
+<pre><div class="code">
+int IsBalancedTree(Node* node);
+</div></pre>
+<br>которая возвращает 1 если дерево сбалансировано и 0 в противном случае.
+</p>
+<p>
+<b>Вариант №7</b>
+<br> Имеется элемент очереди (дисциплина обслуживания FIFO):
+<pre><div class="code">
+<br>struct Queue
+<br>{
+<br>	char * data;	//указатель на данные
+<br>	Queue * next;	//указатель на следующий элемент очереди
+<br>} * begin;		//указатель на начало очереди
+</div></pre>
+<br>Определите следующие функции:
+<pre><div class="code">
+<br>void Put(Queue** queue, char* data); // поместить данные в конец очереди;
+<br>char* Get(Queue** queue); // извлечь данные из начала очереди (при этом элемент удаляется из очереди);
+<br>void PrintQueue(Queue* queue); // вывод на экран содержимого очереди.
+</div></pre>
+</p>
+<p>
+<b>Вариант №8</b>
+<br>  Определите структуру Complex для хранения комплексных чисел:
+<pre><div class="code">
+<br>struct Complex
+<br>{
+<br>	double re;	//вещественная часть
+<br>	double im;	//мнимая часть
+<br>};
+</div></pre>
+<br>Определите следующие функции:
+<pre><div class="code">
+<br>Complex Add(Complex c1, Complex c2);
+<br>Complex Sub(Complex c1, Complex c2);
+<br>Complex Mul(Complex c1, Complex c2);
+<br>Complex Div(Complex c1, Complex c2); // сложение, вычитание, умножение и деление комплексных чисел. Все функции должны возвращать новое комплексное число, содержащее результат операции;
+<br>void PrintComplex(Complex c); // вывод значения комплексного числа на экран в алгебраической или показательной формах.
+</div></pre>
+</p>
+
+
+<b>Вариант №9</b>  
+<br>Определите структуру TreeNode – узел дерева:
+<pre><div class="code">
+<br>struct TreeNode
+<br>{
+<br>	char name[20];	//имя узла
+<br>	TreeNode * nodes;	//список дочерних узлов
+<br>	TreeNode * next;	//следующий узел на том же уровне
+<br>}
+<br>* root;	//корневой узел (первый узел на нулевом уровне)
+</div></pre>
+<br>Определите следующие функции:
+<pre><div class="code">
+<br>TreeNode* AddNode(TreeNode* node, char* name); // добавление нового дочернего узла. Функция должна возвращать указатель на новый узел;
+<br>TreeNode* FindNode(TreeNode* node, char* name); // поиск узла по его имени;
+<br>void DelTree(TreeNode* node); // удаление всех дочерних узлов дерева;
+<br>void PrintTree(TreeNode* node); // вывод дерева (имен узлов) на экран.
+</div></pre>
+</p>
+
+<b>Вариант №10</b> 
+<br>Определите структуру Pair – пара «имя = значение» и структуру Pairs – массив пар:
+<pre><div class="code">
+<br>struct Pair
+<br>{
+<br>	char * name;	//имя
+<br>	int value;	//значение
+<br>};
+<br>#define MAX_PAIRS 100
+<br>struct Pairs
+<br>{
+<br>	Pair p[MAX_PAIRS];	//массив пар
+<br>	int count;		//количество пар в массиве
+<br>};
+</div></pre>
+<br>Определите следующие функции для работы с массивом:
+<pre><div class="code">
+<br>int GetValue(Pairs* p, char* name, int* var); // получить значение для заданного имени (функция должна возвратить 0 если нет такого имени и 1 в случае успеха, а значение возвращать через второй параметр функции);
+<br>void SetValue(Pairs* p, char* name, int value); // установить значение для заданного имени (если такого имени в массиве нет, то добавить в массив новую пару);
+<br>void PrintPairs(Pairs* p); – вывод всех пар на экран.
+</div></pre>
+</p>
+
+
+</body>
+</html>

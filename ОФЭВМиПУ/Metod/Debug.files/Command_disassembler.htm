@@ -1,0 +1,465 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 11">
+<meta name=Originator content="Microsoft Word 11">
+<link rel=File-List href="Команда%20%20дизассембляции.files/filelist.xml">
+<a name="begin1"></a>
+<title>Command_disassembler</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Papa</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Papa</o:LastAuthor>
+  <o:Revision>1</o:Revision>
+  <o:TotalTime>5</o:TotalTime>
+  <o:Created>2012-03-21T21:04:00Z</o:Created>
+  <o:LastSaved>2012-03-21T21:09:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>407</o:Words>
+  <o:Characters>2326</o:Characters>
+  <o:Lines>19</o:Lines>
+  <o:Paragraphs>5</o:Paragraphs>
+  <o:CharactersWithSpaces>2728</o:CharactersWithSpaces>
+  <o:Version>11.6568</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 42.5pt 2.0cm 3.0cm;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:2023625624;
+	mso-list-type:simple;
+	mso-list-template-ids:-1340287928;}
+@list l0:level1
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	mso-level-legacy:yes;
+	mso-level-legacy-indent:28.55pt;
+	mso-level-legacy-space:0cm;
+	margin-left:0cm;
+	text-indent:0cm;
+	font-family:"Courier New";}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Обычная таблица";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]-->
+</head>
+
+<body lang=RU style='tab-interval:35.4pt'>
+
+<div class=Section1>
+
+<p class=MsoNormal style='margin-top:1.2pt;margin-right:0cm;margin-bottom:0cm;
+margin-left:1.2pt;margin-bottom:.0001pt;text-align:justify;text-indent:1.0cm;
+background:white'><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;color:black'>Команда<span style='mso-spacerun:yes'> 
+</span><span class=SpellE>дизассембляции</span><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.95pt;text-align:justify;text-indent:
+1.0cm;background:white'><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;color:black'>U(<span class=SpellE>Unassemble</span>)<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-top:18.95pt;text-align:justify;text-indent:
+1.0cm;background:white'><i style='mso-bidi-font-style:normal'><span
+style='font-size:14.0pt;color:black'>Функция:</span></i><span style='font-size:
+14.0pt;color:black'><span style='mso-spacerun:yes'>    </span>Команда выполняет
+<span class=SpellE>дизассембляцию</span> программы<span
+style='mso-spacerun:yes'>  </span>(преобразует содержимое памяти в ассемблерные
+выражения)<span style='mso-spacerun:yes'>  </span>и выводит ее на экран в шестнадцатеричном
+виде.<span style='mso-spacerun:yes'>  </span>Ниже приведен примерный результат <span
+class=SpellE>дизассембляции</span>:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:9.6pt;margin-right:115.2pt;margin-bottom:
+0cm;margin-left:87.85pt;margin-bottom:.0001pt;text-align:justify;tab-stops:
+169.45pt;background:white'><span lang=EN-US style='font-size:14.0pt;color:black;
+mso-ansi-language:EN-US'>04ba:0100<span style='mso-spacerun:yes'>  
+</span>206472<span style='mso-spacerun:yes'>   </span><span class=GramE>AND<span
+style='mso-spacerun:yes'>  </span>[</span>SI*72)N,AH<br>
+04bA:0100<span style='mso-spacerun:yes'>  </span><span
+style='mso-spacerun:yes'> </span><span style='mso-spacerun:yes'>  </span>FC<span
+style='mso-spacerun:yes'>        </span>CLD<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:59.5pt;text-align:justify;text-indent:
+1.0cm;background:white'><span style='font-size:14.0pt;color:black'>04BA:0104<span
+style='mso-spacerun:yes'>    </span>7665<span style='mso-spacerun:yes'>    
+</span>JBE<span style='mso-spacerun:yes'>  </span>016B<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:59.5pt;text-align:justify;text-indent:
+1.0cm;background:white'><span style='font-size:10.0pt;color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:1.0cm;background:white'><i
+style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;color:black'>формат:</span></i><span
+style='font-size:14.0pt;color:black'><span style='mso-spacerun:yes'>    
+</span><span class=GramE>U[адрес] или U [диапазон)</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:8.15pt;text-align:justify;text-indent:
+1.0cm;background:white'><i style='mso-bidi-font-style:normal'><span
+style='font-size:14.0pt;color:black'>Комментарий: </span></i><span
+style='font-size:14.0pt;color:black'><span
+style='mso-spacerun:yes'>   </span>Число дизассемблируемых байтов зависит от
+режима работы монитора<span style='mso-spacerun:yes'>  </span>(40 или 80
+символов в строке)<span style='mso-spacerun:yes'>  </span>и от применяемого
+варианта команды <span class=SpellE>Unassemble</span>.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:7.9pt;text-align:justify;text-indent:1.0cm;
+background:white'><i style='mso-bidi-font-style:normal'><span style='font-size:
+14.0pt;color:black'>Замечания:<o:p></o:p></span></i></p>
+
+<p class=MsoNormal style='margin-top:9.6pt;margin-right:0cm;margin-bottom:0cm;
+margin-left:0cm;margin-bottom:.0001pt;text-align:justify;text-indent:0cm;
+mso-pagination:none;mso-list:l0 level1 lfo1;background:white;mso-layout-grid-align:
+none;text-autospace:none'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:"Courier New";mso-fareast-font-family:"Courier New";color:black'><span
+style='mso-list:Ignore'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;color:black'>Часто<span
+style='mso-spacerun:yes'>  </span>оказывается,<span style='mso-spacerun:yes'> 
+</span>что число дизассемблируемых<span style='mso-spacerun:yes'>  </span>(и, следовательно,<span
+style='mso-spacerun:yes'>  </span>выводимых на экран)<span
+style='mso-spacerun:yes'>  </span>байтов больше заданного числа.<span
+style='mso-spacerun:yes'>  </span>Это является результатом того, что операторы
+имеют различную <span class=GramE>длину</span> и последний оператор может
+оказаться <span class=SpellE>длинее</span> чем мы считали.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:9.1pt;margin-right:0cm;margin-bottom:0cm;
+margin-left:0cm;margin-bottom:.0001pt;text-align:justify;text-indent:0cm;
+mso-pagination:none;mso-list:l0 level1 lfo1;background:white;mso-layout-grid-align:
+none;text-autospace:none'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:"Courier New";mso-fareast-font-family:"Courier New";color:black'><span
+style='mso-list:Ignore'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;color:black'>Перед<span
+style='mso-spacerun:yes'>  </span>запуском команды следует убедиться в том, что
+адреса параметров <span class=GramE>содержат коды операций допустимы</span> для
+ассемблера 8x86.<span style='mso-spacerun:yes'>  </span>Если в команде указан
+адрес,<span style='mso-spacerun:yes'>  </span>первый байт которого не содержит первого
+байта допустимой операции,<span style='mso-spacerun:yes'>  </span>то на экране появляются
+неверные результаты.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:9.1pt;margin-right:19.2pt;margin-bottom:
+0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:justify;text-indent:0cm;
+mso-pagination:none;mso-list:l0 level1 lfo1;background:white;mso-layout-grid-align:
+none;text-autospace:none'><![if !supportLists]><span style='font-size:14.0pt;
+font-family:"Courier New";mso-fareast-font-family:"Courier New";color:black'><span
+style='mso-list:Ignore'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt;color:black'>Если
+в команде U в качестве начального<span style='mso-spacerun:yes'>  </span>адреса
+будет указан только относительный адрес в сегменте,<span
+style='mso-spacerun:yes'>  </span>то команда использует <span class=GramE>сегмент</span>
+определенный регистром CS<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:59.5pt;text-align:justify;text-indent:
+1.0cm;background:white'><span style='font-size:10.0pt;color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:1.2pt;margin-right:57.6pt;margin-bottom:
+0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:justify;background:white'><b
+style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;color:black'>Существуют
+два варианта команды <span class=SpellE>Unassemble</span>:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:59.5pt;text-align:justify;text-indent:
+1.0cm;background:white'><span style='font-size:10.0pt;color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:1.2pt;margin-right:57.6pt;margin-bottom:
+0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:justify;background:white'><b
+style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;color:black'><span
+style='mso-spacerun:yes'> </span>Вариант 1<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-top:7.2pt;margin-right:3.6pt;margin-bottom:
+0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:justify;text-indent:1.0cm;
+background:white'><span style='font-size:14.0pt;color:black'>Данный вариант
+применяется для <span class=SpellE>дизассембляции</span> программ, начальный
+адрес которых указан или принят по умолчанию. Команда:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:7.7pt;margin-right:0cm;margin-bottom:0cm;
+margin-left:58.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:1.0cm;
+background:white'><span style='font-size:14.0pt;color:black'>U<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:59.5pt;text-align:justify;text-indent:
+1.0cm;background:white'><span style='font-size:10.0pt;color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:7.9pt;margin-right:0cm;margin-bottom:0cm;
+margin-left:57.6pt;margin-bottom:.0001pt;text-align:justify;text-indent:1.0cm;
+background:white'><span style='font-size:14.0pt;color:black'>Или<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:59.5pt;text-align:justify;text-indent:
+1.0cm;background:white'><span style='font-size:10.0pt;color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:0cm;
+margin-left:58.8pt;margin-bottom:.0001pt;text-align:justify;text-indent:1.0cm;
+background:white'><span style='font-size:14.0pt;color:black'>U адрес<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:18.7pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:.95pt;margin-bottom:.0001pt;text-align:justify;background:white'><span
+style='font-size:14.0pt;color:black'>дизассемблирует и выводит на<span
+style='mso-spacerun:yes'>  </span>экран<span style='mso-spacerun:yes'> 
+</span>16<span style='mso-spacerun:yes'>  </span>байтов памяти в случае<span
+style='mso-spacerun:yes'>  </span>экрана шириной 40<span
+style='mso-spacerun:yes'>  </span>символов/строку,<span
+style='mso-spacerun:yes'>  </span>или 32<span style='mso-spacerun:yes'> 
+</span>байта для<span style='mso-spacerun:yes'>  </span>экрана шириной 80<span
+style='mso-spacerun:yes'>  </span>символов/строку.<span
+style='mso-spacerun:yes'>  </span>Операторы <span class=GramE>дизассемблируются</span>
+начиная с<span style='mso-spacerun:yes'>  </span>указанного<span
+style='mso-spacerun:yes'>  </span>адреса.<span style='mso-spacerun:yes'> 
+</span>Если параметр<span style='mso-spacerun:yes'>  </span>адрес в
+команде<span style='mso-spacerun:yes'>  </span>отсутствует,<span
+style='mso-spacerun:yes'>  </span>то <span class=SpellE>дизассембляция</span>
+начинается с<span style='mso-spacerun:yes'>  </span>ячейки находящейся<span
+style='mso-spacerun:yes'>  </span>за последней ячейкой употребляемой последней
+командой U.<span style='mso-spacerun:yes'>  </span>Таким образом,
+многократное<span style='mso-spacerun:yes'>  </span>применение команды U
+позволяет провести <span class=SpellE>дизассембляцию</span> непрерывной области
+памяти.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:9.85pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:.7pt;margin-bottom:.0001pt;text-align:justify;text-indent:1.0cm;
+background:white'><span class=SpellE><span class=GramE><span style='font-size:
+14.0pt;color:black'>Ec</span></span><span style='font-size:14.0pt;color:black'>ли</span></span><span
+style='font-size:14.0pt;color:black'> команда U применяется впервые, то
+относительным адресом в сегменте<span style='mso-spacerun:yes'> 
+</span>является<span style='mso-spacerun:yes'>  </span>адрес<span
+style='mso-spacerun:yes'>  </span>100Н.<span style='mso-spacerun:yes'> 
+</span>Адрес<span style='mso-spacerun:yes'>  </span>сегмента указан в регистрах<span
+style='mso-spacerun:yes'>  </span>сегментов<span style='mso-spacerun:yes'> 
+</span>загружаемых программой DEBUG.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:7.7pt;margin-right:0cm;margin-bottom:0cm;
+margin-left:.7pt;margin-bottom:.0001pt;text-align:justify;text-indent:1.0cm;
+background:white'><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;color:black'>Вариант 2<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-top:8.4pt;margin-right:38.4pt;margin-bottom:
+0cm;margin-left:.5pt;margin-bottom:.0001pt;text-align:justify;text-indent:1.0cm;
+background:white'><span style='font-size:14.0pt;color:black'>Команда U
+дизассемблирует программу в<span style='mso-spacerun:yes'>  </span>указанном
+диапазоне<span style='mso-spacerun:yes'>  </span>адресов.<span
+style='mso-spacerun:yes'>  </span>Правильный вид команды:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:8.15pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:1.7pt;margin-bottom:.0001pt;text-align:justify;text-indent:
+1.0cm;background:white'><span style='font-size:14.0pt;color:black'>U диапазон<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:8.4pt;margin-right:0cm;margin-bottom:0cm;
+margin-left:.5pt;margin-bottom:.0001pt;text-align:justify;text-indent:1.0cm;
+background:white'><span style='font-size:14.0pt;color:black'>Дизассемблируются
+все<span style='mso-spacerun:yes'>  </span><span class=GramE>операторы</span>
+находящиеся в указанном диапазоне,<span style='mso-spacerun:yes'>  </span>независимо<span
+style='mso-spacerun:yes'>  </span>от ширины экрана.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:8.15pt;text-align:justify;text-indent:
+1.0cm;background:white'><i style='mso-bidi-font-style:normal'><span
+style='font-size:14.0pt;color:black'>Замечание:</span></i><span
+style='font-size:14.0pt;color:black'><span style='mso-spacerun:yes'>   
+</span>В<span style='mso-spacerun:yes'>  </span>качестве<span
+style='mso-spacerun:yes'>  </span>конечного<span style='mso-spacerun:yes'> 
+</span>адреса может выступать только относительный адрес в сегменте.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:1.2pt;margin-right:0cm;margin-bottom:0cm;
+margin-left:.7pt;margin-bottom:.0001pt;text-align:justify;text-indent:1.0cm;
+background:white'><i style='mso-bidi-font-style:normal'><span style='font-size:
+14.0pt;color:black'>Пример:<span style='mso-spacerun:yes'>  </span>после<span
+style='mso-spacerun:yes'>  </span>команды:<o:p></o:p></span></i></p>
+
+<p class=MsoNormal style='margin-left:59.5pt;text-align:justify;text-indent:
+1.0cm;background:white'><span style='font-size:10.0pt;color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.7pt;text-align:justify;text-indent:
+1.0cm;background:white'><span style='font-size:14.0pt;color:black'>U
+04ВА:0100<span style='mso-spacerun:yes'>  </span>108<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:59.5pt;text-align:justify;text-indent:
+1.0cm;background:white'><span style='font-size:10.0pt;color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25pt;text-align:justify;text-indent:
+1.0cm;background:white'><span style='font-size:14.0pt;color:black'>на<span
+style='mso-spacerun:yes'>  </span>экране<span style='mso-spacerun:yes'> 
+</span>может появиться<span style='mso-spacerun:yes'>  </span>ответ:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:59.5pt;text-align:justify;text-indent:
+1.0cm;background:white'><span style='font-size:10.0pt;color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.2pt;text-align:justify;text-indent:
+1.0cm;tab-stops:61.2pt 108.7pt right 217.2pt;background:white'><span
+lang=EN-US style='font-size:14.0pt;color:black;mso-ansi-language:EN-US'>04</span><span
+style='font-size:14.0pt;color:black'>В</span><span lang=EN-US style='font-size:
+14.0pt;color:black;mso-ansi-language:EN-US'>A:0100<span style='mso-tab-count:
+1'>   </span>206472<span style='mso-tab-count:1'>                 </span><span
+style='mso-tab-count:1'>        </span>AND<span style='mso-tab-count:1'> </span>(SI+72],
+</span><span style='font-size:14.0pt;color:black'>АН</span><span lang=EN-US
+style='font-size:14.0pt;color:black;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.2pt;text-align:justify;text-indent:
+1.0cm;tab-stops:61.2pt 108.7pt;background:white'><span lang=EN-US
+style='font-size:14.0pt;color:black;mso-ansi-language:EN-US'>04</span><span
+style='font-size:14.0pt;color:black'>В</span><span lang=EN-US style='font-size:
+14.0pt;color:black;mso-ansi-language:EN-US'>A:0103<span style='mso-tab-count:
+1'>   </span>FC<span style='mso-tab-count:1'>    </span><span style='mso-tab-count:
+2'>                   </span><span style='mso-tab-count:1'>         </span>CLD<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.95pt;text-align:justify;text-indent:
+1.0cm;tab-stops:61.2pt 108.7pt right 217.2pt;background:white'><span
+style='font-size:14.0pt;color:black'>04ВА:0104<span style='mso-tab-count:1'>   </span>7665<span
+style='mso-tab-count:1'>                     </span><span style='mso-tab-count:
+1'>        </span></span><span lang=EN-US style='font-size:14.0pt;color:black;
+mso-ansi-language:EN-US'>JBE</span><span style='font-size:14.0pt;color:black'><span
+style='mso-spacerun:yes'>    </span>016</span><span lang=EN-US
+style='font-size:14.0pt;color:black;mso-ansi-language:EN-US'>B</span><span
+style='font-size:14.0pt;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.95pt;text-align:justify;text-indent:
+1.0cm;tab-stops:61.2pt 108.7pt right 217.2pt;background:white'><span
+style='font-size:14.0pt;color:black'>04</span><span lang=EN-US
+style='font-size:14.0pt;color:black;mso-ansi-language:EN-US'>BA</span><span
+style='font-size:14.0pt;color:black'>:0106<span style='mso-tab-count:1'>   </span>207370<span
+style='mso-tab-count:1'>                 </span><span style='mso-tab-count:
+1'>        </span></span><span lang=EN-US style='font-size:14.0pt;color:black;
+mso-ansi-language:EN-US'>AND</span><span style='font-size:14.0pt;color:black'><span
+style='mso-tab-count:1'> </span><span style='mso-spacerun:yes'>    </span>[</span><span
+lang=EN-US style='font-size:14.0pt;color:black;mso-ansi-language:EN-US'>BP</span><span
+style='font-size:14.0pt;color:black'>+</span><span lang=EN-US style='font-size:
+14.0pt;color:black;mso-ansi-language:EN-US'>DJ</span><span style='font-size:
+14.0pt;color:black'>+70], </span><span lang=EN-US style='font-size:14.0pt;
+color:black;mso-ansi-language:EN-US'>DH</span><span style='font-size:14.0pt;
+color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:59.5pt;text-align:justify;text-indent:
+1.0cm;background:white'><span style='font-size:10.0pt;color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:1.45pt;text-align:justify;text-indent:
+1.0cm;background:white'><span style='font-size:14.0pt;color:black'>Такой<span
+style='mso-spacerun:yes'>  </span>же<span style='mso-spacerun:yes'> 
+</span>ответ появляется<span style='mso-spacerun:yes'>  </span>после<span
+style='mso-spacerun:yes'>  </span>следующих<span style='mso-spacerun:yes'> 
+</span>команд:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:59.5pt;text-align:justify;text-indent:
+1.0cm;background:white'><span style='font-size:10.0pt;color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.95pt;text-align:justify;text-indent:
+1.0cm;background:white'><span lang=EN-US style='font-size:14.0pt;color:black;
+mso-ansi-language:EN-US'>U</span><span style='font-size:14.0pt;color:black'><span
+style='mso-spacerun:yes'>    </span>04</span><span lang=EN-US style='font-size:
+14.0pt;color:black;mso-ansi-language:EN-US'>BA</span><span style='font-size:
+14.0pt;color:black'>:100 </span><span class=GramE><span lang=EN-US
+style='font-size:14.0pt;color:black;mso-ansi-language:EN-US'>L</span><span
+style='font-size:14.0pt;color:black'><span style='mso-spacerun:yes'>  </span></span><span
+lang=EN-US style='font-size:14.0pt;color:black;mso-ansi-language:EN-US'>T</span></span><span
+style='font-size:14.0pt;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:59.5pt;text-align:justify;text-indent:
+1.0cm;background:white'><span style='font-size:10.0pt;color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:.25pt;text-align:justify;text-indent:1.0cm;
+background:white'><span style='font-size:14.0pt;color:black'>или<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:59.5pt;text-align:justify;text-indent:
+1.0cm;background:white'><span style='font-size:10.0pt;color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.2pt;text-align:justify;text-indent:
+1.0cm;background:white'><span lang=EN-US style='font-size:14.0pt;color:black;
+mso-ansi-language:EN-US'>U</span><span style='font-size:14.0pt;color:black'><span
+style='mso-spacerun:yes'>   </span>04</span><span lang=EN-US style='font-size:
+14.0pt;color:black;mso-ansi-language:EN-US'>BA</span><span style='font-size:
+14.0pt;color:black'>:100 </span><span class=GramE><span lang=EN-US
+style='font-size:14.0pt;color:black;mso-ansi-language:EN-US'>L</span><span
+style='font-size:14.0pt;color:black'><span style='mso-spacerun:yes'>  </span>8</span></span><span
+style='font-size:14.0pt;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:59.5pt;text-align:justify;text-indent:
+1.0cm;background:white'><span style='font-size:10.0pt;color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:.25pt;text-align:justify;text-indent:1.0cm;
+background:white'><span style='font-size:14.0pt;color:black'>или<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:59.5pt;text-align:justify;text-indent:
+1.0cm;background:white'><span style='font-size:10.0pt;color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.95pt;text-align:justify;text-indent:
+1.0cm;background:white'><span lang=EN-US style='font-size:14.0pt;color:black;
+mso-ansi-language:EN-US'>U</span><span style='font-size:14.0pt;color:black'><span
+style='mso-spacerun:yes'>   </span>04</span><span lang=EN-US style='font-size:
+14.0pt;color:black;mso-ansi-language:EN-US'>BA</span><span style='font-size:
+14.0pt;color:black'>:100 </span><span class=GramE><span lang=EN-US
+style='font-size:14.0pt;color:black;mso-ansi-language:EN-US'>L</span><span
+style='font-size:14.0pt;color:black'><span style='mso-spacerun:yes'>  </span>9</span></span><span
+style='font-size:14.0pt;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:59.5pt;text-align:justify;text-indent:
+1.0cm;background:white'><span style='font-size:10.0pt;color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+<a href ="#begin1">[Вверх]</a> <a href='Debug – oglavlen.htm'>[В начало]</a>
+</div>
+
+</body>
+
+</html>

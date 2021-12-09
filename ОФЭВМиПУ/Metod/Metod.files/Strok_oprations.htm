@@ -1,0 +1,809 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 11">
+<meta name=Originator content="Microsoft Word 11">
+<link rel=File-List href="Строковые%20операции.files/filelist.xml">
+<a name="begin1"></a>
+<title>Strok_oprations</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Papa</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Papa</o:LastAuthor>
+  <o:Revision>1</o:Revision>
+  <o:TotalTime>4</o:TotalTime>
+  <o:Created>2012-03-19T20:14:00Z</o:Created>
+  <o:LastSaved>2012-03-19T20:20:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>1069</o:Words>
+  <o:Characters>6095</o:Characters>
+  <o:Lines>50</o:Lines>
+  <o:Paragraphs>14</o:Paragraphs>
+  <o:CharactersWithSpaces>7150</o:CharactersWithSpaces>
+  <o:Version>11.6568</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h3
+	{mso-style-next:Обычный;
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	mso-pagination:none;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:13.0pt;
+	font-family:Arial;}
+p.bodyfirst, li.bodyfirst, div.bodyfirst
+	{mso-style-name:body_first;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 42.5pt 2.0cm 3.0cm;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Обычная таблица";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]-->
+</head>
+
+<body lang=RU style='tab-interval:35.4pt'>
+
+<div class=Section1>
+
+<h3 style='text-align:justify;text-indent:1.0cm'><span style='font-size:14.0pt;
+font-family:"Times New Roman"'>2.3.7. Строковые операции<o:p></o:p></span></h3>
+
+<p class=bodyfirst style='text-align:justify;text-indent:1.0cm'><span
+style='font-size:14.0pt'>Все команды для работы со строками считают, что
+строка-источник находится по адресу DS:<span class=GramE>SI (или DS:ESI), то
+есть в сегменте памяти, указанном в DS со смещением в SI, а
+строка-приемник&nbsp;— соответственно в ES:DI (или ES:EDI).</span> Кроме того,
+все строковые команды работают только с одним элементом строки (байтом, словом
+или двойным словом) за один раз. Для того чтобы команда выполнялась над всей
+строкой, необходим один из префиксов повторения операций.<o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=1 cellpadding=0 width="100%"
+ style='width:100.0%;mso-cellspacing:.7pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Префикс:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><b><span
+  style='font-size:14.0pt'>REP</span></b><span style='font-size:14.0pt;
+  color:black'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Назначение:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>Повторять<span style='color:black'><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Префикс:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><b><span
+  style='font-size:14.0pt'>REPE</span></b><span style='font-size:14.0pt;
+  color:black'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Назначение:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>Повторять, пока равно<span style='color:black'><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Префикс:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><b><span
+  style='font-size:14.0pt'>REPNE</span></b><span style='font-size:14.0pt;
+  color:black'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Назначение:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>Повторять, пока не равно<span style='color:black'><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:6'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Префикс:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><b><span
+  style='font-size:14.0pt'>REPZ</span></b><span style='font-size:14.0pt;
+  color:black'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:7'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Назначение:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>Повторять, пока ноль<span style='color:black'><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:8'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Префикс:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><b><span
+  style='font-size:14.0pt'>REPNZ</span></b><span style='font-size:14.0pt;
+  color:black'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:9'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Назначение:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>Повторять, пока не ноль<span style='color:black'><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:10;mso-yfti-lastrow:yes'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Процессор:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>8086<span style='color:black'><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=bodyfirst style='text-align:justify;text-indent:1.0cm'><span
+style='font-size:14.0pt'>Все эти команды&nbsp;— префиксы для операций над
+строками. Любой из префиксов выполняет следующую за ним команду строковой
+обработки столько раз, сколько указано в регистре ЕСХ (или СХ, в зависимости от
+разрядности адреса), уменьшая его при каждом выполнении команды на 1. Кроме
+того, префиксы REPZ и REPE прекращают повторения команды, если флаг ZF сброшен
+в 0, и префиксы REPNZ и REPNE прекращают повторения, если флаг ZF установлен в
+1. Префикс REP обычно используется с командами INS, OUTS, MOVS, LODS, STOS, а
+префиксы REPE, REPNE, REPZ и REPNZ&nbsp;— с командами CMPS и SCAS. Поведение
+префиксов не с командами строковой обработки не определено.<o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=1 cellpadding=0 width="100%"
+ style='width:100.0%;mso-cellspacing:.7pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width="19%" valign=top style='width:19.72%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Команда:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><b><span
+  style='font-size:14.0pt'>MOVS</span></b><span style='font-size:14.0pt'>
+  приемник, источник<span style='color:black'><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width="19%" valign=top style='width:19.72%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Назначение:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>Копирование строки<span style='color:black'><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width="19%" valign=top style='width:19.72%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Команда:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><b><span
+  style='font-size:14.0pt'>MOVSB</span></b><span style='font-size:14.0pt;
+  color:black'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3'>
+  <td width="19%" valign=top style='width:19.72%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Назначение:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>Копирование строки байт<span style='color:black'><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4'>
+  <td width="19%" valign=top style='width:19.72%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Команда:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><b><span
+  style='font-size:14.0pt'>MOVSW</span></b><span style='font-size:14.0pt;
+  color:black'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5'>
+  <td width="19%" valign=top style='width:19.72%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Назначение:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>Копирование строки слов<span style='color:black'><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:6;mso-yfti-lastrow:yes'>
+  <td width="19%" valign=top style='width:19.72%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Процессор:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>8086<span style='color:black'><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=bodyfirst style='text-align:justify;text-indent:1.0cm'><span
+style='font-size:14.0pt'>Копирует один байт (MOVSB), слово (MOVSW) или двойное
+слово (MOVSD) из памяти по адресу DS:<span class=GramE>ESI (или DS:SI, в
+зависимости от разрядности адреса) в память по адресу ES:EDI (или ES:DI).</span>
+При использовании формы записи MOVS ассемблер сам определяет из типа указанных
+операндов (принято указывать имена копируемых строк, но можно использовать
+любые два операнда подходящего типа), <span class=GramE>какую</span> из трех
+форм этой команды (MOVSB, MOVSW или MOVSD) выбрать. <span class=GramE>Используя
+MOVS с операндами, можно заменить регистр DS на другой с помощью префикса
+замены сегмента (ES:,</span> GS:, FS:, CS:, <span class=GramE>SS:), регистр ES
+заменить нельзя.</span> После выполнения команды регистры ESI (SI) и EDI (DI)
+увеличиваются на 1, 2 или 4 (если копируются байты, слова или двойные слова),
+если флаг DF&nbsp;= 0, и уменьшаются, если DF&nbsp;= 1. При использовании с
+префиксом REP команда MOVS выполняет копирование строки длиной в ЕСХ (или СХ)
+байт, слов или двойных слов.<o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=1 cellpadding=0 width="100%"
+ style='width:100.0%;mso-cellspacing:.7pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width="19%" valign=top style='width:19.9%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Команда:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><b><span
+  style='font-size:14.0pt'>CMPS</span></b><span style='font-size:14.0pt'>
+  приемник, источник<span style='color:black'><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width="19%" valign=top style='width:19.9%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Назначение:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>Сравнение строк<span style='color:black'><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width="19%" valign=top style='width:19.9%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Процессор:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>8086<span style='color:black'><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3'>
+  <td width="19%" valign=top style='width:19.9%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Команда:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><b><span
+  style='font-size:14.0pt'>CMPSB</span></b><span style='font-size:14.0pt;
+  color:black'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4'>
+  <td width="19%" valign=top style='width:19.9%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Назначение:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>Сравнение строк байт<span style='color:black'><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5'>
+  <td width="19%" valign=top style='width:19.9%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Процессор:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>8086<span style='color:black'><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:6'>
+  <td width="19%" valign=top style='width:19.9%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Команда:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><b><span
+  style='font-size:14.0pt'>CMPSW</span></b><span style='font-size:14.0pt;
+  color:black'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:7'>
+  <td width="19%" valign=top style='width:19.9%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Назначение:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>Сравнение строк слов<span style='color:black'><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:8;mso-yfti-lastrow:yes'>
+  <td width="19%" valign=top style='width:19.9%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Процессор:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>8086<span style='color:black'><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=bodyfirst style='text-align:justify;text-indent:1.0cm'><span
+style='font-size:14.0pt'>Сравнивает один байт (CMPSB), слово (CMPSW) из памяти
+по адресу DS:<span class=GramE>ESI (или DS:</span>SI, в зависимости от
+разрядности адреса) с байтом, словом (или ES:<span class=GramE>DI) и
+устанавливает флаги аналогично команде СМР.</span> При использовании формы записи
+CMPS ассемблер сам определяет из типа указанных операндов (принято указывать
+имена сравниваемых строк, но можно использовать любые два операнда подходящего
+типа), <span class=GramE>какую</span> из трех форм этой команды (CMPSB, CMPSW)
+выбрать. <span class=GramE>Используя CMPS с операндами, можно заменить регистр
+DS на другой, применяя префикс замены сегмента (ES:,</span> GS:, FS:, CS:, <span
+class=GramE>SS:), регистр ES заменить нельзя.</span> После выполнения команды
+регистры ESI (SI) и EDI (DI) увеличиваются на 1, 2 или 4 (если сравниваются
+байты, слова или двойные слова), если флаг DF&nbsp;= 0, и уменьшаются, если
+DF&nbsp;= 1. При использовании с префиксом REP команда CMPS выполняет сравнение
+строки длиной в ЕСХ (или СХ) байт, слов или двойных слов, но чаще ее используют
+с префиксами REPNE/REPNZ или REPE/REPZ. В первом случае сравнение продолжается
+до первого несовпадения в сравниваемых строках, а во втором&nbsp;— до первого
+совпадения.<o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=1 cellpadding=0 width="100%"
+ style='width:100.0%;mso-cellspacing:.7pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width="19%" valign=top style='width:19.72%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Команда:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><b><span
+  style='font-size:14.0pt'>SCAS</span></b><span style='font-size:14.0pt'>
+  приемник<span style='color:black'><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width="19%" valign=top style='width:19.72%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Назначение:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>Сканирование строки<span style='color:black'><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width="19%" valign=top style='width:19.72%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Команда:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><b><span
+  style='font-size:14.0pt'>SCASB</span></b><span style='font-size:14.0pt;
+  color:black'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3'>
+  <td width="19%" valign=top style='width:19.72%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Назначение:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>Сканирование строки байт<span style='color:black'><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4'>
+  <td width="19%" valign=top style='width:19.72%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Команда:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><b><span
+  style='font-size:14.0pt'>SCASW</span></b><span style='font-size:14.0pt;
+  color:black'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5'>
+  <td width="19%" valign=top style='width:19.72%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Назначение:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>Сканирование строки слов<span style='color:black'><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:6;mso-yfti-lastrow:yes'>
+  <td width="19%" valign=top style='width:19.72%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Процессор:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>8086<span style='color:black'><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=bodyfirst style='text-align:justify;text-indent:1.0cm'><span
+style='font-size:14.0pt'>Сравнивает содержимое регистра AL (SCASB), AX (SCASW)
+или ЕАХ (SCASD) с байтом, словом или двойным словом из памяти по адресу ES:<span
+class=GramE>EDI (или ES:DI, в зависимости от разрядности адреса) и
+устанавливает флаги аналогично команде СМР.</span> При использовании формы
+записи SCAS ассемблер сам определяет из типа указанного операнда (принято
+указывать имя сканируемой строки, но можно использовать любой операнд
+подходящего типа), <span class=GramE>какую</span> из трех форм этой команды
+(SCASB, SCASW или SCASD) выбрать. После выполнения команды регистр EDI (DI)
+увеличивается на 1, 2 или 4 (если сканируются байты, слова или двойные слова),
+если флаг DF&nbsp;= 0, и уменьшается, если DF&nbsp;= 1. При использовании с
+префиксом REP команда SCAS выполняет сканирование строки длиной в ЕСХ (или СХ)
+байт, слов или двойных слов, но чаще ее используют с префиксами REPNE/REPNZ или
+REPE/REPZ. В первом случае сканирование продолжается до первого элемента
+строки, отличного от содержимого аккумулятора, а во втором&nbsp;— до первого
+совпадающего.<o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=1 cellpadding=0 width="100%"
+ style='width:100.0%;mso-cellspacing:.7pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width="19%" valign=top style='width:19.72%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Команда:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><b><span
+  style='font-size:14.0pt'>LODS</span></b><span style='font-size:14.0pt'>
+  источник<span style='color:black'><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width="19%" valign=top style='width:19.72%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Назначение:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>Чтение из строки<span style='color:black'><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width="19%" valign=top style='width:19.72%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Команда:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><b><span
+  style='font-size:14.0pt'>LODSB</span></b><span style='font-size:14.0pt;
+  color:black'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3'>
+  <td width="19%" valign=top style='width:19.72%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Назначение:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>Чтение байта из строки<span style='color:black'><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4'>
+  <td width="19%" valign=top style='width:19.72%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Команда:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><b><span
+  style='font-size:14.0pt'>LODSW</span></b><span style='font-size:14.0pt;
+  color:black'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5'>
+  <td width="19%" valign=top style='width:19.72%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Назначение:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>Чтение слова из строки<span style='color:black'><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:6;mso-yfti-lastrow:yes'>
+  <td width="19%" valign=top style='width:19.72%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Процессор:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>8086<span style='color:black'><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=bodyfirst style='text-align:justify;text-indent:1.0cm'><span
+style='font-size:14.0pt'>Копирует один байт (LODSB), слово (LODSW) из памяти по
+адресу DS:<span class=GramE>ESI (или DS:SI, в зависимости от разрядности
+адреса) в регистр AL, АХ или ЕАХ соответственно.</span> При использовании формы
+записи LODS ассемблер сам определяет из типа указанного операнда (принято
+указывать имя строки, но можно использовать любой операнд подходящего типа), <span
+class=GramE>какую</span> из трех форм этой команды (LODSB, LODSW) выбрать. <span
+class=GramE>Используя LODS с операндом, можно заменить регистр DS на другой с
+помощью префикса замены сегмента (ES:,</span> GS:, FS:, CS:, <span class=GramE>SS:).</span>
+После выполнения команды регистр ESI (SI) увеличивается на 1, 2 или 4 (если
+считывается байт, слово или двойное слово), если флаг DF&nbsp;= 0, и
+уменьшается, если DF&nbsp;= 1. При использовании с префиксом REP команда LODS
+выполнит копирование строки длиной в ЕСХ (или СХ), что приведет к тому, что в
+аккумуляторе окажется последний элемент строки. На самом деле эту команду
+используют без префиксов, часто внутри цикла в паре с командой STOS, так что
+LODS считывает число, другие команды выполняют над ним какие-нибудь действия, а
+затем STOS записывает измененное число в то же место в памяти.<o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=1 cellpadding=0 width="100%"
+ style='width:100.0%;mso-cellspacing:.7pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width="19%" valign=top style='width:19.72%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Команда:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><b><span
+  style='font-size:14.0pt'>STOS</span></b><span style='font-size:14.0pt'>
+  приемник<span style='color:black'><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width="19%" valign=top style='width:19.72%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Назначение:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>Запись в строку<span style='color:black'><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width="19%" valign=top style='width:19.72%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Команда:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><b><span
+  style='font-size:14.0pt'>STOSB</span></b><span style='font-size:14.0pt;
+  color:black'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3'>
+  <td width="19%" valign=top style='width:19.72%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Назначение:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>Запись байта в строку<span style='color:black'><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4'>
+  <td width="19%" valign=top style='width:19.72%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Команда:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><b><span
+  style='font-size:14.0pt'>STOSW</span></b><span style='font-size:14.0pt;
+  color:black'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5'>
+  <td width="19%" valign=top style='width:19.72%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Назначение:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>Запись слова в строку<span style='color:black'><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:6;mso-yfti-lastrow:yes'>
+  <td width="19%" valign=top style='width:19.72%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;<span style='mso-spacerun:yes'>  </span>Процессор:<span
+  style='color:black'><o:p></o:p></span></span></p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>8086<span style='color:black'><o:p></o:p></span></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=bodyfirst style='text-align:justify;text-indent:1.0cm'><span
+style='font-size:14.0pt'>Копирует регистр AL (STOSB), AX (STOSW) в память по
+адресу ES:<span class=GramE>EDI (или ES:DI, в зависимости от разрядности
+адреса).</span> При использовании формы записи STOS ассемблер сам определяет из
+типа указанного операнда (принято указывать имя строки, но можно использовать
+любой операнд подходящего типа), <span class=GramE>какую</span> из трех форм
+этой команды (STOSB, STOSW) выбрать. После выполнения команды регистр EDI (DI)
+увеличивается на 1, 2 или 4 (если копируется байт, слово или двойное слово),
+если флаг DF&nbsp;= 0, и уменьшается, если DF&nbsp;= 1. При использовании с
+префиксом REP команда STOS заполнит строку длиной в ЕСХ (или СХ) числом,
+находящимся в аккумуляторе.<o:p></o:p></span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+<a href ="#begin1">[Вверх]</a> <a href='Oglavlen.html'>[В начало]</a>
+</div>
+
+</body>
+
+</html>

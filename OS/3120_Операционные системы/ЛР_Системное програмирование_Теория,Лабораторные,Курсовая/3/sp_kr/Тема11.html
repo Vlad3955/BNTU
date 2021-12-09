@@ -1,0 +1,88 @@
+<html>
+
+<head>
+<title>Методические указания к выполнению курсовых работ по курсу "Системное програмирование"</title>
+</head>
+
+<body bgcolor=#F5DEB3 leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0" marginwidth="0">
+<center>
+<table border="3">
+<tr>
+<td width="700"> <font color="#0000FF">
+<h2><center>11.Именованные каналы (Pipes).</center></h2>
+<p align="justify">&nbsp&nbsp&nbspРазработать программу-сервер и программу клиент для обмена
+ сообщениями между двумя компьютерами при помощи именованных каналов. Клиент посылает 
+серверу запрос на выполнение одной из команд: DIR, MKDIR, CD. Сервер принимает команду, 
+выполняет ее, а результат отправляет клиенту.</p>
+</td>
+<tr>
+<td bgcolor="#FFFAFA" width="700"><center><h3><font color="#00008B"></font></h3></center>   
+
+<p align="justify">&nbsp&nbsp&nbspИменованные каналы PIPE используются для гарантированной передачи данных по сети. Создать именованный канал можно только на NT, 
+в операционной среде Windows 95 можно использовать именованный канал только со стороны клиента. Поэтому для проверки данных примеров вам нужен NT. 
+Можно сказать, что это выделенная линия для обмена данными между процессами. В NT можно посмотреть подобные выделенные линии. То есть их количество. 
+Зайдите в Control Panel, выберите Server и щелкните на нем. Появится окно как ниже: </p>
+<center><img src="рис.11.1.JPG"><br>Рис 11.1 </center>
+ 
+<p align="justify">&nbsp&nbsp&nbspПункт Open Named Pipes может быть и не такой. Дело в том, что данным механизмом пользуются многие серьезные 
+приложения, например, MS SQL Server. Cоздадим две простые консольные программы, которые будут эмулировать клиента и сервера. Итак сервер: 
+<pre>
+
+// CreateNamedPipe.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "windows.h"
+#include "iostream.h"
+
+void main()
+{
+	HANDLE hp;
+	hp=CreateNamedPipe("\\\\.\\pipe\\ipctest",PIPE_ACCESS_OUTBOUND,
+		PIPE_TYPE_BYTE | PIPE_NOWAIT,1,0,0,NMPWAIT_USE_DEFAULT_WAIT,NULL);
+	if (hp!=INVALID_HANDLE_VALUE)
+	{
+		int i;
+		cin >> i;
+	}
+	else cout << "Error Create Name Pipe " << endl;
+}
+
+
+А теперь клиент: 
+
+// CreateFile.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "windows.h"
+#include "iostream.h"
+
+void main()
+{
+	HANDLE hp;
+	hp=CreateFile("\\\\Server\\pipe\\ipctest", GENERIC_READ,
+		FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+	if (hp!=INVALID_HANDLE_VALUE)
+	{
+		int i;
+		cin >> i;
+	}
+	else cout << "Error pipe" << endl;
+}
+</pre>
+&nbsp&nbsp&nbspКак видите для создание канала надо вызвать функцию CreateNamedPipe, а для клиента создать файл указав сервер Server. 
+Вы должны указывать свой сервер. То есть его имя в домене. А имя \\pipe\\ipctest должно совпадать и в клиенте и в сервере. Это имя канала. <br>
+&nbsp&nbsp&nbspВот после запуска прогаммы видно, что количество именованных каналов увеличилось на единицу. 
+</p>
+<center><img src="рис.11.2.JPG"><br>Рис 11.2 </center> 
+
+</td></tr>
+</table>
+</center>
+<br><br><font color="#0000FF"><a href="index.html">Вернуться к списку тем.</a></font>
+
+</body>
+
+
+</html>

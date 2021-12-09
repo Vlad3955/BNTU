@@ -1,0 +1,160 @@
+<html>
+
+<head>
+<title>Методические указания к выполнению курсовых работ по курсу "Системное програмирование"</title>
+</head>
+
+<body bgcolor=#F5DEB3 leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0" marginwidth="0">
+<center>
+<table border="3">
+<tr>
+<td width="700"> <font color="#0000FF">
+<h2><center>3.Мониторинг изменений файлов и каталогов (File I/O).</center></h2>
+<p align="justify">&nbsp&nbsp&nbspРазработать программу, которая позволяет следить за изменениями
+(создание, запись, удаление файлов) указанного пользователем каталога.</p>
+</td>
+<tr>
+<td bgcolor="#FFFAFA" width="700"><center><h3><font color="#00008B">Когда измененяются папки</font></h3></center>   
+
+<p align="justify">Вы когда-либо задались вопросом: каким оразом Проводник (Explorer) узнает о том, что некоторое действие должно модифицировать его окно, потому что был добавлен или удален файл в текущей папке некоторым внешним приложением? Больше этому можно не удивляться, потому что использование нашего Активного Объекта позволяет делать то же самое и даже больше. Есть несколько простых вызовов API, с помощью которых Вы можете запросить у файловой системы, чтобы она избирательно сообщила Вам относительно изменений для файлов и папок. Как только Вы устанавливаете такую вахту, ваш поток может отправляться спать, ожидая прихода событий. Файловая система отреагирует на событие, как только она обнаружит вид изменения, за которым вы наблюдаете.</p>
+
+<p align="justify">Без дальнейшей суеты унаследуем FolderWatcher из ActiveObject. Зададим в качестве источника уведомления - событие, а в каяестве приемника уведомления - дескриптор к окна, отвечающего на уведомление. Исходное событие установлено в конструкторе FolderWatcher. Важно также запустить удерживаемый поток в конце конструктора.</p>
+
+<pre>class FolderWatcher : public ActiveObject {
+    public:
+
+    FolderWatcher (char const * folder, HWND hwnd)
+    : _notifySource (folder),
+    _hwndNotifySink (hwnd) {
+        strcpy (_folder, folder);
+        _thread.Resume ();
+        }
+    ~FolderWatcher () {
+        Kill ();
+        }
+
+    private:
+        void InitThread () {}
+        void Loop ();
+        void FlushThread () {}
+        FolderChangeEvent _notifySource;
+        HWND _hwndNotifySink;
+        char _folder [MAX_PATH];
+        };
+</pre>
+
+<p align="justify">Все действия в ActiveObject происходят внутри метода Loop. Здесь мы устанавливаем "бесконечный" цикл, в котором поток должен ожидать событие. Когда событие происходит, мы проверяем флажок _isDying (как обычно) и посылаем специальное сообщение WM_FOLDER_CHANGE окну, которое имеет дело с уведомлениями. Это - не предопределенное сообщение Windows. Оно специально определено нами для передачи уведомления о папке от одного потока другому.</p>
+
+<p align="justify">Происходит следующее: удерживаемый поток делает другой вызов API, чтобы позволить файловой системе, узнать, что она нуждается в большем количестве уведомлений. Затем управление возвращается к ожидающему потоку, находящемуся в состоянии сна. Одновременно Windows получает наше сообщение WM_FOLDER_CHANGE из очереди сообщений и посылает его оконной процедуре принимающего окна.</p>
+
+<pre>UINT const WM_FOLDER_CHANGE = WM_USER;
+
+void FolderWatcher::Loop () {
+    for (;;) {
+        // Wait for change notification
+        DWORD waitStatus = WaitForSingleObject(_notifySource, INFINITE);
+        if (WAIT_OBJECT_0 == waitStatus) {
+            // If folder changed
+            if (_isDying) return;
+
+            PostMessage (_hwndNotifySink,
+                WM_FOLDER_CHANGE,
+                0,
+                (LPARAM) _folder);
+
+            // Continue change notification
+            if (!_notifySource.ContinueNotification ()) {
+                // Error: Continuation failed
+                return;
+                }
+            }
+        else {
+            // Error: Wait failed
+            return;
+            }
+        }
+    }
+</pre>
+
+<p align="justify">Рассмотрим, что происходит в оконной процедуре в ответ на наше специальное сообщение. Мы вызываем метод Контроллера OnFolderChange. Этот метод может делать все, что мы захотим. В Проводнике (Explorer) он регенерирует отображение содержимого папки, которую мы наблюдаем. В нашем примере он только вызывает простое окно сообщения. Обратите внимание, что мы передаем имя измененной папки как LPARAM. Совершенно неважно, как определить WPARAM и LPARAM, в сообщении, определяемом пользователем.<br />
+Между прочим, Наблюдатель Папки - только часть Контроллера.</p>
+
+<pre>case WM_FOLDER_CHANGE:
+pCtrl->OnFolderChange (hwnd, (char const *) lParam);
+return 0;
+
+void Controller::OnFolderChange (HWND hwnd, char const * folder) {
+    MessageBox (hwnd, "Change Detected, "Folder Watcher",
+    MB_SETFOREGROUND | MB_ICONEXCLAMATION | MB_OK);
+    }
+
+class Controller {
+    public:
+        Controller(HWND hwnd, CREATESTRUCT * pCreate);
+        ~Controller ();
+        void OnFolderChange (HWND hwnd, char const *folder);
+    private:
+        FolderWatcher _folderWatcher;
+    };
+</pre>
+
+<p align="justify">Теперь, когда мы знаем, как иметь дело с уведомлением, давайте взглянем на их источники, События изменяющие файлы. Объект события создан файловой системой в ответ на FindFirstChangeNotification. Дескриптор этого события возвращен из вызова. Мы запоминаем этот дескриптор и используем его позже, чтобы или осуществить восстанавление или отказаться от нашего интереса к дальнейшим уведомлениям. Обратите внимание, что мы можем устанавливать наблююдение рекурсивно, то есть, наблюдать данную папку и все ее подпапки и под-подпапки. Мы можем также выражать интерес к специфическим изменениям, передавая поразрядное ИЛИ для любой комбинации следующих флажков:</p>
+
+<pre>FILE_NOTIFY_CHANGE_FILE_NAME (переименование, создание или удаление файла) 
+FILE_NOTIFY_CHANGE_DIR_NAME (создание или удаление каталога (папки)) 
+FILE_NOTIFY_CHANGE_ATTRIBUTES 
+FILE_NOTIFY_CHANGE_SIZE 
+FILE_NOTIFY_CHANGE_LAST_WRITE (сохранение файла) 
+FILE_NOTIFY_CHANGE_SECURITY 
+</pre>
+
+<p align="justify">Для удобства мы определили несколько подклассов от FileChangeEvent, которые соответствуют к некоторым полезным комбинациям этих флажков. Один из них - FolderChangeEvent, который мы использовали в нашем FolderWatcher.</p>
+
+<pre>class FileChangeEvent {
+    public:
+        FileChangeEvent(char const *folder, BOOL recursive, DWORD notifyFlags) {
+            _handle = 
+                FindFirstChangeNotification (folder, recursive, notifyFlags);
+            if (INVALID_HANDLE_VALUE == _handle)
+            throw WinException("Cannot create change notification handle");
+            }
+        ~FileChangeEvent () {
+            if (INVALID_HANDLE_VALUE != _handle)
+            FindCloseChangeNotification (_handle);
+            }
+
+        operator HANDLE () const { return _handle; }
+        BOOL ContinueNotification () {
+            return FindNextChangeNotification (_handle);
+            }
+    private:
+        HANDLE _handle;
+    };
+
+
+class FolderChangeEvent : public FileChangeEvent {
+    public:
+        FolderChangeEvent (char const * folder)
+        : FileChangeEvent (folder, FALSE, FILE_NOTIFY_CHANGE_FILE_NAME) {}
+        };
+
+class TreeChangeEvent : public FileChangeEvent {
+    public:
+        TreeChangeEvent (char const * root)
+        : FileChangeEvent (root, TRUE,
+            FILE_NOTIFY_CHANGE_FILE_NAME
+            | FILE_NOTIFY_CHANGE_DIR_NAME) {}
+    };
+</pre>
+
+<p align="justify">Должно быть теперь просто обобщить этот пример, чтобы сделать некоторую действительно полезную работу в ваших программах. Не забудьте посмотреть API, который мы используем в этих обучающих программах, в интерактивной справке, которая идет с вашим компилятором.</p>
+
+</td></tr>
+</table>
+</center>
+<br><br><font color="#0000FF"><a href="index.html">Вернуться к списку тем.</a></font>
+
+</body>
+
+
+</html>

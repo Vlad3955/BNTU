@@ -1,0 +1,155 @@
+<html>
+
+<head>
+<title>Методические указания к выполнению курсовых работ по курсу "Системное програмирование"</title>
+</head>
+
+<body bgcolor=#F5DEB3 leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0" marginwidth="0">
+<center>
+<table border="3">
+<tr>
+<td width="700"> <font color="#0000FF">
+<h2><center>9.	Механизмы межпроцессных взаимодействий (IPC).</center></h2>
+<p align="justify">&nbsp&nbsp&nbspРазработать программу, реализующую функции обмена 
+сообщениями с другой такой же программой посредством динамически подключаемых библиотек 
+(DLL).</p>
+</td>
+<tr>
+<td bgcolor="#FFFAFA" width="700"><center><h3><font color="#00008B"></font></h3></center>   
+
+<p align="justify">&nbsp&nbsp&nbspДинамически загружаемые библиотеки (DLL) - выполняемый 
+программный модуль Microsoft Windows, загружаемый только при необходимости (по запросу).<br>
+
+&nbsp&nbsp&nbspПроцесс создания динамической библиотеки проходит в два этапа. Первый из них 
+заключается в создании файла-заголовка (*. h ), который определяет основные свойства
+проекта<br>. 
+
+&nbsp&nbsp&nbspДля этого необходимо создать новый проект, выбрав в качестве типа проекта 
+Dinamic Linked Library , после чего определить "пустой проект" ( empty project ). 
+Затем создать файлы проекта. Пусть имя проекта будет funlib .<br>
+ 
+&nbsp&nbsp&nbspДалее создать файл заголовка – funlib . h (при помощи меню File\New..., 
+выбрав файл-заголовок). В этот файл включить следующий текст : </p>
+<pre>// File funlib.h 
+  
+#define EXPORT extern "C" __declspec(dllexport) 
+  
+EXPORT BOOL CALLBACK return333(); 
+EXPORT int CALLBACK MyInc(int i); </pre>
+  
+<p align="justify">&nbsp&nbsp&nbspПервая строка файла определяет некоторую директиву 
+EXPORT , которая будет использоваться для подключения сервисов, необходимых для создания 
+ссылок на экспортируемые функции (то есть функции, которые могут быть использованы или
+ импортированы другими программами). Следующие две строки являются предварительным 
+объявлением функций, директива EXPORT и делает их динамическими функциями.<br>
+ 
+&nbsp&nbsp&nbspТеперь осталось написать текст программы *. cpp:</p> 
+ <pre>//funlib.cpp 
+  
+   #include <windows.h> 
+   #include <string.h> 
+   #include "fulib.h" 
+  
+   int WINAPI DllMain(HINSTANCE hInstance, DWORD fdwReason, PVOID pvReserved) 
+   { 
+     return TRUE; 
+   } 
+  
+   EXPORT BOOL CALLBACK EdrCenterText() 
+   { 
+     return 333; 
+   } 
+  
+   EXPORT int CALLBACK MyInc(int i) 
+   { 
+     return ++i; 
+   } </pre>
+  
+<p align="justify">&nbsp&nbsp&nbspDllMain - аналог функции main для консольных приложений 
+и функции WinMain для приложений, написанный под Windows . Эта функция автоматически 
+вызывается при загрузке любой dll . Возвращаемое значение TRUE свидетельствует об успешной 
+загрузке и инициализации внутренних ресурсов. <br>
+
+&nbsp&nbsp&nbspСоздадим обычное консольное приложение Win 32 и назовем его usedll . 
+Для использования funlib . dll необходимо выполнить следующие: поместить в каталог 
+проекта файлы funlib . h и funlib . lib . Второй файл является результатом компиляции 
+предыдущего проекта и его можно найти в каталоге Debug . Кроме этого, в меню 
+Project\Settings \ Link, Категория General, поле Object\library modules необходимо 
+вписать имя файла-библиотеки для организации настроек связывания. Текст программы 
+usedll.cpp приведен ниже.</p> 
+<pre>// usedll.cpp : Defines the entry point for the console application. 
+  
+#include "stdafx.h" 
+#include "iostream.h" 
+#include "funlib.h" 
+  
+int main(int argc, char* argv[]) 
+{ 
+  cout << return333() << endl; 
+  cout << MyInc(5) << endl; 
+  return 0; 
+} </pre>
+  
+<p align="justify">&nbsp&nbsp&nbspДанная программа выполнится если в каталоге, 
+где располагается файл usedll . exe расположен файл динамической библиотеки funlib . dll . 
+В результате выполнения данной программы на экране вы увидите следующую картину:<br> 
+333 <br>
+6 <br>
+&nbsp&nbsp&nbspВ заключении следует отметить, что используя механизмы динамического 
+связывания, можно определять не только функции, но переменные и даже классы.<br>
+ 
+<p align="justify">&nbsp&nbsp&nbspВторой способ использования DLL.<br><br>
+ 
+&nbsp&nbsp&nbspРассмотренный выше способ написания программы, использующей динамически 
+подключаемые библиотеки пригоден только в том случае, когда вы сами создали библиотеки, 
+или, по крайней мере, вы имеете в наличии файл библиотеки *. lib . Однако, очень часто 
+случается так, что есть только *. dll (или она только планируется). В этом случае можно 
+использовать другой способ, который не требует для компиляции проекта наличия файлов, 
+связанных с вызываемой *. dll .<br>
+ 
+&nbsp&nbsp&nbspПрименение данного способа заключается в следующем: <br>
+•  Создаются прототипы функций, имеющие те же параметры, что и необходимые функции 
+внутри *. dll . Для нашего примера это будет выглядеть так:<br> 
+typedef BOOL (WINAPI * Inc)(int i); <br>
+•  Объявляется переменная типа указателя на данную функцию: <br>
+Inc pI ; <br>
+•  В программе осуществляется загрузка библиотеки: <br>
+HINSTANCE hL; <br>
+hL=LoadLibrary("funlib.dll");<br> 
+•  объявленному указателю на функцию присваивается адрес функции из *. dll : <br>
+pI=(Inc)GetProcAddress(hL,(LPCSTR)2); <br>
+•  Функция используется по назначению: <br>
+cout << pI(6); <br>
+•  После использования выгружается из памяти: <br>
+FreeLibrary(hL); </p>
+
+&nbsp&nbsp&nbspЦеликом рассмотренный пример выглядит следующим образом: 
+<pre>#include "stdafx.h" 
+#include "iostream.h" 
+#include "windows.h" 
+  
+HINSTANCE hL; 
+typedef int (CALLBACK * Inc)(int i); 
+Inc pI; 
+  
+int main(int argc, char* argv[]) 
+    { 
+      hL=LoadLibrary("1111.dll"); 
+      pI=(Inc)GetProcAddress(hL,(LPCSTR)2); 
+      cout << pI(6); 
+      FreeLibrary(hL); 
+      return 0; 
+    }</pre>
+  
+&nbsp&nbsp&nbspНаличие *. dll требуется только во время запуска *. exe файла. 
+  
+
+</td></tr>
+</table>
+</center>
+<br><br><font color="#0000FF"><a href="index.html">Вернуться к списку тем.</a></font>
+
+</body>
+
+
+</html>

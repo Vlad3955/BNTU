@@ -1,0 +1,794 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 11">
+<meta name=Originator content="Microsoft Word 11">
+<link rel=File-List href="Двоичная%20арифметика.files/filelist.xml">
+<a name="begin1"></a>
+<title>Dvoichn_arifmet</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Papa</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Papa</o:LastAuthor>
+  <o:Revision>1</o:Revision>
+  <o:TotalTime>3</o:TotalTime>
+  <o:Created>2012-03-19T19:04:00Z</o:Created>
+  <o:LastSaved>2012-03-19T19:09:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>1144</o:Words>
+  <o:Characters>6527</o:Characters>
+  <o:Lines>54</o:Lines>
+  <o:Paragraphs>15</o:Paragraphs>
+  <o:CharactersWithSpaces>7656</o:CharactersWithSpaces>
+  <o:Version>11.6568</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h3
+	{mso-style-next:Обычный;
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	mso-pagination:none;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:13.0pt;
+	font-family:Arial;}
+pre
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+p.bodyfirst, li.bodyfirst, div.bodyfirst
+	{mso-style-name:body_first;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+p.bodytext, li.bodytext, div.bodytext
+	{mso-style-name:body_text;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+p.info2, li.info2, div.info2
+	{mso-style-name:info2;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 42.5pt 2.0cm 3.0cm;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:965889627;
+	mso-list-template-ids:-1631003942;}
+@list l0:level1
+	{mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+.style1 {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 14pt;
+}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Обычная таблица";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]-->
+</head>
+
+<body lang=RU style='tab-interval:35.4pt'>
+
+<div class=Section1>
+
+<h3 style='text-align:justify;text-indent:1.0cm'><span style='font-size:14.0pt;
+font-family:"Times New Roman"'>2.3.2. Двоичная арифметика<o:p></o:p></span></h3>
+
+<p class=bodyfirst style='text-align:justify;text-indent:1.0cm'><span
+style='font-size:14.0pt'>Все команды из этого раздела, кроме команд деления и
+умножения, изменяют флаги OF, SF, ZF, AF, CF, PF в соответствии с назначением
+каждого из этих флагов (см. главу&nbsp;2.1.4).<o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=1 cellpadding=0 width="100%"
+ style='width:100.0%;mso-cellspacing:.7pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>- Команда:<span style='color:black'>
+    <o:p></o:p></span></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><b><span
+  style='font-size:14.0pt'>ADD</span></b><span style='font-size:14.0pt'>
+  приемник, источник<span style='color:black'><o:p></o:p></span></span></p>  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>- Назначение:<span style='color:black'>
+    <o:p></o:p></span></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>Сложение<span style='color:black'><o:p></o:p></span></span></p>  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2;mso-yfti-lastrow:yes'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>- Процессор:<span style='color:black'>
+    <o:p></o:p></span></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>8086<span style='color:black'><o:p></o:p></span></span></p>  </td>
+ </tr>
+</table>
+
+<p class=bodyfirst style='text-align:justify;text-indent:1.0cm'><span
+style='font-size:14.0pt'>Команда выполняет арифметическое сложение приемника и
+источника, помещает сумму в приемник, не изменяя содержимое источника. Приемник
+может быть регистром или переменной, источник может быть числом, регистром или
+переменной, но нельзя использовать переменную одновременно и для источника, и
+для приемника. Команда ADD никак не различает числа со знаком и без знака, но,
+употребляя значения флагов CF (перенос при сложении чисел без знака), OF
+(перенос при сложении чисел со знаком) и SF (знак результата), можно
+использовать ее и для тех, и для других.<o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=1 cellpadding=0 width="100%"
+ style='width:100.0%;mso-cellspacing:.7pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>- Команда:<span style='color:black'>
+    <o:p></o:p></span></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><b><span
+  style='font-size:14.0pt'>ADC</span></b><span style='font-size:14.0pt'> приемник,
+  источник<span style='color:black'><o:p></o:p></span></span></p>  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>- Назначение:<span style='color:black'>
+    <o:p></o:p></span></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>Сложение с переносом<span style='color:black'><o:p></o:p></span></span></p>  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2;mso-yfti-lastrow:yes'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>- Процессор:<span style='color:black'>
+    <o:p></o:p></span></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>8086<span style='color:black'><o:p></o:p></span></span></p>  </td>
+ </tr>
+</table>
+
+<p class=bodyfirst style='text-align:justify;text-indent:1.0cm'><span
+style='font-size:14.0pt'>Эта команда во всем аналогична ADD, кроме того, что
+она выполняет арифметическое сложение приемника, источника и флага С<span
+class=GramE>F</span>. Пара команд ADD/ADC используется для сложения чисел
+повышенной точности. Сложим, например, два 64-битных целых числа: пусть одно из
+них находится в паре регистров EDX:EAX (младшее двойное слово (биты
+0&nbsp;–&nbsp;31)&nbsp;— в ЕАХ и старшее (биты 32&nbsp;–&nbsp;63)&nbsp;— в
+EDX), а другое&nbsp;— в паре регистров ЕВХ<span class=GramE>:Е</span>СХ:<o:p></o:p></span></p>
+
+<pre style='text-align:justify;text-indent:1.0cm'><span style='font-size:14.0pt;
+font-family:"Times New Roman"'><span style='mso-spacerun:yes'>    </span></span><span
+class=GramE><span lang=EN-US style='font-size:14.0pt;font-family:"Times New Roman";
+mso-ansi-language:EN-US'>add</span></span><span lang=EN-US style='font-size:
+14.0pt;font-family:"Times New Roman";mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>      </span><span
+class=SpellE>eax,ecx</span><o:p></o:p></span></pre><pre style='text-align:justify;
+text-indent:1.0cm'><span lang=EN-US style='font-size:14.0pt;font-family:"Times New Roman";
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>    </span><span
+class=SpellE><span class=GramE>adc</span></span><span style='mso-spacerun:yes'>      </span><span
+class=SpellE>edx,ebx</span><o:p></o:p></span></pre>
+
+<p class=bodytext style='text-align:justify;text-indent:1.0cm'><span
+style='font-size:14.0pt'>Если при сложении младших двойных слов произошел
+перенос из старшего разряда (флаг CF&nbsp;=&nbsp;1), то он будет учтен
+следующей командой ADC.<o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=1 cellpadding=0 width="100%"
+ style='width:100.0%;mso-cellspacing:.7pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>- Команда:<span style='color:black'>
+    <o:p></o:p></span></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><b><span
+  style='font-size:14.0pt'>SUB</span></b><span style='font-size:14.0pt'>
+  приемник, источник<span style='color:black'><o:p></o:p></span></span></p>  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>- Назначение:<span style='color:black'>
+    <o:p></o:p></span></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>Вычитание<span style='color:black'><o:p></o:p></span></span></p>  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2;mso-yfti-lastrow:yes'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>- Процессор:<span style='color:black'>
+    <o:p></o:p></span></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>8086<span style='color:black'><o:p></o:p></span></span></p>  </td>
+ </tr>
+</table>
+
+<p class=bodyfirst style='text-align:justify;text-indent:1.0cm'><span
+style='font-size:14.0pt'>Вычитает источник из приемника и помещает разность в
+приемник. Приемник может быть регистром или переменной, источник может быть
+числом, регистром или переменной, но нельзя использовать переменную одновременно
+и для источника, и для приемника. Точно так же, как и команда ADD, SUB не
+делает различий между числами со знаком и без знака, но флаги позволяют использовать
+ее как для тех, так и для других.<o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=1 cellpadding=0 width="100%"
+ style='width:100.0%;mso-cellspacing:.7pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>- Команда:<span style='color:black'>
+    <o:p></o:p></span></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><b><span
+  style='font-size:14.0pt'>SBB</span></b><span style='font-size:14.0pt'>
+  приемник, источник<span style='color:black'><o:p></o:p></span></span></p>  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>- Назначение:<span style='color:black'>
+    <o:p></o:p></span></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>Вычитание с займом<span style='color:black'><o:p></o:p></span></span></p>  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2;mso-yfti-lastrow:yes'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>- Процессор:<span style='color:black'>
+    <o:p></o:p></span></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>8086<span style='color:black'><o:p></o:p></span></span></p>  </td>
+ </tr>
+</table>
+
+<p class=bodyfirst style='text-align:justify;text-indent:1.0cm'><span
+style='font-size:14.0pt'>Эта команда во всем аналогична SUB, кроме того, что
+она вычитает из приемника значение источника и дополнительно вычитает значение
+флага CF. Так, можно использовать эту команду для вычитания 64-битных чисел в
+EDX:EAX и ЕВХ<span class=GramE>:Е</span>СХ аналогично ADD/ADC:<o:p></o:p></span></p>
+
+<pre style='text-align:justify;text-indent:1.0cm'><span style='font-size:14.0pt;
+font-family:"Times New Roman"'><span style='mso-spacerun:yes'>    </span></span><span
+class=GramE><span lang=EN-US style='font-size:14.0pt;font-family:"Times New Roman";
+mso-ansi-language:EN-US'>sub</span></span><span lang=EN-US style='font-size:
+14.0pt;font-family:"Times New Roman";mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>      </span><span
+class=SpellE>eax,ecx</span><o:p></o:p></span></pre><pre style='text-align:justify;
+text-indent:1.0cm'><span lang=EN-US style='font-size:14.0pt;font-family:"Times New Roman";
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>    </span><span
+class=SpellE><span class=GramE>sbb</span></span><span style='mso-spacerun:yes'>      </span><span
+class=SpellE>edx,ebx</span><o:p></o:p></span></pre>
+
+<p class=bodytext style='text-align:justify;text-indent:1.0cm'><span
+style='font-size:14.0pt'>Если при вычитании младших двойных слов произошел
+заем, то он будет учтен при вычитании старших.<o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=1 cellpadding=0 width="100%"
+ style='width:100.0%;mso-cellspacing:.7pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>- Команда:<span style='color:black'>
+    <o:p></o:p></span></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b><span style='font-size:14.0pt'><span
+  style='mso-spacerun:yes'>   </span>IMUL</span></b><span style='font-size:
+  14.0pt'> источник<br>
+  <span style='mso-spacerun:yes'>   </span><b>IMUL</b> приемник, источник<br>
+  <span style='mso-spacerun:yes'>   </span><b>IMUL</b> приемник, источник<span
+  class=GramE>1</span>, источник2<span style='color:black'><o:p></o:p></span></span></p>  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>- Назначение:<span style='color:black'>
+    <o:p></o:p></span></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>Умножение чисел со знаком<span style='color:black'><o:p></o:p></span></span></p>  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2;mso-yfti-lastrow:yes'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>- Процессор:<span style='color:black'>
+    <o:p></o:p></span></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>8086<span style='color:black'><o:p></o:p></span></span></p>  </td>
+ </tr>
+</table>
+
+<p class=bodyfirst style='text-align:justify;text-indent:1.0cm'><span
+style='font-size:14.0pt'>Эта команда имеет три формы, различающиеся числом
+операндов:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:0cm;text-align:justify;text-indent:27.0pt;mso-list:l0 level1 lfo1'><![if !supportLists]><span
+style='font-size:14.0pt'><span style='mso-list:Ignore'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt'>IMUL источник:
+источник (регистр или переменная) умножается на AL, АХ или ЕАХ (в зависимости
+от размера операнда), и результат располагается <span class=GramE>в</span> АХ,
+DX:AX или EDX:EAX соответственно. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:0cm;text-align:justify;text-indent:27.0pt;mso-list:l0 level1 lfo1'><![if !supportLists]><span
+style='font-size:14.0pt'><span style='mso-list:Ignore'>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt'>IMUL <span
+class=SpellE>приемник<span class=GramE>,и</span>сточник</span>: источник
+(число, регистр или переменная) умножается на приемник (регистр), и результат
+заносится в приемник. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:0cm;text-align:justify;text-indent:27.0pt;mso-list:l0 level1 lfo1'><![if !supportLists]><span
+style='font-size:14.0pt'><span style='mso-list:Ignore'>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:14.0pt'>IMUL приемник<span
+class=GramE>,и</span>сточник1,источник2: источник 1 (регистр или переменная)
+умножается на источник 2 (число), и результат заносится в приемник (регистр). <o:p></o:p></span></p>
+
+<p class=bodytext style='text-align:justify;text-indent:1.0cm'><span
+style='font-size:14.0pt'>Во всех трех вариантах считается, что результат может
+занимать в два раза больше места, чем размер источника. В первом случае
+приемник автоматически оказывается достаточно большим, но во втором и третьем
+случаях могут произойти переполнение и потеря старших бит результата. Флаги OF
+и CF будут равны единице, если это произошло, и нулю, если результат умножения
+поместился целиком в приемник (во втором и третьем случаях) или в младшую половину
+приемника (в первом случае).<o:p></o:p></span></p>
+
+<p class=bodytext style='text-align:justify;text-indent:1.0cm'><span
+style='font-size:14.0pt'>Значения флагов SF, ZF, AF и PF после команды IMUL не
+определены.<o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=1 cellpadding=0 width="100%"
+ style='width:100.0%;mso-cellspacing:.7pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>- Команда:<span style='color:black'>
+    <o:p></o:p></span></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><b><span
+  style='font-size:14.0pt'>MUL</span></b><span style='font-size:14.0pt'>
+  источник<span style='color:black'><o:p></o:p></span></span></p>  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>- Назначение:<span style='color:black'>
+    <o:p></o:p></span></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>Умножение чисел без знака<span style='color:black'><o:p></o:p></span></span></p>  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2;mso-yfti-lastrow:yes'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>- Процессор:<span style='color:black'>
+    <o:p></o:p></span></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>8086<span style='color:black'><o:p></o:p></span></span></p>  </td>
+ </tr>
+</table>
+
+<p class=bodyfirst style='text-align:justify;text-indent:1.0cm'><span
+style='font-size:14.0pt'>Выполняет умножение содержимого источника (регистр или
+переменная) и регистра AL, АХ, ЕАХ (в зависимости от размера источника) и
+помещает результат <span class=GramE>в</span> АХ, DX:AX, EDX:EAX
+соответственно. Если старшая половина результата (АН, DX, EDX) содержит только
+нули (результат целиком поместился в младшую половину), флаги CF и OF
+устанавливаются в 0, иначе&nbsp;— в 1. Значение остальных флагов (SF, ZF, AF и
+PF) не определено.<o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=1 cellpadding=0 width="100%"
+ style='width:100.0%;mso-cellspacing:.7pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>- Команда:<span style='color:black'>
+    <o:p></o:p></span></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><b><span
+  style='font-size:14.0pt'>IDIV</span></b><span style='font-size:14.0pt'>
+  источник<span style='color:black'><o:p></o:p></span></span></p>  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>- Назначение:<span style='color:black'>
+    <o:p></o:p></span></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>Целочисленное деление со знаком<span
+  style='color:black'><o:p></o:p></span></span></p>  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2;mso-yfti-lastrow:yes'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>- Процессор:<span style='color:black'>
+    <o:p></o:p></span></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>8086<span style='color:black'><o:p></o:p></span></span></p>  </td>
+ </tr>
+</table>
+
+<p class=bodyfirst style='text-align:justify;text-indent:1.0cm'><span
+style='font-size:14.0pt'>Выполняет целочисленное деление со знаком AL, АХ или
+ЕАХ (в зависимости от размера источника) на источник (регистр или переменная) и
+помещает результат в AL, АХ или ЕАХ, а остаток&nbsp;— в АН, DX или EDX
+соответственно. Результат всегда округляется в сторону нуля, знак остатка
+всегда совпадает со знаком делимого, абсолютное значение остатка всегда меньше
+абсолютного значения делителя. Значения флагов CF, OF, SF, ZF, AF и PF после
+этой команды не определены, а переполнение или деление на ноль вызывает
+исключение #DE (ошибка при делении) в защищенном режиме и прерывание 0&nbsp;— в
+реальном.<o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=1 cellpadding=0 width="100%"
+ style='width:100.0%;mso-cellspacing:.7pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>- Команда:<span style='color:black'>
+    <o:p></o:p></span></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><b><span
+  style='font-size:14.0pt'>DIV</span></b><span style='font-size:14.0pt'>
+  источник<span style='color:black'><o:p></o:p></span></span></p>  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>- Назначение:<span style='color:black'>
+    <o:p></o:p></span></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>Целочисленное деление без знака<span
+  style='color:black'><o:p></o:p></span></span></p>  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2;mso-yfti-lastrow:yes'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>- Процессор:<span style='color:black'>
+    <o:p></o:p></span></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>8086<span style='color:black'><o:p></o:p></span></span></p>  </td>
+ </tr>
+</table>
+
+<p align="justify" class="style1">где источник - делитель  размером в байт или слово, находящийся в регистре общего назначения или в  ячейке памяти. Делимое должно иметь двойной размер; оно извлекается из регистров  АН и AL (при делении на 8-битовое число) или из регистров DX и  АХ (при делении на 16-битовое число). Результаты возвращаются следующим образом:<br>
+  - Если операнд-источник  представляет собой <em>байт,</em> то частное  возвращается в регистре AL, а остаток в регистре АН.<br>
+  - Если операнд-источник  представляет собой <em>слово,</em> то частное  возвращается в регистре АХ, а остаток - в регистре DX.<br>
+  Обе команды оставляют  состояние флагов неопределенными, но если частное не помещается в регистре-приемнике  (AL или АХ), то микропроцессор 8x86 сооб­щает Вам об этом весьма драматическим  образом: он генерирует <em>прерывание типа 0  (деление на 0).</em><br>
+  Переполнение результата  деления возникает при следующих условиях:<br>
+  1. Делитель равен 0.<br>
+  2. При делении байтов  без знака делимое по меньшей мере в 256 раз превышает делитель.<br>
+  3. При делении слов без  знака делимое по меньшей мере в 65 536 раз превышает делитель.<br>
+  4. При делении байтов со  знаком частное лежит вне диапазона от -128 до +127.<br>
+  5. При делении слов со  знаком частное лежит вне диапазона от -32768 до 32767. Приведем несколько типичных  примеров операций деления:</p>
+<p align="justify" class="style1"><br>
+  DIV BX           ;Разделить DX:AX  на ВХ , без знака<br>
+  DIV MEM_BYTE     ;Разделить AH:AL на байт памяти, без знака<br>
+  IDIV DL          ;Разделить АН:AL на DL  со знаком<br>
+  IDIV MEM_WORD    ;Разделить DX:AX  на слово памяти, со знаком</p>
+<p align="justify" class="style1"><br>
+  Команды DIV и IDIV не  позволяют прямо разделить на непосредственное значение; его надо предварительно  загрузить в регистр или ячейку памяти. Например, команды</p>
+<p class="style1">MOV  ВХ,20 <br>
+  DIV  ВХ<br>
+  разделят объединенное  содержимое регистров DX и АХ на 20.</p>
+<p class=bodyfirst style='text-align:justify;text-indent:1.0cm'><span
+style='font-size:14.0pt'>Результат всегда округляется в сторону нуля, абсолютное
+  значение остатка всегда меньше абсолютного значения делителя. Значения флагов
+  CF, OF, SF, ZF, AF и PF после этой команды не определены, а переполнение или
+  деление на ноль вызывает исключение #DE (ошибка при делении) в защищенном
+  режиме и прерывание 0&nbsp;— в реальном.
+  <o:p></o:p>
+</span></p>
+<table class=MsoNormalTable border=0 cellspacing=1 cellpadding=0 width="100%"
+ style='width:100.0%;mso-cellspacing:.7pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>- Команда:<span style='color:black'>
+    <o:p></o:p></span></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><b><span
+  style='font-size:14.0pt'>INC</span></b><span style='font-size:14.0pt'>
+  приемник<span style='color:black'><o:p></o:p></span></span></p>  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>- Назначение:<span style='color:black'>
+    <o:p></o:p></span></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>Инкремент<span style='color:black'><o:p></o:p></span></span></p>  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2;mso-yfti-lastrow:yes'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>- Процессор:<span style='color:black'>
+    <o:p></o:p></span></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>8086<span style='color:black'><o:p></o:p></span></span></p>  </td>
+ </tr>
+</table>
+
+<p class=bodyfirst style='text-align:justify;text-indent:1.0cm'><span
+style='font-size:14.0pt'>Увеличивает приемник (регистр или переменная) на 1.
+Единственное отличие этой команды от ADD&nbsp;приемник,1 состоит в том, что
+флаг CF не затрагивается. Остальные арифметические флаги (OF, SF, ZF, AF, PF)
+устанавливаются в соответствии с результатом сложения.<o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=1 cellpadding=0 width="100%"
+ style='width:100.0%;mso-cellspacing:.7pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;Команда:<span style='color:black'><o:p></o:p></span></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><b><span
+  style='font-size:14.0pt'>DEC</span></b><span style='font-size:14.0pt'>
+  приемник<span style='color:black'><o:p></o:p></span></span></p>  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;Назначение:<span style='color:black'><o:p></o:p></span></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>Декремент<span style='color:black'><o:p></o:p></span></span></p>  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2;mso-yfti-lastrow:yes'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>&#61623;Процессор:<span style='color:black'><o:p></o:p></span></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>8086<span style='color:black'><o:p></o:p></span></span></p>  </td>
+ </tr>
+</table>
+
+<p class=bodyfirst style='text-align:justify;text-indent:1.0cm'><span
+style='font-size:14.0pt'>Уменьшает приемник (регистр или переменная) на 1.
+Единственное отличие этой команды от SUB&nbsp;приемник,1 состоит в том, что
+флаг CF не затрагивается. Остальные арифметические флаги (OF, SF, ZF, AF, PF)
+устанавливаются в соответствии с результатом вычитания.<o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=1 cellpadding=0 width="100%"
+ style='width:100.0%;mso-cellspacing:.7pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>- Команда:<span style='color:black'>
+    <o:p></o:p></span></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><b><span
+  style='font-size:14.0pt'>NEG</span></b><span style='font-size:14.0pt'>
+  приемник<span style='color:black'><o:p></o:p></span></span></p>  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>- Назначение:<span style='color:black'>
+    <o:p></o:p></span></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>Изменение знака<span style='color:black'><o:p></o:p></span></span></p>  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2;mso-yfti-lastrow:yes'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>- Процессор:<span style='color:black'>
+    <o:p></o:p></span></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt'>8086<span style='color:black'><o:p></o:p></span></span></p>  </td>
+ </tr>
+</table>
+
+<p class=bodyfirst style='text-align:justify;text-indent:1.0cm'><span
+style='font-size:14.0pt'>Выполняет над числом, содержащимся в приемнике
+(регистр или переменная), операцию дополнения до двух. Эта операция
+эквивалентна обращению знака операнда, если рассматривать его как число со
+знаком. Если приемник равен нулю, флаг CF устанавливается в 0, иначе&nbsp;— в
+1. Остальные флаги (OF, SF, ZF, AF, PF) устанавливаются в соответствии с
+результатом операции.<o:p></o:p></span></p>
+
+<p class=info2 style='text-align:justify'><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt'>Примечание:</span></b><span style='font-size:14.0pt'>
+Красивый пример применения команды NEG&nbsp;— получение абсолютного значения
+числа, используя всего две команды&nbsp;— изменение знака и переход на первую
+команду еще раз, если знак отрицательный:<o:p></o:p></span></p>
+
+<pre style='text-align:justify;text-indent:1.0cm'><span style='font-size:14.0pt;
+font-family:"Times New Roman"'><span style='mso-spacerun:yes'>    </span>label0:<span style='mso-spacerun:yes'>   </span><span
+class=SpellE>neg</span><span style='mso-spacerun:yes'>      </span><span
+class=SpellE>eax</span><o:p></o:p></span></pre><pre style='text-align:justify;
+text-indent:1.0cm'><span style='font-size:14.0pt;font-family:"Times New Roman"'><span style='mso-spacerun:yes'>           </span><span style='mso-spacerun:yes'>    </span><span style='mso-spacerun:yes'>   </span><span
+class=SpellE>js</span><span style='mso-spacerun:yes'>       </span>label0<o:p></o:p></span></pre><pre
+style='text-align:justify;text-indent:1.0cm'><span style='font-size:14.0pt;
+font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></pre>
+
+<table class=MsoNormalTable border=0 cellspacing=1 cellpadding=0 width="100%"
+ style='width:100.0%;mso-cellspacing:.7pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt;color:black'>- Команда:
+    <o:p></o:p></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><b><span
+  style='font-size:14.0pt;color:black'>CMP</span></b><span style='font-size:
+  14.0pt;color:black'> приемник, источник<o:p></o:p></span></p>  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt;color:black'>- Назначение:
+    <o:p></o:p></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt;color:black'>Сравнение<o:p></o:p></span></p>  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2;mso-yfti-lastrow:yes'>
+  <td width="20%" valign=top style='width:20.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt;color:black'>- Процессор:
+    <o:p></o:p></span></p>  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='text-align:justify;text-indent:1.0cm'><span
+  style='font-size:14.0pt;color:black'>8086<o:p></o:p></span></p>  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+text-align:justify;text-indent:1.0cm'><span style='font-size:14.0pt;color:black'>Сравнивает
+приемник и источник и устанавливает флаги. Сравнение осуществляется путем
+вычитания источника (число, регистр или переменная) из приемника (регистр или
+переменная; приемник и источник не могут быть переменными одновременно), причем
+результат вычитания никуда не записывается, единственным результатом работы
+этой команды оказывается изменение флагов CF, OF, SF, ZF, AF и PF. Обычно
+команду СМР используют вместе с командами условного перехода (<span
+class=SpellE>Jcc</span>).<o:p></o:p></span></p>
+
+<p class=info2 style='text-align:justify'><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt'>Примечание:</span></b><span style='font-size:14.0pt'>
+Несмотря на <span class=GramE>то</span> что условные команды почти всегда применяются
+сразу после СМР, не надо забывать, что точно так же их можно использовать после
+любой команды, модифицирующей флаги, например: проверить равенство АХ нулю
+можно более короткой командой<o:p></o:p></span></p>
+
+<pre style='text-align:justify;text-indent:1.0cm'><span style='font-size:14.0pt;
+font-family:"Times New Roman"'><span style='mso-spacerun:yes'>    </span><span
+class=SpellE>test</span><span style='mso-spacerun:yes'>     </span><span
+class=SpellE>ax,ax</span><o:p></o:p></span></pre>
+
+<p class=info2 style='text-align:justify;text-indent:1.0cm'><span
+style='font-size:14.0pt'>а равенство единице&nbsp;— однобайтной командой<o:p></o:p></span></p>
+
+<pre style='text-align:justify;text-indent:1.0cm'><span style='font-size:14.0pt;
+font-family:"Times New Roman"'><span style='mso-spacerun:yes'>    </span><span
+class=SpellE>dec</span><span style='mso-spacerun:yes'>      </span><span
+class=SpellE>ax</span><o:p></o:p></span></pre>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+<a href ="#begin1">[Вверх]</a> <a href='Oglavlen.html'>[В начало]</a></div>
+
+</body>
+
+</html>
