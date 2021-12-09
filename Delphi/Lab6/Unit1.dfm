@@ -2,8 +2,8 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Form1'
-  ClientHeight = 441
-  ClientWidth = 624
+  ClientHeight = 424
+  ClientWidth = 651
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,61 +16,75 @@ object Form1: TForm1
   object Label1: TLabel
     Left = 8
     Top = 11
-    Width = 36
+    Width = 25
     Height = 15
-    Caption = #1060'.'#1048'.'#1054'.'
-  end
-  object Label2: TLabel
-    Left = 8
-    Top = 50
-    Width = 45
-    Height = 15
-    Caption = #1054#1094#1077#1085#1082#1080':'
+    Caption = #1044#1072#1090#1072
   end
   object Label3: TLabel
     Left = 8
     Top = 82
-    Width = 67
+    Width = 61
     Height = 15
-    Caption = #1052#1072#1090#1077#1084#1072#1090#1080#1082#1072
+    Caption = #1050#1086#1076' '#1075#1086#1088#1086#1076#1072
   end
   object Label4: TLabel
     Left = 8
     Top = 132
-    Width = 40
+    Width = 93
     Height = 15
-    Caption = #1060#1080#1079#1080#1082#1072
+    Caption = #1053#1072#1079#1074#1072#1085#1080#1077' '#1075#1086#1088#1086#1076#1072
   end
   object Label5: TLabel
     Left = 8
     Top = 180
-    Width = 62
+    Width = 94
     Height = 15
-    Caption = #1057#1086#1095#1080#1085#1077#1085#1080#1077
+    Caption = #1042#1088#1077#1084#1103' '#1088#1072#1079#1075#1086#1074#1086#1088#1072
+  end
+  object Label6: TLabel
+    Left = 360
+    Top = 82
+    Width = 35
+    Height = 15
+    Caption = #1058#1072#1088#1080#1092
+  end
+  object Label7: TLabel
+    Left = 360
+    Top = 132
+    Width = 44
+    Height = 15
+    Caption = #1053#1086#1084#1077#1088'1'
+  end
+  object Label8: TLabel
+    Left = 360
+    Top = 180
+    Width = 47
+    Height = 15
+    Caption = #1053#1086#1084#1077#1088' 2'
   end
   object Edit1: TEdit
     Left = 50
     Top = 8
-    Width = 513
+    Width = 178
     Height = 23
     TabOrder = 0
   end
   object Edit2: TEdit
-    Left = 96
+    Left = 107
     Top = 79
     Width = 121
     Height = 23
     TabOrder = 1
   end
   object Edit3: TEdit
-    Left = 96
+    Left = 107
     Top = 129
     Width = 121
     Height = 23
     TabOrder = 2
   end
   object Edit4: TEdit
-    Left = 96
+    Left = 107
     Top = 177
     Width = 121
     Height = 23
@@ -87,16 +101,16 @@ object Form1: TForm1
   end
   object Memo1: TMemo
     Left = 8
-    Top = 248
-    Width = 601
+    Top = 257
+    Width = 313
     Height = 129
     Lines.Strings = (
       'Memo1')
     TabOrder = 5
   end
   object Button1: TButton
-    Left = 480
-    Top = 208
+    Left = 542
+    Top = 216
     Width = 99
     Height = 25
     Caption = #1042#1074#1077#1089#1090#1080' '#1079#1072#1087#1080#1089#1100
@@ -126,7 +140,7 @@ object Form1: TForm1
     Top = 392
     Width = 75
     Height = 25
-    Caption = #1057#1086#1088#1090#1080#1088#1086#1074#1072#1090#1100
+    Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
     TabOrder = 9
     OnClick = Button4Click
   end
@@ -135,19 +149,49 @@ object Form1: TForm1
     Top = 392
     Width = 75
     Height = 25
-    Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
+    Caption = #1055#1086#1089#1095#1080#1090#1072#1090#1100
     TabOrder = 10
     OnClick = Button5Click
+  end
+  object Edit5: TEdit
+    Left = 424
+    Top = 79
+    Width = 121
+    Height = 23
+    TabOrder = 11
+  end
+  object Edit6: TEdit
+    Left = 424
+    Top = 129
+    Width = 121
+    Height = 23
+    TabOrder = 12
+  end
+  object Edit7: TEdit
+    Left = 424
+    Top = 177
+    Width = 121
+    Height = 23
+    TabOrder = 13
+  end
+  object Memo2: TMemo
+    Left = 352
+    Top = 257
+    Width = 289
+    Height = 129
+    Lines.Strings = (
+      'Memo2')
+    TabOrder = 14
   end
   object OpenDialog1: TOpenDialog
     DefaultExt = '.dat'
     Filter = #1060#1072#1081#1083#1099' '#1076#1072#1085#1085#1099#1093'|*.dat|'#1042#1089#1077' '#1092#1072#1081#1083#1099'|*.*'
-    Left = 384
-    Top = 152
+    Left = 568
+    Top = 160
   end
   object SaveDialog1: TSaveDialog
     DefaultExt = '.txt'
-    Left = 408
-    Top = 56
+    Left = 568
+    Top = 88
   end
 end

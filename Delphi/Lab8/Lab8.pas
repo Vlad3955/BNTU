@@ -23,7 +23,6 @@ type
     Edit4: TEdit;
     Edit5: TEdit;
     Edit6: TEdit;
-    Button3: TButton;
     Edit7: TEdit;
     Label4: TLabel;
     Label5: TLabel;
@@ -32,8 +31,9 @@ type
     Label8: TLabel;
     Edit8: TEdit;
     BitBtn1: TBitBtn;
+    Edit9: TEdit;
+    Label9: TLabel;
     procedure FormCreate(Sender: TObject);
-    procedure Button3Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
 
   private
@@ -44,7 +44,8 @@ type
 
 var
   Form1: TForm1;
-   Xmin, Xmax, Ymin, Ymax, Hx, Hy, h, Z : double;
+   Xmin, Xmax, Ymin, Ymax, Hx, Hy, h:extended;
+  z,y:real;
 
 
 implementation
@@ -56,14 +57,24 @@ implementation
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-  Xmin := StrToFloat(Edit1.Text);
-  Xmax := StrToFloat(Edit2.Text);
-  Ymin := StrToFloat(Edit3.Text);
-  Ymax := StrToFloat(Edit4.Text);
-  Z    := StrToFloat(Edit8.Text);
-  Hx   := StrToFloat(Edit5.Text);
-  Hy   := StrToFloat(Edit6.Text);
-  H    := StrToFloat(Edit7.Text);
+  Xmin:=-5;
+  Xmax:=5;
+  Ymin:=-1;
+  Ymax:=1;
+  y:=2;
+  z:=1;
+  Hx:=0.5;
+  Hy:=0.5;
+  h:=0.0001;
+  Edit1.Text:=FloatToStr(Xmin);
+  Edit2.Text:=FloatToStr(Xmax);
+  Edit3.Text:=FloatToStr(Ymin);
+  Edit4.Text:=FloatToStr(Ymax);
+  Edit5.Text:=FloatToStr(Hx);
+  Edit6.Text:=FloatToStr(Hy);
+  Edit7.Text:=FloatToStr(h);
+  Edit8.Text:=FloatToStr(y);
+  Edit9.Text:=FloatToStr(z);
 
 
 
@@ -80,27 +91,37 @@ end;
 
 
 
-procedure TForm1.Button3Click(Sender: TObject);
-  var
-  x, y1, y2 : extended;
+procedure TForm1.Button1Click(Sender: TObject);
+ var
+  x,y,z,y1,a,b,c:extended;
 begin
   Series1.Clear;
-  Series2.Clear;
-  Xmin := StrToFloat(Edit1.Text);
-  Xmax := StrToFloat(Edit2.Text);
-  h := StrToFloat(Edit7.Text);
-  x := Xmin;
-  Repeat
-    y1 := sin(x);
-    Series1.AddXY(x, y1, '', clTeeColor);
-    y2 := cos(x);
-    Series2.AddXY(x, y2, '', clTeeColor);
-    x := x + h;
-  Until (x > Xmax);
+  Xmin:=StrToFloat(Edit1.Text);
+  Xmax:=StrToFloat(Edit2.Text);
+  y:=StrToFloat(Edit8.Text);
+  z:=StrToFloat(Edit9.Text) ;
+  h:=StrToFloat(Edit7.Text);
+  x:=Xmin;
+  Chart1.BottomAxis.Automatic := False;
+  Chart1.BottomAxis.Minimum := Xmin;
+  Chart1.BottomAxis.Maximum := Xmax;
+
+  Chart1.LeftAxis.Automatic := False;
+  Chart1.LeftAxis.Minimum   := Ymin;
+  Chart1.LeftAxis.Maximum   := Ymax;
+  Chart1.BottomAxis.Increment := Hx;
+  Chart1.LeftAxis.Increment   := Hy;
+  repeat
+  a := ln(power(y, -abs(x)));
+  b := x - (y / 2);
+  c := sin(sqr(2)) * arctan(z);
+  y1:= a * b + c;
+    Series1.AddXY(x,y1,'',clTeeColor);
+    x:=x+h;
+  until (x>Xmax);
+
 end;
 
- procedure TForm1.Button1Click(Sender: TObject);
-begin
-  Halt //Exit
-end;
-end.
+
+
+ end.

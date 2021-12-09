@@ -67,6 +67,13 @@ object Form1: TForm1
     Top = 272
     Width = 7
     Height = 15
+    Caption = 'Y'
+  end
+  object Label9: TLabel
+    Left = 24
+    Top = 427
+    Width = 7
+    Height = 15
     Caption = 'Z'
   end
   object Button1: TButton
@@ -160,35 +167,34 @@ object Form1: TForm1
     Height = 23
     TabOrder = 7
   end
-  object Button3: TButton
-    Left = 96
-    Top = 424
-    Width = 121
-    Height = 27
-    Caption = #1056#1072#1079#1084#1077#1089#1090#1080#1090#1100' '#1086#1089#1080
-    TabOrder = 8
-    OnClick = Button3Click
-  end
   object Edit7: TEdit
     Left = 208
     Top = 487
     Width = 74
     Height = 23
-    TabOrder = 9
+    TabOrder = 8
   end
   object Edit8: TEdit
     Left = 168
     Top = 269
     Width = 106
     Height = 23
-    TabOrder = 10
+    TabOrder = 9
   end
   object BitBtn1: TBitBtn
     Left = 688
     Top = 505
     Width = 75
     Height = 25
-    Caption = 'Close'
+    Kind = bkClose
+    NumGlyphs = 2
+    TabOrder = 10
+  end
+  object Edit9: TEdit
+    Left = 200
+    Top = 424
+    Width = 74
+    Height = 23
     TabOrder = 11
   end
 end
