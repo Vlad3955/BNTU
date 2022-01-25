@@ -1,0 +1,11 @@
+#k2Container.itemView .itemBody .itemNaviBottom #yandex_rtb_R-A-192461-7 {
+  display: none !important;
+}
+@media screen and (max-width: 480px) {
+  #k2Container.itemView .itemBody .itemNaviBottom #yandex_rtb_R-A-192461-6 {
+    display: none !important;
+  }
+  #k2Container.itemView .itemBody .itemNaviBottom #yandex_rtb_R-A-192461-7 {
+    display: block !important;
+  }
+}

@@ -1,0 +1,15 @@
+#sj-ln{
+  position: absolute;
+  top: 0px;
+  left: -5500px;
+  }
+#topbanner{
+    position: relative;
+    text-align: left;
+  }
+
+.soderzanie{border:1px solid #bfbfbf;max-width:500px}
+.soderzanie ol{color:#2980b9}
+.zagsoder{background:#e6e6e6}
+.zagsoder p{text-align:center}
+.zagsoder p span{color:#2980b9}

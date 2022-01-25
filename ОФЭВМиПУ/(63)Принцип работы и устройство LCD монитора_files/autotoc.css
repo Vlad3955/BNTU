@@ -1,0 +1,25 @@
+#autotoc{
+  padding: 5px;
+  border: 1px groove black; 
+  box-shadow: 0 0 5px rgba(0,0,0,2);
+}
+
+#autotoc:hover {
+  box-shadow: 0 0 9px rgba(0,0,0,9);
+}
+
+#autotoc > span{
+  font-weight: bold;
+  font-size: 11pt;
+}
+
+#autotoc > span + span{
+  margin-left: 0.3em;
+  font-weight: normal;
+}
+
+#autotoc a{
+  text-decoration: none;
+}
+
+
