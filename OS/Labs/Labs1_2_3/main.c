@@ -1,26 +1,55 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define SIZE 6
+#include <math.h>
+#define N 6
 
-// Lab work ¹2
-int arrayResult(int* arr, const int size, int value)
+void expression(int* a, int S, int result)
 {
-    int result = arr[0]*arr[1]*arr[2]*arr[3]+arr[4]+arr[5];
-    if (result != value)
-    {
-        printf("Solution is not correct!\n");
+   char o[S - 1];
+
+    int r;
+    for (int i = 0; i < pow(4, S - 1); ++i) {
+        r = a[0];
+        int p = 1;//4^(j - 1)
+        for (int j = 1; j < S; ++j) {
+            switch ((i / p) % 4) {
+            case 0:
+                r += a[j];
+                o[j - 1] = '+';
+                break;
+            case 1:
+                r -= a[j];
+                o[j - 1] = '-';
+                break;
+            case 2:
+                r *= a[j];
+                o[j - 1] = '*';
+                break;
+            case 3:
+                r /= a[j];
+                o[j - 1] = '/';
+                break;
+            }
+            p *= 4;
+        }
+        if (r == result) {
+            printf("((((%d ", a[0]);
+            for (int k = 1; k < S; ++k)
+                printf("%c %d ) ", o[k - 1], a[k]);
+            printf("= %d\n", result);
+        }
     }
-    return result;
 }
+
 
 int main()
 {
-    // Lab work ¹1
-    //int sum = 1*2*3*4+5+6;
-    //printf("%d \n", sum);
+   int a[N] = { 1, 2, 3, 4, 5, 6, };
+   expression(a, N, 35);
 
-    // Lab work ¹2
-    int A[SIZE] = {1, 2, 3, 4, 5, 6};
-    printf("%d \n", arrayResult(A, SIZE, 35));
-    return 0;
+
+   return 0;
 }
+
+
+
