@@ -41,11 +41,14 @@ Runway::Runway()
 	pavement = "";
 	runwayNumber = 11;
 }
-Runway::Runway(int rwNum) 
+Runway::Runway(double l, double w, string p, int rwNum) : length(l), width(w), pavement(p), runwayNumber(rwNum){}
+Runway::Runway(int rwNum)
 {
+	length = 300.0;
+	width = 10.0;
+	pavement = "";
 	runwayNumber = rwNum;
 }
-Runway::Runway(double l, double w, string p, int rwNum) : length(l), width(w), pavement(p), runwayNumber(rwNum){}
 double Runway::getLength()
 {
 	return length;
@@ -72,11 +75,15 @@ Runway::~Runway() {}
 Airport* Airport::instAirport = nullptr;
 Airport::Airport()
 {
-	boardNumber = 0;
-	destination = "";
-	arrivalTime = 0;
-	departureTime = 0;
-	runway = Runway(1);
+	airportName = "Minsk2";
+	boardNumber = 77421;
+	destination = "Stambul";
+	departureHour = 17;
+	departureMinut = 12;
+	arrivalHour = 20;
+	arrivalMinut = 51;
+	//runway = Runway(17);
+	runway.setRunwayNumber(13);
 }
 //Airport::Airport(int bNum, string d_tion, int arTime, int deTime, Runway _runway) : boardNumber(bNum), destination(d_tion), arrivalTime(arTime), departureTime(deTime), runway(_runway) {}
 Airport* Airport::InstanceAirport()
@@ -91,6 +98,10 @@ Airport* Airport::InstanceAirport()
 		return nullptr;
 	}
 }
+void Airport::setAirportName(string _airportName)
+{
+	airportName = _airportName;
+}
 void Airport::setBoardNumber(int bNum)
 {
 	boardNumber = bNum;
@@ -99,17 +110,29 @@ void Airport::setDestination(string d_tion)
 {
 	destination = d_tion;
 }
-void Airport::setArrivalTime(int arTime)
+void Airport::setArrivalHour(int arHour)
 {
-	arrivalTime = arTime;
+	arrivalHour = arHour;
 }
-void Airport::setDepartureTime(int deTime)
+void Airport::setDepartureHour(int deHour)
 {
-	departureTime = deTime;
+	departureHour = deHour;
+}
+void Airport::setArrivalMinut(int arMinut)
+{
+	arrivalMinut = arMinut;
+}
+void Airport::setDepartureMinut(int deMinut)
+{
+	departureMinut = deMinut;
 }
 void Airport::setRunway(int _runway)
 {
 	runway.setRunwayNumber(_runway);
+}
+string Airport::getAirportName()
+{
+	return airportName;
 }
 int Airport::getBoardNumber()
 {
@@ -119,13 +142,21 @@ string Airport::getDestination()
 {
 	return destination;
 }
-int Airport::getArrivalTime()
+int Airport::getArrivalHour()
 {
-	return arrivalTime;
+	return arrivalHour;
 }
-int Airport::getDepartureTime()
+int Airport::getDepartureHour()
 {
-	return departureTime;
+	return departureHour;
+}
+int Airport::getArrivalMinut()
+{
+	return arrivalMinut;
+}
+int Airport::getDepartureMinut()
+{
+	return departureMinut;
 }
 Runway Airport::getRunway()
 {
@@ -133,9 +164,35 @@ Runway Airport::getRunway()
 }
 void Airport::print()
 {
-	cout << getBoardNumber() << " " << getDestination();
+	cout << getAirportName();
 }
 Airport::~Airport() 
 {
 	delete instAirport;
 }
+
+
+// LabWork 3
+Customer::Customer()
+{
+	fullName = "";
+	depositAmount = 0.0;
+	validity = 0;
+}
+Customer::Customer(string _fullName, double _depositAmount, int _validity, Deposits _depositType) : 
+fullName(_fullName), depositAmount(_depositAmount), validity(_validity), depositType(_depositType) {}
+Customer::~Customer() {}
+
+BankSystem::BankSystem() {}
+BankSystem::BankSystem(string _name) : name(_name) {}
+BankSystem::BankSystem(double _dollarsRate, double _rublesRate, double _euroRate) : 
+dollarsRate(_dollarsRate), rublesRate(_rublesRate), euroRate(_euroRate) {}
+string BankSystem::getName()
+{
+	return name;
+}
+double BankSystem::totalSumDeposits()
+{
+	return;
+}
+BankSystem::~BankSystem() {}

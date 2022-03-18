@@ -5,6 +5,7 @@
 
 using namespace std;
 
+// LabWork 1
 class Bank
 {
 public:
@@ -22,7 +23,7 @@ private:
 	double	depAmount, interRate;// сумма депозита, процентна€ ставка
 };
 
-
+// LabWork 2
 class Runway
 {
 public:
@@ -43,22 +44,29 @@ private:
 
 class Airport
 {
+	string airportName;
 	Runway runway;// переменна€ взлетной полосы
 	static Airport* instAirport; // статический указатель типа Ёйрпот 
 	int boardNumber;// номер борта
 	string destination;// пункт назначени€
-	int arrivalTime, departureTime, _runway;// врем€ прибыти€, врем€ убыти€.
+	int arrivalHour, arrivalMinut, departureHour, departureMinut;// врем€ прибыти€, врем€ убыти€.
 public:
 	static Airport* InstanceAirport();// статический метод дл€ выделени€ кдинственного экземпл€ра(Singleton)
+	void setAirportName(string _airportName);
 	void setBoardNumber(int bNum);
 	void setDestination(string d_tion);
-	void setArrivalTime(int arTime);
-	void setDepartureTime(int deTime);
+	void setArrivalHour(int arHour);
+	void setDepartureHour(int deHour);
+	void setArrivalMinut(int arMinut);
+	void setDepartureMinut(int deMinut);
 	void setRunway(int _runway);
+	string getAirportName();
 	int getBoardNumber();
 	string getDestination();
-	int getArrivalTime();
-	int getDepartureTime();
+	int getArrivalHour();
+	int getDepartureHour();
+	int getArrivalMinut();
+	int getDepartureMinut();
 	Runway getRunway();
 	void print();
 protected:
@@ -67,6 +75,34 @@ protected:
 	~Airport();
 };
 
+// LabWork 3
+enum Deposits {InDollars, InRubles, InEuro};
+
+class Customer
+{
+public:
+	Customer();
+	Customer(string _fullName, double _depositAmount, int _validity, Deposits _depositType);
+	~Customer();
+private:
+	string fullName;
+	double depositAmount;
+	int validity;
+	Deposits depositType;
+};
 
 
-
+class BankSystem
+{
+public:
+	BankSystem();
+	BankSystem(string _name);
+	BankSystem(double _dollarsRate, double _rublesRate, double _euroRate);
+	string getName();
+	double totalSumDeposits();
+	~BankSystem();
+private:
+	vector<Customer> bankCustomer;
+	string name;// название учреждени€
+	double dollarsRate, rublesRate, euroRate;
+};
