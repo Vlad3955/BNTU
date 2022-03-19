@@ -71,38 +71,87 @@ public:
 	void print();
 protected:
 	Airport();
-	//Airport(int bNum, string d_tion, int arTime, int deTime, Runway _runway);
 	~Airport();
 };
 
 // LabWork 3
-enum Deposits {InDollars, InRubles, InEuro};
+enum Deposits {InDollars, InRubles, InEuro };
 
+// Customer
 class Customer
 {
 public:
 	Customer();
 	Customer(string _fullName, double _depositAmount, int _validity, Deposits _depositType);
+	string getFullName();
+	double getDepositAmount();
+	int getValidity();
+	Deposits getDepositType();
+	void setPercentAmount(double _percentAmount);
+	double getPercentAmount();
 	~Customer();
 private:
 	string fullName;
 	double depositAmount;
 	int validity;
+	double percentAmount;
 	Deposits depositType;
 };
 
-
+//Bank
 class BankSystem
 {
 public:
 	BankSystem();
-	BankSystem(string _name);
+	BankSystem(string _bankName);
 	BankSystem(double _dollarsRate, double _rublesRate, double _euroRate);
-	string getName();
+	string getBankName();
+	double getDollarsRate();
+	double getRublesRate();
+	double getEuroRate();
+	void addCustomer(string _fullName, double _depositAmount, int _validity, Deposits _depositType);
 	double totalSumDeposits();
+	void customersInformation();
 	~BankSystem();
 private:
 	vector<Customer> bankCustomer;
-	string name;// название учреждения
+	string bankName;// название учреждения
 	double dollarsRate, rublesRate, euroRate;
 };
+
+
+// LabWork 4
+class Education
+{
+public:
+	Education();
+	Education(string _name, string _address, string _openningTime, string _closingTime, 
+		int _phoneNumber, int _numOfStudents, int _numOfTeachers);
+	~Education();
+protected:
+	string name, address, openningTime, closingTime;
+	int phoneNumber, numOfStudents, numOfTeachers;
+};
+
+class School : public Education
+{
+public:
+	School();
+
+	~School();
+private:
+
+};
+
+class Kindergarten final : public Education
+{
+public:
+	Kindergarten();
+
+	~Kindergarten();
+private:
+
+};
+
+
+

@@ -160,12 +160,12 @@
 int main()
 {
 	// LabWork1
-	Bank b("Priorbank", 130, 350000, 4.7);
-	cout << b.getInterPay() << endl;
+	/*Bank b("Priorbank", 130, 350000, 4.7);
+	cout << b.getInterPay() << endl;*/
 
 	// LabWork 2
 	// Создание обЪекта Singleton
-	Airport* Minsk1 = Airport::InstanceAirport();
+	/*Airport* Minsk1 = Airport::InstanceAirport();
 	if (Minsk1 != nullptr)
 	{
 		cout << "Airport name: " << Minsk1->getAirportName() << endl
@@ -173,19 +173,26 @@ int main()
 			<< "Departure time: " << Minsk1->getDepartureHour() << ":" << Minsk1->getDepartureMinut() << endl
 			<< "Arrival time: " << Minsk1->getArrivalHour() << ":" << Minsk1->getArrivalMinut() << endl
 			<< "Runway number: " << Minsk1->getRunway().getRunwayNumber() << endl;
-	}
+	}*/
 
 	// Попытка создание 2го объекта Singleton
-	Airport* Minsk2 = Airport::InstanceAirport();
+	/*Airport* Minsk2 = Airport::InstanceAirport();
 	if (Minsk2 != nullptr)
 	{
 		Minsk2->setDestination("Minsk2");
 		cout << Minsk2->getDestination();
-	}
+	}*/
 
-	int h = 9;
+	/*int h = 9;
 	double df = 30.417;
-	cout << static_cast<int>(h * df);
+	cout << static_cast<int>(h * df);*/
+
+	// LabWork3
+	BankSystem customers;
+	customers.addCustomer("Ivan Ivaniv", 350000, 9, InDollars);
+	customers.addCustomer("Sergey Sergeev", 350000, 9, InRubles);
+	customers.addCustomer("Anton Antonov", 350000, 9, InEuro);
+	customers.customersInformation();
 
 	return 0;
 }

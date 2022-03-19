@@ -2,7 +2,8 @@
 #include "OOP_Labs.h"
 
 
-Bank::Bank(string n, int nDep, double dAmount, double iRate) : name(n), numDep(nDep), depAmount(dAmount), interRate(iRate) {}
+Bank::Bank(string n, int nDep, double dAmount, double iRate) 
+	: name(n), numDep(nDep), depAmount(dAmount), interRate(iRate) {}
 Bank::Bank() 
 {
 	name = "";
@@ -41,7 +42,8 @@ Runway::Runway()
 	pavement = "";
 	runwayNumber = 11;
 }
-Runway::Runway(double l, double w, string p, int rwNum) : length(l), width(w), pavement(p), runwayNumber(rwNum){}
+Runway::Runway(double l, double w, string p, int rwNum) 
+	: length(l), width(w), pavement(p), runwayNumber(rwNum){}
 Runway::Runway(int rwNum)
 {
 	length = 300.0;
@@ -85,7 +87,6 @@ Airport::Airport()
 	//runway = Runway(17);
 	runway.setRunwayNumber(13);
 }
-//Airport::Airport(int bNum, string d_tion, int arTime, int deTime, Runway _runway) : boardNumber(bNum), destination(d_tion), arrivalTime(arTime), departureTime(deTime), runway(_runway) {}
 Airport* Airport::InstanceAirport()
 {
 	if (instAirport == nullptr)
@@ -173,26 +174,155 @@ Airport::~Airport()
 
 
 // LabWork 3
+// Customer
 Customer::Customer()
 {
 	fullName = "";
 	depositAmount = 0.0;
 	validity = 0;
+	percentAmount = 0.0;
 }
-Customer::Customer(string _fullName, double _depositAmount, int _validity, Deposits _depositType) : 
-fullName(_fullName), depositAmount(_depositAmount), validity(_validity), depositType(_depositType) {}
+Customer::Customer(string _fullName, double _depositAmount, int _validity, Deposits _depositType) 
+	: fullName(_fullName), depositAmount(_depositAmount), validity(_validity), depositType(_depositType) 
+{
+	percentAmount = 0.0;
+}
+string Customer::getFullName()
+{
+	return fullName;
+}
+double Customer::getDepositAmount()
+{
+	return depositAmount;
+}
+int Customer::getValidity()
+{
+	return validity;
+}
+Deposits Customer::getDepositType()
+{
+	return depositType;
+}
+void Customer::setPercentAmount(double _percentAmount)
+{
+	percentAmount = _percentAmount;
+}
+double Customer::getPercentAmount()
+{
+	return percentAmount;
+}
 Customer::~Customer() {}
 
-BankSystem::BankSystem() {}
-BankSystem::BankSystem(string _name) : name(_name) {}
-BankSystem::BankSystem(double _dollarsRate, double _rublesRate, double _euroRate) : 
-dollarsRate(_dollarsRate), rublesRate(_rublesRate), euroRate(_euroRate) {}
-string BankSystem::getName()
+// Bank
+BankSystem::BankSystem() 
 {
-	return name;
+	bankName = "Priorbank";
+	dollarsRate = 4.7;
+	rublesRate = 9.4;
+	euroRate = 3.9;
 }
-double BankSystem::totalSumDeposits()
+BankSystem::BankSystem(string _bankName) : bankName(_bankName) 
 {
-	return;
+	bankName = "Priorbank";
+	dollarsRate = 4.7;
+	rublesRate = 9.4;
+	euroRate = 3.9;
+}
+BankSystem::BankSystem(double _dollarsRate, double _rublesRate, double _euroRate) 
+	: dollarsRate(_dollarsRate), rublesRate(_rublesRate), euroRate(_euroRate) 
+{
+	bankName = "Priorbank";
+	dollarsRate = 4.7;
+	rublesRate = 9.4;
+	euroRate = 3.9;
+}
+double BankSystem::getDollarsRate()
+{
+	return dollarsRate;
+}
+double BankSystem::getRublesRate()
+{
+	return rublesRate;
+}
+double BankSystem::getEuroRate()
+{
+	return euroRate;
+}
+string BankSystem::getBankName()
+{
+	return bankName;
+}
+void BankSystem::addCustomer(string _fullName, double _depositAmount, int _validity, Deposits _depositType)
+{
+	bankCustomer.push_back(Customer(_fullName, _depositAmount, _validity, _depositType));
+}
+void BankSystem::customersInformation()
+{
+	double totalDollarsSum = 0;
+	double totalRublesSum = 0;
+	double totalEuroSum = 0;
+	for (auto &it : bankCustomer)
+	{
+		if (it.getDepositType() == 0)
+		{
+			it.setPercentAmount((it.getDepositAmount() * dollarsRate * static_cast<int>(it.getValidity() * 30.417) / 365) / 100);
+			cout << "Deposit in dollars" << endl;
+			totalDollarsSum += it.getPercentAmount();
+		}
+		else if (it.getDepositType() == 1)
+		{
+			it.setPercentAmount((it.getDepositAmount() * rublesRate * static_cast<int>(it.getValidity() * 30.417) / 365) / 100);
+			cout << "Deposit in rubles" << endl;
+			totalRublesSum += it.getPercentAmount();
+		}
+		else
+		{
+			it.setPercentAmount((it.getDepositAmount() * euroRate * static_cast<int>(it.getValidity() * 30.417) / 365) / 100);
+			cout << "Deposit in euro" << endl;
+			totalEuroSum += it.getPercentAmount();
+		}
+	   cout << "Full name of the client: " << it.getFullName() << endl
+			<< "Deposit amount: " << it.getDepositAmount() << endl
+			<< "Validity: " << it.getValidity() << endl 
+		    << "Percent amount: " << it.getPercentAmount() << endl << endl;
+	}
+	cout << "Total in dollars: " << totalDollarsSum << endl
+		 << "Total in rubles: " << totalRublesSum << endl
+		 << "Total in euro: " << totalEuroSum << endl;
 }
 BankSystem::~BankSystem() {}
+
+// LabWork 4
+Education::Education()
+{
+	name = ""; 
+	address = "";
+	openningTime = "";
+	closingTime = "";
+	phoneNumber = 0;
+	numOfStudents = 0; 
+	numOfTeachers = 0;
+}
+Education::Education(string _name, string _address, string _openningTime, string _closingTime,
+	int _phoneNumber, int _numOfStudents, int _numOfTeachers) 
+	: name(_name), address(_address), openningTime(_openningTime), closingTime(_closingTime), 
+	phoneNumber(_phoneNumber), numOfStudents(_numOfStudents), numOfTeachers(_numOfTeachers) {}
+Education::~Education()
+{
+}
+
+School::School()
+{
+}
+
+School::~School()
+{
+}
+
+Kindergarten::Kindergarten()
+{
+}
+
+Kindergarten::~Kindergarten()
+{
+}
