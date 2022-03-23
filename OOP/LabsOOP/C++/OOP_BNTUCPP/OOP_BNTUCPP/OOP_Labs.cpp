@@ -297,32 +297,139 @@ Education::Education()
 {
 	name = ""; 
 	address = "";
-	openningTime = "";
-	closingTime = "";
+	workTime = "";
 	phoneNumber = 0;
 	numOfStudents = 0; 
 	numOfTeachers = 0;
+	this->extraClass.name = "";
+	this->extraClass.price = 0.0;
 }
-Education::Education(string _name, string _address, string _openningTime, string _closingTime,
-	int _phoneNumber, int _numOfStudents, int _numOfTeachers) 
-	: name(_name), address(_address), openningTime(_openningTime), closingTime(_closingTime), 
-	phoneNumber(_phoneNumber), numOfStudents(_numOfStudents), numOfTeachers(_numOfTeachers) {}
-Education::~Education()
+Education::Education(string _name, string _address, string _workTime,
+	int _phoneNumber, int _numOfStudents, int _numOfTeachers)
+	: name(_name), address(_address), workTime(_workTime),
+	phoneNumber(_phoneNumber), numOfStudents(_numOfStudents), numOfTeachers(_numOfTeachers)
 {
+	name = "";
+	address = "";
+	workTime = "";
+	phoneNumber = 0;
+	numOfStudents = 0;
+	numOfTeachers = 0;
+	this->extraClass.name = "";
+	this->extraClass.price = 0.0;
 }
+Education::Education(string _name, string _address, string _workTime,
+	int _phoneNumber) : name(_name), address(_address), workTime(_workTime),
+	phoneNumber(_phoneNumber) 
+{
+	name = "";
+	address = "";
+	workTime = "";
+	phoneNumber = 0;
+	numOfStudents = 0;
+	numOfTeachers = 0;
+	this->extraClass.name = "";
+	this->extraClass.price = 0.0;
+}
+string Education::getName()
+{
+	return name;
+}
+string Education::getAddress()
+{
+	return address;
+}
+string Education::getWorkTime()
+{
+	return workTime;
+}
+int Education::getPhoneNumber()
+{
+	return phoneNumber;
+}
+int Education::getNumOfStudents()
+{
+	return numOfStudents;
+}
+int Education::getNumOfTeachers()
+{
+	return numOfStudents;
+}
+void Education::setExtraClass(string extraClassName, double extraClassPrice)
+{
+	this->extraClass.name = extraClassName;
+	this->extraClass.price = extraClassPrice;
+}
+ExtraClasses Education::getExtraClass()
+{
+	return this->extraClass;
+}
+Education::~Education() {}
 
 School::School()
 {
-}
 
-School::~School()
-{
 }
+School::School(string _name, string _depthStudy, string _address, string _workTime,
+	int _phoneNumber, int _numOfStudents, int _numOfTeachers) 
+	: Education(_name, _address, _workTime,_phoneNumber, _numOfStudents, _numOfTeachers), depthStudy(_depthStudy) {}
+School::School(string _name, string _address, string _workTime, int _phoneNumber) 
+	: Education(_name, _address, _workTime, _phoneNumber) {}
+string School::getDepthStudy()
+{
+	return depthStudy;
+}
+School::~School() {}
 
 Kindergarten::Kindergarten()
 {
+	numOfKGTeachers = 0;
+}
+Kindergarten::Kindergarten(string _name, string _address, string _workTime,
+	int _phoneNumber, int _numOfStudents, int _numOfTeachers, int _numOfKGTeachers) 
+	: Education(_name, _address, _workTime,_phoneNumber, _numOfStudents, _numOfTeachers), numOfKGTeachers(_numOfKGTeachers) 
+{
+	numOfKGTeachers = 0;
+}
+Kindergarten::Kindergarten(string _name, string _address, string _workTime, int _phoneNumber) 
+{
+	numOfKGTeachers = 0;
+}
+int Kindergarten::getNumOfKGTeachers()
+{
+	return numOfKGTeachers;
+}
+Kindergarten::~Kindergarten() {}
+
+// LabWork 5
+Bank2::Bank2()
+{
 }
 
-Kindergarten::~Kindergarten()
+Bank2::~Bank2()
+{
+}
+
+Contributor::Contributor()
+{
+}
+
+Contributor::~Contributor()
+{
+}
+
+ContributerUsual::ContributerUsual()
+{
+}
+
+ContributerUsual::~ContributerUsual()
+{
+}
+
+ContributerVip::ContributerVip()
+{
+}
+
+ContributerVip::~ContributerVip()
 {
 }

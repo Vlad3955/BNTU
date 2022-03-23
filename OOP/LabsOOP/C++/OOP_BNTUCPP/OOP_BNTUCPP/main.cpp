@@ -188,11 +188,15 @@ int main()
 	cout << static_cast<int>(h * df);*/
 
 	// LabWork3
-	BankSystem customers;
+	/*BankSystem customers;
 	customers.addCustomer("Ivan Ivaniv", 350000, 9, InDollars);
 	customers.addCustomer("Sergey Sergeev", 350000, 9, InRubles);
 	customers.addCustomer("Anton Antonov", 350000, 9, InEuro);
-	customers.customersInformation();
+	customers.customersInformation();*/
 
+	// LabWork 4
+	School school("Middle school ¹151", "Mathmatic", "Odintsova 25", "8:00 - 17:00", 2223344, 433, 28);
+	school.setExtraClass("Math", 22.5);
+	cout << school.getExtraClass().name << " " << school.getExtraClass().price;
 	return 0;
 }

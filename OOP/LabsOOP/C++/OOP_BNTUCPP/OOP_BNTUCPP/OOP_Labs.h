@@ -121,37 +121,110 @@ private:
 
 
 // LabWork 4
+struct ExtraClasses
+{
+	string name;
+	double price = 0.0;
+};
+
 class Education
 {
 public:
 	Education();
-	Education(string _name, string _address, string _openningTime, string _closingTime, 
+	Education(string _name, string _address, string _workTime, 
 		int _phoneNumber, int _numOfStudents, int _numOfTeachers);
+	Education(string _name, string _address, string _workTime, int _phoneNumber);
+	string getName();
+	string getAddress();
+	string getWorkTime();
+	int getPhoneNumber();
+	int getNumOfStudents();
+	int getNumOfTeachers();
+	void setExtraClass(string extraClassName, double extraClassPrice);
+	ExtraClasses getExtraClass();
 	~Education();
 protected:
-	string name, address, openningTime, closingTime;
+	string name, address, workTime;
 	int phoneNumber, numOfStudents, numOfTeachers;
+	ExtraClasses extraClass;
 };
 
 class School : public Education
 {
 public:
 	School();
-
+	School(string _name, string _depthStudy, string _address, string _workTime,
+		int _phoneNumber, int _numOfStudents, int _numOfTeachers);
+	School(string _name, string _address, string _workTime, int _phoneNumber);
+	string getDepthStudy();
 	~School();
 private:
-
+	string depthStudy;
 };
 
 class Kindergarten final : public Education
 {
 public:
 	Kindergarten();
-
+	Kindergarten(string _name, string _address, string _workTime,
+		int _phoneNumber, int _numOfStudents, int _numOfTeachers, int _numOfKGTeachers);
+	Kindergarten(string _name, string _address, string _workTime, int _phoneNumber);
+	int getNumOfKGTeachers();
 	~Kindergarten();
+private:
+	int numOfKGTeachers;
+};
+
+
+// LabWork 5
+class Contribution
+{
+public:
+	Contribution();
+	string getFullName();
+	virtual double getDepositAmount() = 0;
+	~Contribution();
+private:
+	string fullName;
+	double depositAmount;
+};
+
+
+class ContributionUsual : public Contribution
+{
+public:
+	ContributionUsual();
+	double getDepositAmount() override;
+	~ContributionUsual();
 private:
 
 };
+
+
+class ContributionVip : public Contribution
+{
+public:
+	ContributionVip();
+	double getDepositAmount() override;
+	~ContributionVip();
+private:
+
+};
+
+
+
+class Bank2
+{
+public:
+	Bank2();
+	~Bank2();
+
+private:
+	vector<Contribution> contributors;
+};
+
+
+
 
 
 
