@@ -181,10 +181,11 @@ class Contribution
 {
 public:
 	Contribution();
+	Contribution(string _fullName, double _depositAmount);
 	string getFullName();
 	virtual double getDepositAmount() = 0;
 	~Contribution();
-private:
+protected:
 	string fullName;
 	double depositAmount;
 };
@@ -194,10 +195,9 @@ class ContributionUsual : public Contribution
 {
 public:
 	ContributionUsual();
-	double getDepositAmount() override;
+	ContributionUsual(string _fullName, double _depositAmount);
+	virtual double getDepositAmount() override;
 	~ContributionUsual();
-private:
-
 };
 
 
@@ -205,10 +205,24 @@ class ContributionVip : public Contribution
 {
 public:
 	ContributionVip();
-	double getDepositAmount() override;
+	ContributionVip(string _fullName, double _depositAmount, double _bonusVip);
+	virtual double getDepositAmount() override;
 	~ContributionVip();
 private:
+	double bonusVip;
+};
 
+
+class Contributer
+{
+public:
+	Contributer();
+	Contributer(Contribution* _contribution);
+	void setStrategy(Contribution* _contribution);
+	virtual double getDepositAmount();
+	~Contributer();
+private:
+	Contribution* contribution;
 };
 
 
@@ -217,14 +231,72 @@ class Bank2
 {
 public:
 	Bank2();
+	void addContributers(Contributer* _contributers);
+	void print();
 	~Bank2();
-
 private:
-	vector<Contribution> contributors;
+	vector<Contributer*> contributers;
 };
 
 
 
-
+//class Contribution
+//{
+//public:
+//	Contribution();
+//	Contribution(double _depositAmount);
+//	string getFullName();
+//	virtual double getDepositAmount(double _depositAmount, double _bonusVip) = 0;
+//	~Contribution();
+//protected:
+//	double depositAmount;
+//	double bonusVip;
+//};
+//
+//
+//class ContributionUsual : public Contribution
+//{
+//public:
+//	ContributionUsual();
+//	ContributionUsual(double _depositAmount);
+//	virtual double getDepositAmount(double _depositAmount, double _bonusVip) override;
+//	~ContributionUsual();
+//};
+//
+//
+//class ContributionVip : public Contribution
+//{
+//public:
+//	ContributionVip();
+//	ContributionVip(double _depositAmount);
+//	virtual double getDepositAmount(double _depositAmount, double _bonusVip) override;
+//	~ContributionVip();
+//private:
+//	
+//};
+//
+//
+//class Contributer
+//{
+//public:
+//	Contributer();
+//	Contributer(Contribution* _contribution);
+//	virtual double getDepositAmount();
+//	~Contributer();
+//private:
+//	Contribution* contribution;
+//};
+//
+//
+//
+//class Bank2
+//{
+//public:
+//	Bank2();
+//	~Bank2();
+//	//void getContributers();
+//private:
+//	vector<Contribution> contributors;
+//};
 
 

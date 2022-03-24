@@ -195,8 +195,15 @@ int main()
 	customers.customersInformation();*/
 
 	// LabWork 4
-	School school("Middle school ¹151", "Mathmatic", "Odintsova 25", "8:00 - 17:00", 2223344, 433, 28);
+	/*School school("Middle school ¹151", "Mathmatic", "Odintsova 25", "8:00 - 17:00", 2223344, 433, 28);
 	school.setExtraClass("Math", 22.5);
-	cout << school.getExtraClass().name << " " << school.getExtraClass().price;
+	cout << school.getExtraClass().name << " " << school.getExtraClass().price;*/
+
+	// LabWork 5
+	Contributer* contributer = new Contributer(new ContributionUsual("Vitold Ivanov", 3000));
+	//cout << contributer->getDepositAmount();
+	Bank2 bank;
+	bank.addContributers(contributer);
+	bank.print();
 	return 0;
 }
