@@ -159,6 +159,9 @@
 
 int main()
 {
+	//=====================================================================================
+	//=====================================================================================
+	// Practicum
 	// LabWork1
 	/*Bank b("Priorbank", 130, 350000, 4.7);
 	cout << b.getInterPay() << endl;*/
@@ -200,10 +203,20 @@ int main()
 	cout << school.getExtraClass().name << " " << school.getExtraClass().price;*/
 
 	// LabWork 5
-	Contributer* contributer = new Contributer(new ContributionUsual("Vitold Ivanov", 3000));
-	//cout << contributer->getDepositAmount();
+	/*Contributer* contributer1 = new Contributer("Vitold Ivanov", new ContributionVip(3000, 40));
+	contributer1->setStrategy(new ContributionUsual( 2500));
 	Bank2 bank;
-	bank.addContributers(contributer);
-	bank.print();
+	bank.addContributers(contributer1);
+	Contributer* contributer2 = new Contributer("Vlad Govrilov", new ContributionUsual(300));
+	contributer2->setStrategy(new ContributionVip(250, 25));
+	bank.addContributers(contributer2);
+	bank.information();*/
+	//=====================================================================================
+	//=====================================================================================
+	// LabWork 1 
+	Student student("Ivan Ivanov", 17);
+	cout << "Student's name: " << student.getName() << " age: " << student.getAge() << endl;
+	Teacher teacher("Sergey Sergeev", 37);
+	cout << "Teacher's name: " << teacher.getName() << " age: " << teacher.getAge() << endl;
 	return 0;
 }

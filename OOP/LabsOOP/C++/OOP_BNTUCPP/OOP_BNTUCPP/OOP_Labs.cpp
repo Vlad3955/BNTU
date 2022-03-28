@@ -1,7 +1,10 @@
 #include <iostream>
 #include "OOP_Labs.h"
 
-
+// Practicum
+//=====================================================================================
+//=====================================================================================
+// LabWork1
 Bank::Bank(string n, int nDep, double dAmount, double iRate) 
 	: name(n), numDep(nDep), depAmount(dAmount), interRate(iRate) {}
 Bank::Bank() 
@@ -403,22 +406,12 @@ Kindergarten::~Kindergarten() {}
 
 // LabWork 5
 
-Contribution::Contribution() 
-{
-	depositAmount = 1.0;
-}
-Contribution::Contribution(string _fullName, double _depositAmount) : depositAmount(_depositAmount)
-{
-	depositAmount = 1.0;
-}
-string Contribution::getFullName()
-{
-	return fullName;
-}
+Contribution::Contribution() {}
+Contribution::Contribution(double _depositAmount) : depositAmount(_depositAmount) {}
 Contribution::~Contribution() {}
 
 ContributionUsual::ContributionUsual(){}
-ContributionUsual::ContributionUsual(string _fullName, double _depositAmount) : Contribution(_fullName, _depositAmount) {}
+ContributionUsual::ContributionUsual(double _depositAmount) : Contribution(_depositAmount) {}
 double ContributionUsual::getDepositAmount()
 {
 	return depositAmount;
@@ -429,7 +422,7 @@ ContributionVip::ContributionVip()
 {
 	bonusVip = 0.0;
 }
-ContributionVip::ContributionVip(string _fullName, double _depositAmount, double _bonusVip) : Contribution(_fullName, _depositAmount), bonusVip(_bonusVip) {}
+ContributionVip::ContributionVip(double _depositAmount, double _bonusVip) : Contribution(_depositAmount), bonusVip(_bonusVip) {}
 double ContributionVip::getDepositAmount()
 {
 	return depositAmount + bonusVip;
@@ -438,7 +431,11 @@ ContributionVip::~ContributionVip() {}
 
 
 Contributer::Contributer() {}
-Contributer::Contributer(Contribution* _contribution) : contribution(_contribution) {}
+Contributer::Contributer(string _fullName, Contribution* _contribution) : fullName(_fullName), contribution(_contribution) {}
+string Contributer::getFullName()
+{
+	return fullName;
+}
 void Contributer::setStrategy(Contribution* _contribution)
 {
 	if (contribution != nullptr) 
@@ -462,57 +459,43 @@ void Bank2::addContributers(Contributer* _contributers)
 {
 	contributers.push_back(_contributers);
 }
-void Bank2::print()
+void Bank2::information()
 {
+	double sum = 0;
 	for (auto it : contributers)
 	{
-		cout << it->getDepositAmount();
+		cout << "Contributer: " << it->getFullName() << ", contribution: " << it->getDepositAmount() << endl;
+		sum += it->getDepositAmount();
 	}
+	cout << "Number of contributers: " << contributers.size() << endl;
+	cout << "Contributions amount: " << sum << endl;
 }
 Bank2::~Bank2() {}
 
-//Contribution::Contribution()
-//{
-//	depositAmount = 0.0;
-//}
-//Contribution::Contribution(double _depositAmount) : depositAmount(_depositAmount)
-//{
-//	depositAmount = 0.0;
-//}
-//
-//Contribution::~Contribution() {}
-//
-//ContributionUsual::ContributionUsual() {}
-//ContributionUsual::ContributionUsual(double _depositAmount) : Contribution(_depositAmount) {}
-//double ContributionUsual::getDepositAmount(double _depositAmount, double _bonusVip)
-//{
-//	return depositAmount;
-//}
-//ContributionUsual::~ContributionUsual() {}
-//
-//ContributionVip::ContributionVip()
-//{
-//	bonusVip = 0.0;
-//}
-//ContributionVip::ContributionVip(double _depositAmount) : Contribution(_depositAmount) {}
-//double ContributionVip::getDepositAmount(double _depositAmount, double _bonusVip)
-//{
-//	return depositAmount + bonusVip;
-//}
-//ContributionVip::~ContributionVip() {}
-//
-//
-//Contributer::Contributer() {}
-//Contributer::Contributer(Contribution* _contribution) : contribution(_contribution) {}
-//double Contributer::getDepositAmount()
-//{
-//	return contribution->getDepositAmount();
-//}
-//Contributer::~Contributer()
-//{
-//	delete contribution;
-//}
-//
-//Bank2::Bank2() {}
-//
-//Bank2::~Bank2() {}
+//=====================================================================================
+//=====================================================================================
+// LabWork 1
+
+Person::Person() {}
+Person::Person(string _name, int _age) : name(_name), age( _age) {}
+string Person::getName()
+{
+	return name;
+}
+Person::~Person(){}
+
+Student::Student() {}
+Student::Student(string _name, int _age) : Person(_name, _age) {}
+int Student::getAge()
+{
+	return age;
+}
+Student::~Student() {}
+
+Teacher::Teacher() {}
+Teacher::Teacher(string _name, int _age) : Person(_name, _age) {}
+int Teacher::getAge()
+{
+	return age;
+}
+Teacher::~Teacher() {}

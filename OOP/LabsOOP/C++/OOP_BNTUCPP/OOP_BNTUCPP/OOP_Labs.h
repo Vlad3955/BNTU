@@ -4,7 +4,9 @@
 #include <vector>
 
 using namespace std;
-
+// Practicum
+//=====================================================================================
+//=====================================================================================
 // LabWork 1
 class Bank
 {
@@ -181,12 +183,10 @@ class Contribution
 {
 public:
 	Contribution();
-	Contribution(string _fullName, double _depositAmount);
-	string getFullName();
+	Contribution(double _depositAmount);
 	virtual double getDepositAmount() = 0;
 	~Contribution();
 protected:
-	string fullName;
 	double depositAmount;
 };
 
@@ -195,7 +195,7 @@ class ContributionUsual : public Contribution
 {
 public:
 	ContributionUsual();
-	ContributionUsual(string _fullName, double _depositAmount);
+	ContributionUsual(double _depositAmount);
 	virtual double getDepositAmount() override;
 	~ContributionUsual();
 };
@@ -205,7 +205,7 @@ class ContributionVip : public Contribution
 {
 public:
 	ContributionVip();
-	ContributionVip(string _fullName, double _depositAmount, double _bonusVip);
+	ContributionVip(double _depositAmount, double _bonusVip);
 	virtual double getDepositAmount() override;
 	~ContributionVip();
 private:
@@ -217,11 +217,13 @@ class Contributer
 {
 public:
 	Contributer();
-	Contributer(Contribution* _contribution);
+	Contributer(string _fullName, Contribution* _contribution);
+	string getFullName();
 	void setStrategy(Contribution* _contribution);
 	virtual double getDepositAmount();
 	~Contributer();
 private:
+	string fullName;
 	Contribution* contribution;
 };
 
@@ -232,71 +234,50 @@ class Bank2
 public:
 	Bank2();
 	void addContributers(Contributer* _contributers);
-	void print();
+	void information();
 	~Bank2();
 private:
 	vector<Contributer*> contributers;
 };
 
 
+//=====================================================================================
+//=====================================================================================
+// LabWork 1
 
-//class Contribution
-//{
-//public:
-//	Contribution();
-//	Contribution(double _depositAmount);
-//	string getFullName();
-//	virtual double getDepositAmount(double _depositAmount, double _bonusVip) = 0;
-//	~Contribution();
-//protected:
-//	double depositAmount;
-//	double bonusVip;
-//};
-//
-//
-//class ContributionUsual : public Contribution
-//{
-//public:
-//	ContributionUsual();
-//	ContributionUsual(double _depositAmount);
-//	virtual double getDepositAmount(double _depositAmount, double _bonusVip) override;
-//	~ContributionUsual();
-//};
-//
-//
-//class ContributionVip : public Contribution
-//{
-//public:
-//	ContributionVip();
-//	ContributionVip(double _depositAmount);
-//	virtual double getDepositAmount(double _depositAmount, double _bonusVip) override;
-//	~ContributionVip();
-//private:
-//	
-//};
-//
-//
-//class Contributer
-//{
-//public:
-//	Contributer();
-//	Contributer(Contribution* _contribution);
-//	virtual double getDepositAmount();
-//	~Contributer();
-//private:
-//	Contribution* contribution;
-//};
-//
-//
-//
-//class Bank2
-//{
-//public:
-//	Bank2();
-//	~Bank2();
-//	//void getContributers();
-//private:
-//	vector<Contribution> contributors;
-//};
+class Person
+{
+public:
+	Person();
+	Person(string _name, int _age);
+	string getName();
+	virtual int getAge() = 0;
+	~Person();
+protected:
+	string name;
+	int age;
+};
+
+
+class Student : public Person
+{
+public:
+	Student();
+	Student(string _name, int _age);
+	virtual int getAge() override;
+	~Student();
+};
+
+
+class Teacher : public Person
+{
+public:
+	Teacher();
+	Teacher(string _name, int _age);
+	virtual int getAge() override;
+	~Teacher();
+};
+
+
 
 
