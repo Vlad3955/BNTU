@@ -214,9 +214,37 @@ int main()
 	//=====================================================================================
 	//=====================================================================================
 	// LabWork 1 
-	Student student("Ivan Ivanov", 17);
+	/*Student student("Ivan Ivanov", 17);
 	cout << "Student's name: " << student.getName() << " age: " << student.getAge() << endl;
 	Teacher teacher("Sergey Sergeev", 37);
-	cout << "Teacher's name: " << teacher.getName() << " age: " << teacher.getAge() << endl;
+	cout << "Teacher's name: " << teacher.getName() << " age: " << teacher.getAge() << endl;*/
+
+	//=====================================================================================
+	//=====================================================================================
+	// LabWork 2
+	const int N = 256;
+	char line[N];
+	cin.getline(line, N);
+
+	map<string, int> dictionary;
+#pragma warning(disable : 4996)
+	for (char* p = strtok(line, " -.,/!?"); p != nullptr; p = strtok(nullptr, " -.,/!?"))
+	{
+		string word(p);
+		auto it = dictionary.find(word);
+		if (it != dictionary.end())
+		{
+			++it->second;
+		}
+		else
+		{
+			dictionary.emplace_hint(it, move(word), 1);
+		}
+	}
+
+	for (auto& iter : dictionary)
+	{
+		cout << iter.first << "\t" << iter.second << '\n';
+	}
 	return 0;
 }
