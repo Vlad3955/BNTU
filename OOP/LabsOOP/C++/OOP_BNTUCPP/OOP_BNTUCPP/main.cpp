@@ -186,9 +186,7 @@ int main()
 		cout << Minsk2->getDestination();
 	}*/
 
-	/*int h = 9;
-	double df = 30.417;
-	cout << static_cast<int>(h * df);*/
+	
 
 	// LabWork3
 	/*BankSystem customers;
@@ -222,12 +220,12 @@ int main()
 	//=====================================================================================
 	//=====================================================================================
 	// LabWork 2
-	const int N = 256;
+	/*const int N = 256;
 	char line[N];
 	cin.getline(line, N);
 
 	map<string, int> dictionary;
-#pragma warning(disable : 4996)
+    #pragma warning(disable : 4996)
 	for (char* p = strtok(line, " -.,/!?"); p != nullptr; p = strtok(nullptr, " -.,/!?"))
 	{
 		string word(p);
@@ -245,6 +243,6 @@ int main()
 	for (auto& iter : dictionary)
 	{
 		cout << iter.first << "\t" << iter.second << '\n';
-	}
+	}*/
 	return 0;
 }
