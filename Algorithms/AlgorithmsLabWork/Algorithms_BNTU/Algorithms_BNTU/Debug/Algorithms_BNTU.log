@@ -1,0 +1,3 @@
+﻿  Algorithms.cpp
+D:\GB\BNTU\BNTU\Algorithms\AlgorithmsLabWork\Algorithms_BNTU\Algorithms_BNTU\Algorithms.cpp(18,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  Algorithms_BNTU.vcxproj -> D:\GB\BNTU\BNTU\Algorithms\AlgorithmsLabWork\Algorithms_BNTU\Debug\Algorithms_BNTU.exe
