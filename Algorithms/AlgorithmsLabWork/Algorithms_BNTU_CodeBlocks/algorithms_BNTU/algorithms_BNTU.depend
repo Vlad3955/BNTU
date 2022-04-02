@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1648887253 source:d:\bntu\bntu\algorithms\algorithmslabwork\algorithms_bntu_codeblocks\algorithms_bntu\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<time.h>
+	<locale.h>
+	<math.h>
+

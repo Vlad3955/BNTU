@@ -209,7 +209,7 @@ void qsf(int* arr, int first, int last)
 //    }
 //}
 //
-//// BUCKETSORT2
+// BUCKETSORT2
 //void bucketSort2(int* arr, int len)
 //{
 //    const int max = len;
