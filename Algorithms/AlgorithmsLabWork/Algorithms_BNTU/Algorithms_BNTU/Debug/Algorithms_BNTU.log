@@ -1,3 +1,4 @@
 ﻿  Algorithms.cpp
-D:\BNTU\BNTU\Algorithms\AlgorithmsLabWork\Algorithms_BNTU\Algorithms_BNTU\Algorithms.cpp(18,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-  Algorithms_BNTU.vcxproj -> D:\BNTU\BNTU\Algorithms\AlgorithmsLabWork\Algorithms_BNTU\Debug\Algorithms_BNTU.exe
+C:\BNTURep\BNTU\Algorithms\AlgorithmsLabWork\Algorithms_BNTU\Algorithms_BNTU\Algorithms.cpp(20,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\BNTURep\BNTU\Algorithms\AlgorithmsLabWork\Algorithms_BNTU\Algorithms_BNTU\Algorithms.cpp(329,9): warning C4101: arr2d: неиспользованная локальная переменная
+  Algorithms_BNTU.vcxproj -> C:\BNTURep\BNTU\Algorithms\AlgorithmsLabWork\Algorithms_BNTU\Debug\Algorithms_BNTU.exe

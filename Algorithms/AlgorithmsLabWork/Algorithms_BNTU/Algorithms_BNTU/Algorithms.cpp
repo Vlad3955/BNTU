@@ -1,10 +1,12 @@
-﻿#include <stdio.h>
+﻿#include <iostream>
+#include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include <time.h>
 #include <locale.h>
 #include <math.h>
 
+using namespace std;
 
 void swapInt(int* a, int* b) {
     int t = *a;
@@ -254,16 +256,99 @@ void qsf(int* arr, int first, int last)
 int main()
 {
     setlocale(LC_ALL, "rus");
+    const int SZ = 5;
+    float arrFloat[SZ];
+    /*for (int i = 0; i < SZ; ++i)
+    {
+        cout << arrFloat[i] << endl;
+    }
+    for (int i = 0; i < SZ; ++i)
+    {
+        cin >> arrFloat[i];
+    }
+    cout << endl;*/
+    /*for (int i = 0; i < SZ; ++i)
+    {
+        cout << arrFloat[i] << endl;
+    }*/
 
-    const int SZ = 12;
+    float* pArrFloat = arrFloat;
+    /* cout << arrFloat << endl;
+     cout << &pArrFloat << endl;*/
+     /*for (int i = 0; i < SZ; ++i)
+     {
+         cout << pArrFloat[i] << endl;
+     }*/
+    char arrChar[SZ];
+    char* pArrChar = arrChar;
+    /*for (int i = 0; i < SZ; ++i)
+    {
+        cout << arrChar[i] << endl;
+    }
+    for (int i = 0; i < SZ; ++i)
+    {
+        cin >> arrChar[i];
+    }
+    cout << endl;
+    for (int i = 0; i < SZ; ++i)
+    {
+        cout << arrChar[i] << endl;
+    }*/
+    pArrFloat = new float[SZ];
+    /*for (int i = 0; i < SZ; ++i)
+    {
+        cout << pArrFloat[i] << endl;
+    }
+    for (int i = 0; i < SZ; ++i)
+    {
+        cin >> pArrFloat[i];
+    }
+    cout << endl;
+    for (int i = 0; i < SZ; i++)
+    {
+        cout << pArrFloat[i] << endl;
+    }*/
+    delete[] pArrFloat;
+    pArrChar = new char[SZ];
+    /*for (int i = 0; i < SZ; ++i)
+    {
+        cin >> pArrChar[i];
+    }
+    cout << endl;
+    for (int i = 0; i < SZ; i++)
+    {
+        cout << pArrChar[i] << endl;
+    }*/
+    delete[] pArrChar;
+    int arr3d[2][2][1] = {
+        {{1}, {2}},
+        {{3}, {4}}
+    };
+    //cout << arr3d[0][1][1] << endl;
+    //cout << *arr3d[0] << endl;
+    int arr2d[SZ][SZ];
+    /*for(int i = 0;i < 2; ++i)
+    {
+        for(int j = 0;j < 2; ++j)
+        {
+            printf("%d ", arr2d[i][j]);
+        }
+        printf("\n");
+    }*/
+    int*** pArr2d = &arr3d[0][1][1];
+    //pArr2d = &arr3d[0][1][1];
+    cout << **pArr2d << endl;
+
+
+    //const int SZ = 12;
     //int arr[SZ] = {5, 4, 3, 2, 1};
-    int arr[SZ];
-    fillIntRandom(arr, SZ, 100);
-    printIntArray(arr, SZ, 3);
+    //int arr[SZ];
+    //fillIntRandom(arr, SZ, 100);
+    //printIntArray(arr, SZ, 3);
     //sortInserts(arr, SZ);
-    qsf(arr, 0, SZ - 1);
+    //qsf(arr, 0, SZ - 1);
    // bucketSort(arr, SZ);
-    printIntArray(arr, SZ, 3);
+    //printIntArray(arr, SZ, 3);
 
     return 0;
 }
