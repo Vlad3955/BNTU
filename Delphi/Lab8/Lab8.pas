@@ -78,15 +78,15 @@ begin
 
 
 
-  Chart1.BottomAxis.Automatic := False;
-  Chart1.BottomAxis.Minimum := Xmin;
-  Chart1.BottomAxis.Maximum := Xmax;
+  //Chart1.BottomAxis.Automatic := False;
+  //Chart1.BottomAxis.Minimum := Xmin;
+  //Chart1.BottomAxis.Maximum := Xmax;
 
-  Chart1.LeftAxis.Automatic := False;
-  Chart1.LeftAxis.Minimum   := Ymin;
-  Chart1.LeftAxis.Maximum   := Ymax;
-  Chart1.BottomAxis.Increment := Hx;
-  Chart1.LeftAxis.Increment   := Hy;
+  //Chart1.LeftAxis.Automatic := False;
+  //Chart1.LeftAxis.Minimum   := Ymin;
+  //Chart1.LeftAxis.Maximum   := Ymax;
+  //Chart1.BottomAxis.Increment := Hx;
+  //Chart1.LeftAxis.Increment   := Hy;
 end;
 
 

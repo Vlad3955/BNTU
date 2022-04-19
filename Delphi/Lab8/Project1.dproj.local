@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>1899.12.30 00:00:00.000.517,F:\DelphiProjects\Lab8.pas=F:\DelphiProjects\Unit1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.011,=F:\DelphiProjects\Unit1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.496,=F:\DelphiProjects\Unit1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.744,F:\DelphiProjects\Project1.dproj=F:\DelphiProjects\Project1.dproj</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.517,F:\DelphiProjects\Lab8.dfm=F:\DelphiProjects\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.517,F:\DelphiProjects\Unit1.dfm=F:\DelphiProjects\Lab8.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.496,=F:\DelphiProjects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.011,=F:\DelphiProjects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.517,F:\DelphiProjects\Unit1.pas=F:\DelphiProjects\Lab8.pas</Transaction>
   </Transactions>
 </BorlandProject>
