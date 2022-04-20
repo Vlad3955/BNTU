@@ -19,6 +19,7 @@ type
     Edit1: TEdit;
     Edit2: TEdit;
     Edit3: TEdit;
+    procedure Button1Click(Sender: TObject);
 
   private
     { Private declarations }
@@ -34,5 +35,22 @@ implementation
 {$R *.dfm}
 
 
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  sum: double;
+begin
+  sum := 0;
+  if cbxProduct1.Checked then
+    sum := sum + StrToFloat(Edit1.Text);
+
+  if cbxProduct2.Checked then
+    sum := sum + StrToFloat(Edit2.Text);
+
+  if cbxProduct3.Checked then
+    sum := sum + StrToFloat(Edit3.Text);
+
+  eTotal.Text	:= FloatToStr(sum);
+end;
 
 end.

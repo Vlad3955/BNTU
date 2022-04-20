@@ -3,7 +3,7 @@ object Form1: TForm1
   Top = 0
   Caption = 'Calculator'
   ClientHeight = 369
-  ClientWidth = 493
+  ClientWidth = 186
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -511,17 +511,18 @@ object Form1: TForm1
     ParentFont = False
   end
   object Button1: TButton
-    Left = 158
+    Left = 102
     Top = 336
     Width = 75
     Height = 25
     Caption = 'Calculate'
     TabOrder = 0
+    OnClick = Button1Click
   end
   object eTotal: TEdit
-    Left = 112
+    Left = 87
     Top = 293
-    Width = 121
+    Width = 90
     Height = 23
     TabOrder = 1
     Text = '0'
@@ -551,25 +552,25 @@ object Form1: TForm1
     TabOrder = 4
   end
   object Edit1: TEdit
-    Left = 111
+    Left = 87
     Top = 157
-    Width = 121
+    Width = 90
     Height = 23
     TabOrder = 5
     Text = '0'
   end
   object Edit2: TEdit
-    Left = 111
+    Left = 87
     Top = 202
-    Width = 121
+    Width = 90
     Height = 23
     TabOrder = 6
     Text = '0'
   end
   object Edit3: TEdit
-    Left = 111
+    Left = 87
     Top = 247
-    Width = 121
+    Width = 90
     Height = 23
     TabOrder = 7
     Text = '0'
