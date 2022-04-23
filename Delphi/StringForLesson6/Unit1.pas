@@ -10,13 +10,13 @@ type
   TForm1 = class(TForm)
     ePhone: TEdit;
     Label1: TLabel;
-    Button1: TButton;
-    mPhones: TMemo;
+    bAddPhone: TButton;
+    mTruePhones: TMemo;
     Label2: TLabel;
     mPhoneList: TMemo;
-    Button2: TButton;
-    procedure Button1Click(Sender: TObject);
-    procedure Button2Click(Sender: TObject);
+    bAddPhonesList: TButton;
+    procedure bAddPhoneClick(Sender: TObject);
+    procedure bAddPhonesListClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -30,7 +30,7 @@ implementation
 
 {$R *.dfm}
 
-procedure TForm1.Button1Click(Sender: TObject);
+procedure TForm1.bAddPhoneClick(Sender: TObject);
 var
   s: string;
 begin
@@ -40,10 +40,10 @@ begin
     Showmessage('False');
     Exit;
   end;
-  mPhones.Lines.Add(s);
+  mTruePhones.Lines.Add(s);
 end;
 
-procedure TForm1.Button2Click(Sender: TObject);
+procedure TForm1.bAddPhonesListClick(Sender: TObject);
 var
   s, s2: string;
   numString, numSymbol: integer;
@@ -61,7 +61,7 @@ begin
 
     if (Length(s2) >= 2) and (s2[1] = '+') and (s2[2] = '3') then
     begin
-      mPhones.Lines.Add(s2);
+      mTruePhones.Lines.Add(s2);
     end;
   end;
 end;

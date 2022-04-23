@@ -26,7 +26,7 @@ object Form1: TForm1
     Height = 15
     Caption = 'Result'
   end
-  object Edit1: TEdit
+  object eSearchField: TEdit
     Left = 24
     Top = 29
     Width = 121
@@ -47,6 +47,7 @@ object Form1: TForm1
     Height = 25
     Caption = 'Search'
     TabOrder = 2
+    OnClick = bSearchClick
   end
   object mPhonesAfterSearch: TMemo
     Left = 368
@@ -62,5 +63,6 @@ object Form1: TForm1
     Height = 25
     Caption = 'Clear'
     TabOrder = 4
+    OnClick = bClearClick
   end
 end

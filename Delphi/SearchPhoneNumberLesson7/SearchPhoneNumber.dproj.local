@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-  <Transactions>
-    <Transaction>2022.04.21 19:03:32.982,=C:\Users\Operators Team\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2022.04.21 19:03:56.695,D:\GB\BNTU\BNTU\Delphi\SearchPhoneNumberLesson7\Unit1.dfm=C:\Users\Operators Team\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
-    <Transaction>2022.04.21 19:03:56.695,D:\GB\BNTU\BNTU\Delphi\SearchPhoneNumberLesson7\Unit1.pas=C:\Users\Operators Team\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2022.04.21 19:04:25.732,D:\GB\BNTU\BNTU\Delphi\SearchPhoneNumberLesson7\SearchPhoneNumber.dproj=C:\Users\Operators Team\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.695,C:\Users\Operators Team\Documents\Embarcadero\Studio\Projects\Unit1.pas=D:\GB\BNTU\BNTU\Delphi\SearchPhoneNumberLesson7\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.982,=C:\Users\Operators Team\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.695,C:\Users\Operators Team\Documents\Embarcadero\Studio\Projects\Unit1.dfm=D:\GB\BNTU\BNTU\Delphi\SearchPhoneNumberLesson7\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.732,C:\Users\Operators Team\Documents\Embarcadero\Studio\Projects\Project1.dproj=D:\GB\BNTU\BNTU\Delphi\SearchPhoneNumberLesson7\SearchPhoneNumber.dproj</Transaction>
   </Transactions>
 </BorlandProject>

@@ -33,16 +33,16 @@ object Form1: TForm1
     Height = 23
     TabOrder = 0
   end
-  object Button1: TButton
+  object bAddPhone: TButton
     Left = 54
     Top = 64
     Width = 75
     Height = 25
     Caption = 'Add'
     TabOrder = 1
-    OnClick = Button1Click
+    OnClick = bAddPhoneClick
   end
-  object mPhones: TMemo
+  object mTruePhones: TMemo
     Left = 344
     Top = 24
     Width = 272
@@ -51,18 +51,18 @@ object Form1: TForm1
   end
   object mPhoneList: TMemo
     Left = 8
-    Top = 104
+    Top = 113
     Width = 217
     Height = 265
     TabOrder = 3
   end
-  object Button2: TButton
+  object bAddPhonesList: TButton
     Left = 120
     Top = 384
     Width = 105
     Height = 25
     Caption = 'Add phones list'
     TabOrder = 4
-    OnClick = Button2Click
+    OnClick = bAddPhonesListClick
   end
 end
