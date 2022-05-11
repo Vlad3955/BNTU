@@ -70,8 +70,6 @@ object Form1: TForm1
     Top = 152
     Width = 401
     Height = 233
-    Lines.Strings = (
-      'Memo1')
     TabOrder = 0
   end
   object Edit1: TEdit

@@ -38,7 +38,7 @@ begin
 Edit1.Text:='0,1';
 Edit2.Text:='1';
 Edit3.Text:='14';
-Edit4.Text:=FloatToStr((1-0.1)/14);
+Edit4.Text:=FloatToStrF((1-0.1)/14, ffFixed,5,3);//F в конце названия функции и ffFixed,5,3 количество символов до и после запятой
 Memo1.Clear;
 Memo1.Lines.Add('Результаты ст. гр. 41703120 Реут В.Л.');
 
@@ -62,7 +62,7 @@ Begin
   n:=StrToInt(edit3.Text);
   Memo1.Lines.Add('N = ' + Edit3.Text);
   h:=(Xk-Xn)/n;
-  edit4.Text:=FloatToStr(h);
+  edit4.Text:=FloatToStrF(h, ffFixed,5,3);
   Memo1.Lines.Add('H = ' + Edit4.Text);
   x:=Xn;
   Repeat
@@ -82,8 +82,8 @@ Begin
     Y:=(1+2*Yy)*exp(Yy);
 
     Memo1.Lines.Add('Пpи x = ' + FloatToStrF(x, ffFixed,5,3)+
-    '   S = ' + FloatToStrF(S, ffFixed,12,10)+ '    Y = '+
-    FloatToStrF(Y, ffFixed,12,10));
+    '   S = ' + FloatToStrF(S, ffFixed,5,3)+ '    Y = '+
+    FloatToStrF(Y, ffFixed,5,3));
 
     x:=x+h;
   Until x>Xk;
