@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.StdCtrls, Vcl.ExtCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.StdCtrls, Vcl.ExtCtrls, IniFiles;
 
 type
   TForm1 = class(TForm)
@@ -36,10 +36,13 @@ type
     procedure SearchandReplace1Click(Sender: TObject);
     procedure bCloseClick(Sender: TObject);
     procedure bReplaceClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   private
     { Private declarations }
   public
-    { Public declarations }
+
+    Ini: TIniFile;
   end;
 
 var
@@ -58,21 +61,58 @@ procedure TForm1.bReplaceClick(Sender: TObject);
 var count, k: integer;
     txt: string;
 begin
+  count := 0;
   txt := Memo.Text;
   k := Pos(eFind.Text, txt);
+  while k > 0 do
+  begin
+    Delete(txt, k, Length(eFind.Text));
+    Insert(eReplace.Text, txt, k);
+    count := count + 1;
+    k := Pos(eFind.Text, txt);
+  end;
+  if count > 0 then
+  begin
+    Memo.Text := txt;
+    ShowMessage('Text rsplaces ' + IntToStr(count) + ' times.')
+  end;
 end;
 
 procedure TForm1.Font1Click(Sender: TObject);
 begin
   if FontDialog.Execute()	then
+  begin
     Memo.Font := FontDialog.Font;
-
+    Ini.WriteString('Main', 'FontFamily', Memo.Font.Name);
+    Ini.WriteInteger('Main', 'FontSize', Memo.Font.Size);
+    Ini.WriteInteger('Main', 'FontColor', Memo.Font.Color);
+  end;
 end;
 
 procedure TForm1.Font2Click(Sender: TObject);
 begin
   if ColorDialog.Execute() then
+  begin
     Memo.Color := ColorDialog.Color;
+    Ini.WriteInteger('Main', 'Color', Memo.Color);
+  end;
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+var
+  str: string;
+begin
+  str := ExtractFileDir(Application.ExeName) + '\config.ini';
+  Ini := TIniFile.Create(str);
+  Memo.Font.Name := Ini.ReadString('Main', 'FontFamily', Memo.Font.Name);
+  Memo.Font.Size := Ini.ReadInteger('Main', 'FontSize', Memo.Font.Size);
+  Memo.Font.Color := Ini.ReadInteger('Main', 'FontColor', Memo.Font.Color);
+  Memo.Color := Ini.ReadInteger('Main', 'Color', Memo.Color);
+end;
+
+procedure TForm1.FormDestroy(Sender: TObject);
+begin
+  Ini.Free;
 end;
 
 procedure TForm1.Open1Click(Sender: TObject);

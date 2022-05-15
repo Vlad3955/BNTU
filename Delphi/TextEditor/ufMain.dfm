@@ -11,6 +11,8 @@ object Form1: TForm1
   Font.Name = 'Segoe UI'
   Font.Style = []
   Menu = MainMenu
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 15
   object Memo: TMemo
@@ -21,7 +23,6 @@ object Form1: TForm1
     Align = alClient
     ScrollBars = ssBoth
     TabOrder = 0
-    ExplicitWidth = 624
   end
   object pReplace: TPanel
     AlignWithMargins = True
@@ -37,8 +38,6 @@ object Form1: TForm1
     BevelOuter = bvNone
     TabOrder = 1
     Visible = False
-    ExplicitLeft = 442
-    ExplicitTop = -5
     object Label1: TLabel
       Left = 8
       Top = 1
