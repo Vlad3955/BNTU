@@ -11,6 +11,7 @@ object fTicket: TfTicket
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poOwnerFormCenter
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 15
   object pBottom: TPanel
@@ -22,15 +23,13 @@ object fTicket: TfTicket
     BevelInner = bvRaised
     BevelOuter = bvLowered
     TabOrder = 0
-    ExplicitLeft = 498
-    ExplicitTop = 0
-    ExplicitWidth = 409
-    object Button1: TButton
+    object bOk: TButton
       Left = 16
       Top = 6
       Width = 75
       Height = 25
       Caption = 'Ok'
+      ModalResult = 1
       TabOrder = 0
     end
     object Button2: TButton
@@ -39,6 +38,7 @@ object fTicket: TfTicket
       Width = 75
       Height = 25
       Caption = 'Cancel'
+      ModalResult = 2
       TabOrder = 1
     end
   end
@@ -51,9 +51,6 @@ object fTicket: TfTicket
     BevelInner = bvRaised
     BevelOuter = bvLowered
     TabOrder = 1
-    ExplicitTop = -6
-    ExplicitWidth = 539
-    ExplicitHeight = 368
     object Label1: TLabel
       Left = 8
       Top = 16

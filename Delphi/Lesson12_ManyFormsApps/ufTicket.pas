@@ -12,8 +12,9 @@ type
     Panel1: TPanel;
     eTicketNumber: TEdit;
     Label1: TLabel;
-    Button1: TButton;
+    bOk: TButton;
     Button2: TButton;
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -26,5 +27,11 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TfTicket.FormShow(Sender: TObject);
+begin
+  eTicketNumber.Text := '';
+  eTicketNumber.SetFocus;
+end;
 
 end.

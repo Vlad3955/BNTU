@@ -27,8 +27,17 @@ implementation
 {$R *.dfm}
 
 procedure TfMain.bAddTicketClick(Sender: TObject);
+var
+  s: String;
+  res: Integer;
 begin
-  fTicket.ShowModal;
+  res := fTicket.ShowModal;
+  if res = mrOk then
+  begin
+  s := fTicket.eTicketNumber.Text;
+  if s <> '' then
+    lbTickets.Items.Add(s);
+  end;
 end;
 
 end.

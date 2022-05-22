@@ -34,9 +34,6 @@ object fMain: TfMain
     BevelInner = bvRaised
     BevelOuter = bvLowered
     TabOrder = 0
-    ExplicitLeft = 8
-    ExplicitTop = 8
-    ExplicitWidth = 185
   end
   object lbTickets: TListBox
     Left = 0
@@ -46,10 +43,6 @@ object fMain: TfMain
     Align = alClient
     ItemHeight = 15
     TabOrder = 1
-    ExplicitLeft = 264
-    ExplicitTop = 192
-    ExplicitWidth = 121
-    ExplicitHeight = 97
   end
   object bAddTicket: TButton
     Left = 8
