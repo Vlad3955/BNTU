@@ -33,6 +33,11 @@ type
     procedure RadioGroup1Click(Sender: TObject);
     procedure CheckBox1Click(Sender: TObject);
     procedure CheckBox2Click(Sender: TObject);
+    procedure CheckBox3Click(Sender: TObject);
+    procedure Edit1Change(Sender: TObject);
+    procedure Edit2Change(Sender: TObject);
+    procedure Edit3Change(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -43,6 +48,8 @@ var
   Form2: TForm2;
 
 implementation
+
+uses LabWork9;
 
 {$R *.dfm}
 
@@ -116,6 +123,48 @@ begin
     ScrollBar2.Enabled := false;
     Edit2.Enabled := false;
   end;
+end;
+
+procedure TForm2.CheckBox3Click(Sender: TObject);
+begin
+  if CheckBox3.Checked then
+  begin
+    ScrollBar3.Enabled := true;
+    Edit3.Enabled := true;
+  end
+  else
+  begin
+    ScrollBar3.Enabled := false;
+    Edit3.Enabled := false;
+  end;
+end;
+
+procedure TForm2.Edit1Change(Sender: TObject);
+begin
+  ScrollBar1.Position := StrToInt(Edit1.Text);
+  Panel3.Color := RGB(Scrollbar1.Position,0,0);
+  Panel6.Color := RGB(Scrollbar1.Position,Scrollbar2.Position,Scrollbar3.Position);
+end;
+
+procedure TForm2.Edit2Change(Sender: TObject);
+begin
+  ScrollBar2.Position := StrToInt(Edit2.Text);
+  Panel4.Color := RGB(0, Scrollbar2.Position, 0);
+  Panel6.Color := RGB(Scrollbar1.Position,Scrollbar2.Position,Scrollbar3.Position);
+end;
+
+procedure TForm2.Edit3Change(Sender: TObject);
+begin
+  ScrollBar3.Position := StrToInt(Edit3.Text);
+  Panel5.Color := RGB(0, 0, Scrollbar3.Position);
+  Panel6.Color := RGB(Scrollbar1.Position,Scrollbar2.Position,Scrollbar3.Position);
+end;
+
+procedure TForm2.Button1Click(Sender: TObject);
+begin
+  Form1.ColorChange(Panel6.Color);
+  Form2.Visible := False;
+
 end;
 
 end.

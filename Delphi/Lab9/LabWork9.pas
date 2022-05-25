@@ -18,14 +18,16 @@ type
     Label3: TLabel;
     Label2: TLabel;
     Label1: TLabel;
+    Button3: TButton;
 
     Procedure FormCreate(Sender: TObject);
     Procedure Button1Click(Sender: TObject);
     Procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
   private
     { Private declarations }
   public
-    { Public declarations }
+    procedure ColorChange(color: TColor);
   end;
 
   type
@@ -38,7 +40,12 @@ implementation
 
 {$R *.dfm}
 
-  procedure TForm1.FormCreate(Sender: TObject);
+procedure TForm1.ColorChange(color: TColor);
+begin
+  Memo1.Font.Color := color;
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
 begin
   Edit1.Text := '0';
   Edit2.Text := '2';
@@ -78,6 +85,11 @@ end;
 procedure TForm1.Button2Click(Sender: TObject);
 begin
   Halt; //Завершение приложения
+end;
+
+procedure TForm1.Button3Click(Sender: TObject);
+begin
+  Form2.Visible := true;
 end;
 
 end.

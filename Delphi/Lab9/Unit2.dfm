@@ -2,7 +2,7 @@ object Form2: TForm2
   Left = 0
   Top = 0
   Caption = 'Form2'
-  ClientHeight = 348
+  ClientHeight = 346
   ClientWidth = 483
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -21,30 +21,33 @@ object Form2: TForm2
     TabOrder = 0
     object ScrollBar1: TScrollBar
       Left = 16
-      Top = 48
+      Top = 45
       Width = 49
-      Height = 191
+      Height = 196
       Kind = sbVertical
+      Max = 255
       PageSize = 0
       TabOrder = 0
       OnChange = ScrollBar1Change
     end
     object ScrollBar2: TScrollBar
       Left = 88
-      Top = 48
+      Top = 45
       Width = 49
-      Height = 191
+      Height = 196
       Kind = sbVertical
+      Max = 255
       PageSize = 0
       TabOrder = 1
       OnChange = ScrollBar2Change
     end
     object ScrollBar3: TScrollBar
       Left = 168
-      Top = 48
+      Top = 45
       Width = 49
-      Height = 191
+      Height = 196
       Kind = sbVertical
+      Max = 255
       PageSize = 0
       TabOrder = 2
       OnChange = ScrollBar3Change
@@ -53,22 +56,25 @@ object Form2: TForm2
       Left = 16
       Top = 16
       Width = 49
-      Height = 26
+      Height = 23
       TabOrder = 3
+      OnChange = Edit1Change
     end
     object Edit2: TEdit
       Left = 88
       Top = 16
       Width = 49
-      Height = 26
+      Height = 23
       TabOrder = 4
+      OnChange = Edit2Change
     end
     object Edit3: TEdit
       Left = 168
       Top = 16
       Width = 49
-      Height = 26
+      Height = 23
       TabOrder = 5
+      OnChange = Edit3Change
     end
   end
   object Panel2: TPanel
@@ -83,11 +89,11 @@ object Form2: TForm2
       Width = 49
       Height = 41
       Caption = 'R'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clRed
-      Font.Height = -12
-      Font.Name = 'Segoe UI'
-      Font.Style = []
+      Font.Charset = RUSSIAN_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Segoe UI Black'
+      Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 0
     end
@@ -97,11 +103,11 @@ object Form2: TForm2
       Width = 49
       Height = 41
       Caption = 'G'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clGreen
-      Font.Height = -12
-      Font.Name = 'Segoe UI'
-      Font.Style = []
+      Font.Charset = RUSSIAN_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Segoe UI Black'
+      Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 1
     end
@@ -111,11 +117,11 @@ object Form2: TForm2
       Width = 49
       Height = 41
       Caption = 'B'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clAqua
-      Font.Height = -12
-      Font.Name = 'Segoe UI'
-      Font.Style = []
+      Font.Charset = RUSSIAN_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Segoe UI Black'
+      Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 2
     end
@@ -152,6 +158,7 @@ object Form2: TForm2
       Height = 17
       Caption = 'Blue'
       TabOrder = 2
+      OnClick = CheckBox3Click
     end
   end
   object Panel6: TPanel
@@ -180,5 +187,6 @@ object Form2: TForm2
     Height = 25
     Caption = #1042#1099#1087#1086#1083#1085#1080#1090#1100
     TabOrder = 5
+    OnClick = Button1Click
   end
 end
