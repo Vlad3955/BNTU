@@ -93,7 +93,8 @@ end;
 
 procedure TForm1.Button1Click(Sender: TObject);
  var
-  x,y,z,y1,a,b,c:extended;
+  //x,y,z,y1,a,b,c:extended;
+  x,y1,a,b,c:extended;
 begin
   Series1.Clear;
   Xmin:=StrToFloat(Edit1.Text);
