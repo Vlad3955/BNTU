@@ -7,23 +7,14 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Menus,
   Vcl.Imaging.jpeg, math, VclTee.TeeGDIPlus, VCLTee.TeEngine, VCLTee.Series,
   VCLTee.TeeProcs, VCLTee.Chart, Vcl.Buttons, Vcl.ComCtrls, Vcl.ToolWin,
-  System.ImageList, Vcl.ImgList;
+  System.ImageList, Vcl.ImgList, Unit2, Unit3, Unit4, Unit5, Unit6, Unit7, Unit8, Unit9, Unit10;
 
 type
   TForm1 = class(TForm)
     Chart1: TChart;
     Series1: TLineSeries;
     Series2: TLineSeries;
-    Edit9: TEdit;
     BitBtn1: TBitBtn;
-    Edit8: TEdit;
-    Edit7: TEdit;
-    Edit6: TEdit;
-    Edit5: TEdit;
-    Edit4: TEdit;
-    Edit3: TEdit;
-    Edit2: TEdit;
-    Edit1: TEdit;
     Button1: TButton;
     Label9: TLabel;
     Label8: TLabel;
@@ -35,19 +26,37 @@ type
     Label2: TLabel;
     Label1: TLabel;
     ToolBar1: TToolBar;
-    ToolButton1: TToolButton;
-    ToolButton2: TToolButton;
-    ToolButton3: TToolButton;
-    ToolButton4: TToolButton;
-    ToolButton6: TToolButton;
-    ToolButton5: TToolButton;
+    bXmin: TToolButton;
+    bXmax: TToolButton;
+    bYmin: TToolButton;
+    bYmax: TToolButton;
+    bY: TToolButton;
+    bZ: TToolButton;
     ToolButton7: TToolButton;
-    ToolButton8: TToolButton;
-    ToolButton9: TToolButton;
-    ToolButton10: TToolButton;
+    bStepX: TToolButton;
+    bStepY: TToolButton;
+    bH: TToolButton;
     ImageList1: TImageList;
+    Label10: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    Label13: TLabel;
+    Label14: TLabel;
+    Label15: TLabel;
+    Label16: TLabel;
+    Label17: TLabel;
+    Label18: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure bXminClick(Sender: TObject);
+    procedure bXmaxClick(Sender: TObject);
+    procedure bYminClick(Sender: TObject);
+    procedure bYmaxClick(Sender: TObject);
+    procedure bYClick(Sender: TObject);
+    procedure bZClick(Sender: TObject);
+    procedure bStepXClick(Sender: TObject);
+    procedure bStepYClick(Sender: TObject);
+    procedure bHClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -63,6 +72,36 @@ implementation
 
 {$R *.dfm}
 
+procedure TForm1.bXmaxClick(Sender: TObject);
+begin
+  Form3.Visible := True;
+end;
+
+procedure TForm1.bXminClick(Sender: TObject);
+begin
+  Form2.Visible := True;
+end;
+
+procedure TForm1.bYClick(Sender: TObject);
+begin
+  Form6.Visible := True;
+end;
+
+procedure TForm1.bYmaxClick(Sender: TObject);
+begin
+  Form5.Visible := True;
+end;
+
+procedure TForm1.bYminClick(Sender: TObject);
+begin
+  Form4.Visible := True;
+end;
+
+procedure TForm1.bZClick(Sender: TObject);
+begin
+  Form7.Visible := True;
+end;
+
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   Xmin:=-5;
@@ -74,15 +113,32 @@ begin
   Hx:=0.5;
   Hy:=0.5;
   h:=0.0001;
-  Edit1.Text:=FloatToStr(Xmin);
-  Edit2.Text:=FloatToStr(Xmax);
-  Edit3.Text:=FloatToStr(Ymin);
-  Edit4.Text:=FloatToStr(Ymax);
-  Edit5.Text:=FloatToStr(Hx);
-  Edit6.Text:=FloatToStr(Hy);
-  Edit7.Text:=FloatToStr(h);
-  Edit8.Text:=FloatToStr(y);
-  Edit9.Text:=FloatToStr(z);
+
+  Label10.Caption := '-5';
+  Label11.Caption := '5';
+  Label12.Caption := '-1';
+  Label13.Caption := '1';
+  Label14.Caption := '2';
+  Label15.Caption := '0.5';
+  Label16.Caption := '0.5';
+  Label17.Caption := '1';
+  Label18.Caption := '0.0001';
+  Button1Click(Sender);
+end;
+
+procedure TForm1.bHClick(Sender: TObject);
+begin
+  Form10.Visible := True;
+end;
+
+procedure TForm1.bStepXClick(Sender: TObject);
+begin
+  Form8.Visible := True;
+end;
+
+procedure TForm1.bStepYClick(Sender: TObject);
+begin
+  Form9.Visible := True;
 end;
 
 procedure TForm1.Button1Click(Sender: TObject);
@@ -90,11 +146,6 @@ var
   x,y1,a,b,c:extended;
 begin
   Series1.Clear;
-  Xmin:=StrToFloat(Edit1.Text);
-  Xmax:=StrToFloat(Edit2.Text);
-  y:=StrToFloat(Edit8.Text);
-  z:=StrToFloat(Edit9.Text) ;
-  h:=StrToFloat(Edit7.Text);
   x:=Xmin;
   Chart1.BottomAxis.Automatic := False;
   Chart1.BottomAxis.Minimum := Xmin;

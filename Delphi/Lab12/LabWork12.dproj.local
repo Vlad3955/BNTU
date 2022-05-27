@@ -1,9 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-  <Transactions>
-    <Transaction>2022.05.26 13:59:48.916,=C:\Users\Operators Team\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2022.05.26 14:00:10.036,D:\GB\BNTU\BNTU\Delphi\Lab12\Unit1.dfm=C:\Users\Operators Team\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
-    <Transaction>2022.05.26 14:00:10.036,D:\GB\BNTU\BNTU\Delphi\Lab12\Unit1.pas=C:\Users\Operators Team\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2022.05.26 14:00:27.199,D:\GB\BNTU\BNTU\Delphi\Lab12\LabWork12.dproj=C:\Users\Operators Team\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.036,C:\Users\Operators Team\Documents\Embarcadero\Studio\Projects\Unit1.dfm=D:\GB\BNTU\BNTU\Delphi\Lab12\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.199,C:\Users\Operators Team\Documents\Embarcadero\Studio\Projects\Project1.dproj=D:\GB\BNTU\BNTU\Delphi\Lab12\LabWork12.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.916,=C:\Users\Operators Team\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.036,C:\Users\Operators Team\Documents\Embarcadero\Studio\Projects\Unit1.pas=D:\GB\BNTU\BNTU\Delphi\Lab12\Unit1.pas</Transaction>
+    <Transaction>2022.05.27 12:50:05.065,=D:\GB\BNTU\BNTU\Delphi\Lab12\Unit2.pas</Transaction>
+    <Transaction>2022.05.27 13:15:23.830,=D:\GB\BNTU\BNTU\Delphi\Lab12\Unit3.pas</Transaction>
+    <Transaction>2022.05.27 13:25:47.705,=D:\GB\BNTU\BNTU\Delphi\Lab12\Unit4.pas</Transaction>
+    <Transaction>2022.05.27 13:43:07.491,=D:\GB\BNTU\BNTU\Delphi\Lab12\Unit5.pas</Transaction>
+    <Transaction>2022.05.27 13:47:55.943,=D:\GB\BNTU\BNTU\Delphi\Lab12\Unit6.pas</Transaction>
+    <Transaction>2022.05.27 13:54:02.725,=D:\GB\BNTU\BNTU\Delphi\Lab12\Unit7.pas</Transaction>
+    <Transaction>2022.05.27 14:16:24.130,=D:\GB\BNTU\BNTU\Delphi\Lab12\Unit8.pas</Transaction>
+    <Transaction>2022.05.27 14:34:25.598,=D:\GB\BNTU\BNTU\Delphi\Lab12\Unit9.pas</Transaction>
+    <Transaction>2022.05.27 14:40:08.390,=D:\GB\BNTU\BNTU\Delphi\Lab12\Unit10.pas</Transaction>
   </Transactions>
 </BorlandProject>

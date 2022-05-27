@@ -76,9 +76,72 @@ object Form1: TForm1
     Height = 15
     Caption = 'Xmin:'
   end
+  object Label10: TLabel
+    Left = 160
+    Top = 90
+    Width = 40
+    Height = 15
+    Caption = 'Label10'
+  end
+  object Label11: TLabel
+    Left = 160
+    Top = 142
+    Width = 40
+    Height = 15
+    Caption = 'Label11'
+  end
+  object Label12: TLabel
+    Left = 160
+    Top = 200
+    Width = 40
+    Height = 15
+    Caption = 'Label12'
+  end
+  object Label13: TLabel
+    Left = 160
+    Top = 256
+    Width = 40
+    Height = 15
+    Caption = 'Label13'
+  end
+  object Label14: TLabel
+    Left = 160
+    Top = 311
+    Width = 40
+    Height = 15
+    Caption = 'Label14'
+  end
+  object Label15: TLabel
+    Left = 160
+    Top = 363
+    Width = 40
+    Height = 15
+    Caption = 'Label15'
+  end
+  object Label16: TLabel
+    Left = 160
+    Top = 417
+    Width = 40
+    Height = 15
+    Caption = 'Label16'
+  end
+  object Label17: TLabel
+    Left = 160
+    Top = 466
+    Width = 40
+    Height = 15
+    Caption = 'Label17'
+  end
+  object Label18: TLabel
+    Left = 160
+    Top = 529
+    Width = 40
+    Height = 15
+    Caption = 'Label18'
+  end
   object Chart1: TChart
-    Left = 280
-    Top = 64
+    Left = 298
+    Top = 72
     Width = 529
     Height = 456
     Legend.TextStyle = ltsXAndValue
@@ -116,13 +179,6 @@ object Form1: TForm1
       YValues.Order = loNone
     end
   end
-  object Edit9: TEdit
-    Left = 200
-    Top = 463
-    Width = 74
-    Height = 23
-    TabOrder = 1
-  end
   object BitBtn1: TBitBtn
     Left = 688
     Top = 544
@@ -130,63 +186,7 @@ object Form1: TForm1
     Height = 25
     Kind = bkClose
     NumGlyphs = 2
-    TabOrder = 2
-  end
-  object Edit8: TEdit
-    Left = 168
-    Top = 308
-    Width = 106
-    Height = 23
-    TabOrder = 3
-  end
-  object Edit7: TEdit
-    Left = 208
-    Top = 526
-    Width = 74
-    Height = 23
-    TabOrder = 4
-  end
-  object Edit6: TEdit
-    Left = 200
-    Top = 414
-    Width = 74
-    Height = 23
-    TabOrder = 5
-  end
-  object Edit5: TEdit
-    Left = 200
-    Top = 360
-    Width = 74
-    Height = 23
-    TabOrder = 6
-  end
-  object Edit4: TEdit
-    Left = 168
-    Top = 253
-    Width = 106
-    Height = 23
-    TabOrder = 7
-  end
-  object Edit3: TEdit
-    Left = 168
-    Top = 197
-    Width = 106
-    Height = 23
-    TabOrder = 8
-  end
-  object Edit2: TEdit
-    Left = 168
-    Top = 139
-    Width = 106
-    Height = 23
-    TabOrder = 9
-  end
-  object Edit1: TEdit
-    Left = 168
-    Top = 87
-    Width = 106
-    Height = 23
-    TabOrder = 10
+    TabOrder = 1
   end
   object Button1: TButton
     Left = 408
@@ -194,81 +194,91 @@ object Form1: TForm1
     Width = 153
     Height = 27
     Caption = #1055#1086#1089#1090#1088#1086#1080#1090#1100' '#1075#1088#1072#1092#1080#1082
-    TabOrder = 11
+    TabOrder = 2
     OnClick = Button1Click
   end
   object ToolBar1: TToolBar
     Left = 0
     Top = 0
     Width = 835
-    Height = 23
+    Height = 46
     AutoSize = True
     ButtonHeight = 23
-    ButtonWidth = 77
+    ButtonWidth = 112
     Caption = 'ToolBar1'
     ShowCaptions = True
-    TabOrder = 12
-    object ToolButton1: TToolButton
+    TabOrder = 3
+    object bXmin: TToolButton
       Left = 0
       Top = 0
       Caption = 'Xmin'
       ImageIndex = 0
+      OnClick = bXminClick
     end
-    object ToolButton2: TToolButton
-      Left = 77
+    object bXmax: TToolButton
+      Left = 112
       Top = 0
       Caption = 'Xmax'
       ImageIndex = 1
+      OnClick = bXmaxClick
     end
-    object ToolButton3: TToolButton
-      Left = 154
+    object bYmin: TToolButton
+      Left = 224
       Top = 0
       Caption = 'Ymin'
       ImageIndex = 2
+      OnClick = bYminClick
     end
-    object ToolButton4: TToolButton
-      Left = 231
+    object bYmax: TToolButton
+      Left = 336
       Top = 0
       Caption = 'Ymax'
       ImageIndex = 3
+      OnClick = bYmaxClick
     end
-    object ToolButton6: TToolButton
-      Left = 308
+    object bY: TToolButton
+      Left = 448
       Top = 0
-      Caption = 'ToolButton6'
+      Caption = 'Y'
       ImageIndex = 4
+      Wrap = True
+      OnClick = bYClick
     end
-    object ToolButton5: TToolButton
-      Left = 385
-      Top = 0
-      Caption = 'ToolButton5'
+    object bZ: TToolButton
+      Left = 0
+      Top = 23
+      Caption = 'Z'
       ImageIndex = 5
+      OnClick = bZClick
     end
     object ToolButton7: TToolButton
-      Left = 462
-      Top = 0
+      Left = 112
+      Top = 23
       Width = 8
       Caption = 'ToolButton7'
       ImageIndex = 6
       Style = tbsSeparator
     end
-    object ToolButton8: TToolButton
-      Left = 470
-      Top = 0
-      Caption = 'ToolButton8'
+    object bStepX: TToolButton
+      Left = 120
+      Top = 23
+      Caption = #1064#1072#1075' '#1087#1086' X'
       ImageIndex = 6
+      OnClick = bStepXClick
     end
-    object ToolButton9: TToolButton
-      Left = 547
-      Top = 0
-      Caption = 'ToolButton9'
+    object bStepY: TToolButton
+      Left = 232
+      Top = 23
+      Caption = #1064#1072#1075' '#1087#1086' Y'
       ImageIndex = 7
+      OnClick = bStepYClick
     end
-    object ToolButton10: TToolButton
-      Left = 624
-      Top = 0
-      Caption = 'ToolButton10'
+    object bH: TToolButton
+      Left = 344
+      Top = 23
+      Caption = #1064#1072#1075' '#1088#1072#1089#1089#1095#1077#1090#1072' '#1090#1072#1073#1083'.'
       ImageIndex = 8
+      OnClick = bHClick
     end
   end
   object ImageList1: TImageList
