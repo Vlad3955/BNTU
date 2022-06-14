@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>1899.12.30 00:00:00.000.933,D:\GB\BNTU\BNTU\Delphi\Lab9\ProjectLabWork9.dproj=C:\Users\Operators Team\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.160,=C:\Users\Operators Team\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.400,=D:\GB\BNTU\BNTU\Delphi\Lab9\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.933,C:\Users\Operators Team\Documents\Embarcadero\Studio\Projects\Project1.dproj=D:\GB\BNTU\BNTU\Delphi\Lab9\ProjectLabWork9.dproj</Transaction>
     <Transaction>1899.12.30 00:00:00.000.670,=D:\GB\BNTU\BNTU\Delphi\Lab9\Unit1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.146,D:\GB\BNTU\BNTU\Delphi\Lab9\LabWork9.pas=C:\Users\Operators Team\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.157,D:\GB\BNTU\BNTU\Delphi\Lab9\MatFunc.pas=D:\GB\BNTU\BNTU\Delphi\Lab9\Unit1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.146,D:\GB\BNTU\BNTU\Delphi\Lab9\LabWork9.dfm=C:\Users\Operators Team\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.157,D:\GB\BNTU\BNTU\Delphi\Lab9\Unit1.pas=D:\GB\BNTU\BNTU\Delphi\Lab9\MatFunc.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.400,=D:\GB\BNTU\BNTU\Delphi\Lab9\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.146,C:\Users\Operators Team\Documents\Embarcadero\Studio\Projects\Unit1.dfm=D:\GB\BNTU\BNTU\Delphi\Lab9\LabWork9.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.160,=C:\Users\Operators Team\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.146,C:\Users\Operators Team\Documents\Embarcadero\Studio\Projects\Unit1.pas=D:\GB\BNTU\BNTU\Delphi\Lab9\LabWork9.pas</Transaction>
   </Transactions>
 </BorlandProject>

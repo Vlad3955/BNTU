@@ -12,31 +12,30 @@ type
   TForm1 = class(TForm)
     PageControl1: TPageControl;
     TabSheet1: TTabSheet;
+    TabSheet2: TTabSheet;
     Label10: TLabel;
     Label11: TLabel;
     Label12: TLabel;
     Label13: TLabel;
-    Edit10: TEdit;
-    Edit11: TEdit;
-    Edit12: TEdit;
-    Edit13: TEdit;
-    Button2: TButton;
-    TabSheet2: TTabSheet;
-    Chart2: TChart;
-    LineSeries1: TLineSeries;
-    LineSeries2: TLineSeries;
     Label14: TLabel;
     Label15: TLabel;
     Label16: TLabel;
     Label17: TLabel;
     Label18: TLabel;
+    Edit10: TEdit;
+    Edit11: TEdit;
+    Edit12: TEdit;
+    Edit13: TEdit;
     Edit14: TEdit;
     Edit15: TEdit;
     Edit16: TEdit;
     Edit17: TEdit;
     Edit18: TEdit;
+    Button2: TButton;
+    Chart1: TChart;
+    Series1: TLineSeries;
+    Series2: TLineSeries;
     procedure Button1Click(Sender: TObject);
-    procedure PageControl1Change(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
@@ -57,13 +56,16 @@ procedure TForm1.Button1Click(Sender: TObject);
 var
   x,y1,a,b,c:extended;
 begin
-  Series1.Clear;
-  Xmin:=StrToFloat(Edit1.Text);
-  Xmax:=StrToFloat(Edit2.Text);
-  y:=StrToFloat(Edit8.Text);
-  z:=StrToFloat(Edit9.Text) ;
-  h:=StrToFloat(Edit7.Text);
+  Xmin:=StrToFloat(Edit10.Text);
+  Xmax:=StrToFloat(Edit11.Text);
+  Ymin:=StrToFloat(Edit12.Text);
+  Ymax:=StrToFloat(Edit13.Text);
+  y:=StrToFloat(Edit17.Text);
+  z:=StrToFloat(Edit18.Text) ;
+  h:=StrToFloat(Edit16.Text);
   x:=Xmin;
+
+  Series1.Clear;
   Chart1.BottomAxis.Automatic := False;
   Chart1.BottomAxis.Minimum := Xmin;
   Chart1.BottomAxis.Maximum := Xmax;
@@ -81,14 +83,12 @@ begin
     Series1.AddXY(x,y1,'',clTeeColor);
     x:=x+h;
   until (x>Xmax);
+
+  PageControl1.ActivePage:=TabSheet2;
+
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
-begin
-  Form1.PageControl1Chenge(sender);
-end;
-
-procedure TForm1.PageControl1Change(Sender: TObject);
 begin
   Xmin:=-5;
   Xmax:=5;
@@ -99,15 +99,17 @@ begin
   Hx:=0.5;
   Hy:=0.5;
   h:=0.0001;
-  Edit1.Text:=FloatToStr(Xmin);
-  Edit2.Text:=FloatToStr(Xmax);
-  Edit3.Text:=FloatToStr(Ymin);
-  Edit4.Text:=FloatToStr(Ymax);
-  Edit5.Text:=FloatToStr(Hx);
-  Edit6.Text:=FloatToStr(Hy);
-  Edit7.Text:=FloatToStr(h);
-  Edit8.Text:=FloatToStr(y);
-  Edit9.Text:=FloatToStr(z);
+  Edit10.Text:=FloatToStr(Xmin);
+  Edit11.Text:=FloatToStr(Xmax);
+  Edit12.Text:=FloatToStr(Ymin);
+  Edit13.Text:=FloatToStr(Ymax);
+  Edit14.Text:=FloatToStr(Hx);
+  Edit15.Text:=FloatToStr(Hy);
+  Edit16.Text:=FloatToStr(h);
+  Edit17.Text:=FloatToStr(y);
+  Edit18.Text:=FloatToStr(z);
 end;
+
+
 
 end.

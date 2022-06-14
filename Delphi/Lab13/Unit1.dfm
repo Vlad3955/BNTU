@@ -21,7 +21,6 @@ object Form1: TForm1
     ActivePage = TabSheet1
     Align = alClient
     TabOrder = 0
-    OnChange = PageControl1Change
     object TabSheet1: TTabSheet
       Caption = 'Data'
       object Label10: TLabel
@@ -163,31 +162,18 @@ object Form1: TForm1
     object TabSheet2: TTabSheet
       Caption = 'Chart'
       ImageIndex = 1
-      object Chart2: TChart
-        Left = 0
+      object Chart1: TChart
+        Left = 3
         Top = 0
-        Width = 818
+        Width = 654
         Height = 513
-        Legend.TextStyle = ltsXAndValue
         Title.Text.Strings = (
-          #1043#1088#1072#1092#1080#1082#1080' '#1092#1091#1085#1082#1094#1080#1081)
-        View3D = False
-        Align = alClient
+          'TChart')
         TabOrder = 0
-        ExplicitLeft = 100
-        ExplicitTop = 28
-        ExplicitWidth = 529
-        ExplicitHeight = 456
         DefaultCanvas = 'TGDIPlusCanvas'
-        PrintMargins = (
-          15
-          2
-          15
-          2)
         ColorPaletteIndex = 13
-        object LineSeries1: TLineSeries
+        object Series1: TLineSeries
           HoverElement = [heCurrent]
-          Title = 'sin(x)'
           Brush.BackColor = clDefault
           Pointer.InflateMargins = True
           Pointer.Style = psRectangle
@@ -196,9 +182,8 @@ object Form1: TForm1
           YValues.Name = 'Y'
           YValues.Order = loNone
         end
-        object LineSeries2: TLineSeries
+        object Series2: TLineSeries
           HoverElement = [heCurrent]
-          Title = 'cos(x)'
           Brush.BackColor = clDefault
           Pointer.InflateMargins = True
           Pointer.Style = psRectangle

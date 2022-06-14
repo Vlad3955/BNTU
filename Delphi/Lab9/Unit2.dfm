@@ -89,11 +89,13 @@ object Form2: TForm2
       Width = 49
       Height = 41
       Caption = 'R'
+      Color = clNone
       Font.Charset = RUSSIAN_CHARSET
       Font.Color = clWhite
       Font.Height = -19
       Font.Name = 'Segoe UI Black'
       Font.Style = [fsBold]
+      ParentBackground = False
       ParentFont = False
       TabOrder = 0
     end
@@ -103,11 +105,13 @@ object Form2: TForm2
       Width = 49
       Height = 41
       Caption = 'G'
+      Color = clNone
       Font.Charset = RUSSIAN_CHARSET
       Font.Color = clWhite
       Font.Height = -19
       Font.Name = 'Segoe UI Black'
       Font.Style = [fsBold]
+      ParentBackground = False
       ParentFont = False
       TabOrder = 1
     end
@@ -117,11 +121,13 @@ object Form2: TForm2
       Width = 49
       Height = 41
       Caption = 'B'
+      Color = clNone
       Font.Charset = RUSSIAN_CHARSET
       Font.Color = clWhite
       Font.Height = -19
       Font.Name = 'Segoe UI Black'
       Font.Style = [fsBold]
+      ParentBackground = False
       ParentFont = False
       TabOrder = 2
     end
@@ -166,6 +172,8 @@ object Form2: TForm2
     Top = 8
     Width = 113
     Height = 105
+    Color = clNone
+    ParentBackground = False
     TabOrder = 3
   end
   object RadioGroup1: TRadioGroup

@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-  <Transactions>
-    <Transaction>2022.05.28 16:23:55.415,=F:\DelphiProjects\Unit1.pas</Transaction>
-    <Transaction>2022.05.28 16:30:24.776,D:\BNTU\BNTU\Delphi\Lab13\Unit1.dfm=F:\DelphiProjects\Unit1.dfm</Transaction>
-    <Transaction>2022.05.28 16:30:24.776,D:\BNTU\BNTU\Delphi\Lab13\Unit1.pas=F:\DelphiProjects\Unit1.pas</Transaction>
-    <Transaction>2022.05.28 16:30:55.517,D:\BNTU\BNTU\Delphi\Lab13\LabWork13.dproj=F:\DelphiProjects\Project2.dproj</Transaction>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.776,F:\DelphiProjects\Unit1.dfm=D:\BNTU\BNTU\Delphi\Lab13\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.517,F:\DelphiProjects\Project2.dproj=D:\BNTU\BNTU\Delphi\Lab13\LabWork13.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.776,F:\DelphiProjects\Unit1.pas=D:\BNTU\BNTU\Delphi\Lab13\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.415,=F:\DelphiProjects\Unit1.pas</Transaction>
   </Transactions>
 </BorlandProject>

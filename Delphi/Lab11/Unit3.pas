@@ -43,23 +43,8 @@ end;
 
 procedure TForm3.FormCreate(Sender: TObject);
 begin
-  //Form3.Image1.Canvas.Brush.Color := clBlack;
-  //Form3.Image1.Canvas.Rectangle(150,50, 250,330);// полотно
-
-  //Form3.Image1.Canvas.Brush.Color := clRed;
-  //Form3.Image1.Canvas.Ellipse(165,60,235,135);// геометр. фигуры
-
-  //Form3.Image1.Canvas.Brush.Color := clYellow;
-  //Form3.Image1.Canvas.Ellipse(165,150,235,225);
-
-  //Form3.Image1.Canvas.Brush.Color := clGreen;
-  //Form3.Image1.Canvas.Ellipse(165,240,235,315);
-
-  //Form3.Image1.Canvas.Brush.Color := clBlack; // светофор
-  //Form3.Image1.Canvas.Rectangle(185,330, 215,370);
-
   Form3.Image1.Canvas.Brush.Color := clBlack;
-  Form3.Image1.Canvas.Rectangle(200,0, 0, 600);// полотно
+  Form3.Image1.Canvas.Rectangle(150,50, 250,330);// полотно
 
   Form3.Image1.Canvas.Brush.Color := clRed;
   Form3.Image1.Canvas.Ellipse(165,60,235,135);// геометр. фигуры
@@ -71,7 +56,24 @@ begin
   Form3.Image1.Canvas.Ellipse(165,240,235,315);
 
   Form3.Image1.Canvas.Brush.Color := clBlack; // светофор
-  Form3.Image1.Canvas.Rectangle(185,600, 600,600);
+  Form3.Image1.Canvas.Rectangle(185,330, 215,370);
+
+
+
+  //Form3.Image1.Canvas.Brush.Color := clBlack;
+  //Form3.Image1.Canvas.Rectangle(200,0, 0, 600);// полотно
+
+  //Form3.Image1.Canvas.Brush.Color := clRed;
+  //Form3.Image1.Canvas.Ellipse(165,60,235,135);// геометр. фигуры
+
+  //Form3.Image1.Canvas.Brush.Color := clYellow;
+  //Form3.Image1.Canvas.Ellipse(165,150,235,225);
+
+  //Form3.Image1.Canvas.Brush.Color := clGreen;
+  //Form3.Image1.Canvas.Ellipse(165,240,235,315);
+
+  //Form3.Image1.Canvas.Brush.Color := clBlack; // светофор
+  //Form3.Image1.Canvas.Rectangle(185,600, 600,600);
 end;
 
 end.
