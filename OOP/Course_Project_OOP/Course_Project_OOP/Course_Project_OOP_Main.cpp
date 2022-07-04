@@ -4,7 +4,9 @@
 
 int main()
 {
-	CBookCard Glukhovsky("Dmitrii Glukhovsky", "Metro 2033", "Ecsmo", "KHG765", 2005);
+	// CBookCard
+    //============================================================
+	/*CBookCard Glukhovsky("Dmitrii Glukhovsky", "Metro 2033", "Ecsmo", "KHG765", 2005);
 	Glukhovsky.set_rating(4.5);
 	CBookCard Diakov("Andrey Diakov", "To light", "AST", "84(2Ros=Rus)6", 2010);
 	CBookCard Azimov("Isaac Azimov", "Fundamintation", "AM", "IJK11", 1942);
@@ -22,7 +24,8 @@ int main()
 	for_each(vec.begin(), vec.end(), [&](const CBookCard& a) {cout << a.book_description(); });
 	CBookCard::sort_book(vec);
 	cout << "After sorting: \n" << endl;
-	for_each(vec.begin(), vec.end(), [&](const CBookCard& a) {cout << a.book_description(); });
+	for_each(vec.begin(), vec.end(), [&](const CBookCard& a) {cout << a.book_description(); });*/
+	//============================================================
 	
 	return 0;
 }

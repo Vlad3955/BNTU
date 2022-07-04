@@ -7,6 +7,8 @@
 
 using namespace std;
 
+// CBookCard
+//============================================================
 class CBookCard
 {
 public:
@@ -32,5 +34,66 @@ private:
 	double rating;
 	int	year_publishing;
 };
+//============================================================
+
+
+// Hierarchy vegetable
+//============================================================
+class Vegetable
+{
+public:
+	Vegetable();
+	Vegetable(string _name);
+	Vegetable(string _name, double _kcal_per_100g);
+	Vegetable(string _name, double _kcal_per_100g, double	_weight);
+	virtual string get_name() const;
+	virtual double get_kcal_per_100g() const;
+	virtual double get_weight() const;
+	virtual void set_category(string __category);
+	virtual string get_category() const;
+	double get_total_calories() const;
+	virtual void all_info() = 0;
+	virtual ~Vegetable();
+protected:
+	string name, category;
+	double kcalPer100g, wieght;
+};
+
+
+class CucurbitaceaeVegetable : public Vegetable
+{
+public:
+	CucurbitaceaeVegetable();
+	virtual void all_info() override;
+	~CucurbitaceaeVegetable();
+protected:
+	string harvest_country;
+};
+
+
+class NightshadeVegetable : public Vegetable
+{
+public:
+	NightshadeVegetable();
+	virtual void all_info() override;
+	~NightshadeVegetable();
+protected:
+	string variety;
+};
+
+
+class RootVegetable : public Vegetable
+{
+public:
+	RootVegetable();
+	virtual void all_info() override;
+	~RootVegetable();
+protected:
+	int crop_year;
+};
+
+
+
+
 
 

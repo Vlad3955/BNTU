@@ -1,5 +1,7 @@
 #include "Course_Project_OOP_Header.h"
 
+// CBookCard
+//============================================================
 CBookCard::CBookCard()
 {
 	rating = 0;
@@ -82,3 +84,39 @@ void CBookCard::sort_book(vector <CBookCard>& _vec)
 }
 
 CBookCard::~CBookCard() {}
+//============================================================
+
+
+// Hierarchy vegetable
+//============================================================
+Vegetable::Vegetable()
+{
+}
+
+Vegetable::~Vegetable()
+{
+}
+
+CucurbitaceaeVegetable::CucurbitaceaeVegetable()
+{
+}
+
+CucurbitaceaeVegetable::~CucurbitaceaeVegetable()
+{
+}
+
+NightshadeVegetable::NightshadeVegetable()
+{
+}
+
+NightshadeVegetable::~NightshadeVegetable()
+{
+}
+
+RootVegetable::RootVegetable()
+{
+}
+
+RootVegetable::~RootVegetable()
+{
+}
