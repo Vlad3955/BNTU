@@ -85,38 +85,149 @@ void CBookCard::sort_book(vector <CBookCard>& _vec)
 
 CBookCard::~CBookCard() {}
 //============================================================
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 // Hierarchy vegetable
 //============================================================
+// abstract class Vegetable
 Vegetable::Vegetable()
 {
+	kcal_per_100g = 0.0;
+	weight = 0.0;
 }
-
-Vegetable::~Vegetable()
+Vegetable::Vegetable(string _name) : name(_name) 
+{ 
+	kcal_per_100g = 0.0; 
+	weight = 0.0;
+}
+Vegetable::Vegetable(string _name, double _kcal_per_100g) : name(_name), kcal_per_100g(_kcal_per_100g) 
 {
+	weight = 0.0;
 }
+Vegetable::Vegetable(string _name, double _kcal_per_100g, double _weight) 
+	: name(_name), kcal_per_100g(_kcal_per_100g), weight(_weight) {}
+string Vegetable::get_name() const
+{
+	return name;
+}
+double Vegetable::get_kcal_per_100g() const
+{
+	return kcal_per_100g;
+}
+double Vegetable::get_weight() const
+{
+	return weight;
+}
+void Vegetable::set_category(string _category)
+{
+	category = _category;
+}
+string Vegetable::get_category() const
+{
+	return category;
+}
+double Vegetable::get_total_calories() const
+{
+	return kcal_per_100g * weight / 100.0;
+}
+Vegetable::~Vegetable() {}
+//============================================================
 
+// CucurbitaceaeVegetable classes
+//============================================================
 CucurbitaceaeVegetable::CucurbitaceaeVegetable()
 {
+	harvest_country = "";
+	set_category("Cucurbitaceae Vegetable");
 }
 
-CucurbitaceaeVegetable::~CucurbitaceaeVegetable()
+CucurbitaceaeVegetable::CucurbitaceaeVegetable(string _name, double _kcal_per_100g) 
+	: Vegetable(_name, _kcal_per_100g) {}
+
+CucurbitaceaeVegetable::CucurbitaceaeVegetable(string _name, double _kcal_per_100g, double _weight) 
+	: Vegetable(_name, _kcal_per_100g, _weight) {}
+
+void CucurbitaceaeVegetable::set_harvest_country(string _harvest_country)
 {
+	harvest_country = _harvest_country;
 }
 
-NightshadeVegetable::NightshadeVegetable()
+string CucurbitaceaeVegetable::get_harvest_country()
 {
+	return harvest_country;
 }
 
-NightshadeVegetable::~NightshadeVegetable()
+void CucurbitaceaeVegetable::all_info()
 {
+	cout << "Name: "  << get_name() << '\n' 
+		 << "Harvest country: " << get_harvest_country() << '\n'
+		 << "Calories per 100 gramm: " << get_kcal_per_100g() << '\n' 
+		 << "Weight: " << get_weight() << '\n' 
+		 << "Total calories: " << get_total_calories() << endl;
 }
 
-RootVegetable::RootVegetable()
-{
-}
+CucurbitaceaeVegetable::~CucurbitaceaeVegetable() {}
 
-RootVegetable::~RootVegetable()
-{
-}
+// class Cucumber
+Cucumber::Cucumber() {}
+
+Cucumber::Cucumber(double _weight) : CucurbitaceaeVegetable("Cucumber", 41.0, _weight) {}
+
+Cucumber::~Cucumber() {}
+////============================================================
+//
+//
+//// NightshadeVegetable classes
+////============================================================
+//NightshadeVegetable::NightshadeVegetable()
+//{
+//}
+//
+//NightshadeVegetable::~NightshadeVegetable()
+//{
+//}
+//
+//Potato::Potato()
+//{
+//}
+//
+//Potato::~Potato()
+//{
+//}
+//
+//Tomato::Tomato()
+//{
+//}
+//
+//Tomato::~Tomato()
+//{
+//}
+////============================================================
+//
+//// RootVegetable classes
+////============================================================
+//RootVegetable::RootVegetable()
+//{
+//}
+//
+//RootVegetable::~RootVegetable()
+//{
+//}
+//
+//Carrot::Carrot()
+//{
+//}
+//
+//Carrot::~Carrot()
+//{
+//}
+//
+//Beet::Beet()
+//{
+//}
+//
+//Beet::~Beet()
+//{
+//}
+////============================================================

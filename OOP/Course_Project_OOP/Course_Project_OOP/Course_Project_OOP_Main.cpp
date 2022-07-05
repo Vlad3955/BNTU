@@ -26,6 +26,7 @@ int main()
 	cout << "After sorting: \n" << endl;
 	for_each(vec.begin(), vec.end(), [&](const CBookCard& a) {cout << a.book_description(); });*/
 	//============================================================
-	
+	Cucumber a(110);
+	a.all_info();
 	return 0;
 }
