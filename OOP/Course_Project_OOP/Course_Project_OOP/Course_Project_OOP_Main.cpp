@@ -26,7 +26,26 @@ int main()
 	cout << "After sorting: \n" << endl;
 	for_each(vec.begin(), vec.end(), [&](const CBookCard& a) {cout << a.book_description(); });*/
 	//============================================================
-	Cucumber a(110);
-	a.all_info();
+
+	// Hierarchy vegetable
+    //============================================================
+	Carrot carrot(100);
+	Beet beet(100);
+	Potato potato(100);
+	Tomato tomato(100);
+	Cucumber cucumber(100);
+	vector<Vegetable*> salad;
+	salad.push_back(&carrot);
+	salad.push_back(&beet);
+	salad.push_back(&potato);
+	salad.push_back(&tomato);
+	salad.push_back(&cucumber);
+	double sum = 0.0;
+	for (auto& it : salad)
+	{
+		sum += it->get_total_calories();
+	}
+	cout << sum;
+	//============================================================
 	return 0;
 }

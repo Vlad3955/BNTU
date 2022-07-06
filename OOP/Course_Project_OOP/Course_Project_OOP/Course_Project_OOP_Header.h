@@ -85,69 +85,73 @@ public:
 	Cucumber(double _weight);
 	~Cucumber();
 };
-////============================================================
-//
-//
-//// NightshadeVegetable classes
-////============================================================
-//class NightshadeVegetable : public Vegetable
-//{
-//public:
-//	NightshadeVegetable();
-//	NightshadeVegetable(string _name, double _kcal_per_100g);
-//	NightshadeVegetable(string _name, double _kcal_per_100g, double _weight);
-//	virtual void all_info() override;
-//	~NightshadeVegetable();
-//protected:
-//	string variety;
-//};
-//
-//class Potato : public NightshadeVegetable
-//{
-//public:
-//	Potato();
-//
-//	~Potato();
-//};
-//
-//class Tomato : public NightshadeVegetable
-//{
-//public:
-//	Tomato();
-//
-//	~Tomato();
-//};
-////============================================================
-//
-//// RootVegetable classes
-////============================================================
-//class RootVegetable : public Vegetable
-//{
-//public:
-//	RootVegetable();
-//	/*RootVegetable(string _name, double _kcal_per_100g);
-//	RootVegetable(string _name, double _kcal_per_100g, double _weight);*/
-//	virtual void all_info() override;
-//	~RootVegetable();
-//protected:
-//	int crop_year;
-//};
-//
-//class Carrot : public RootVegetable
-//{
-//public:
-//	Carrot();
-//
-//	~Carrot();
-//};
-//
-//class Beet : public RootVegetable
-//{
-//public:
-//	Beet();
-//
-//	~Beet();
-//};
+//============================================================
+
+
+// NightshadeVegetable classes
+//============================================================
+class NightshadeVegetable : public Vegetable
+{
+public:
+	NightshadeVegetable();
+	NightshadeVegetable(string _name, double _kcal_per_100g);
+	NightshadeVegetable(string _name, double _kcal_per_100g, double _weight);
+	void set_variety(string _variety);
+	string get_variety();
+	virtual void all_info() override;
+	~NightshadeVegetable();
+protected:
+	string variety;
+};
+
+class Potato : public NightshadeVegetable
+{
+public:
+	Potato();
+	Potato(double _weight);
+	~Potato();
+};
+
+class Tomato : public NightshadeVegetable
+{
+public:
+	Tomato();
+	Tomato(double _weight);
+	~Tomato();
+};
+//============================================================
+
+// RootVegetable classes
+//============================================================
+class RootVegetable : public Vegetable
+{
+public:
+	RootVegetable();
+	RootVegetable(string _name, double _kcal_per_100g);
+	RootVegetable(string _name, double _kcal_per_100g, double _weight);
+	void set_crop_year(string _crop_year);
+	string get_crop_year();
+	virtual void all_info() override;
+	~RootVegetable();
+protected:
+	string crop_year;
+};
+
+class Carrot : public RootVegetable
+{
+public:
+	Carrot();
+	Carrot(double _weight);
+	~Carrot();
+};
+
+class Beet : public RootVegetable
+{
+public:
+	Beet();
+	Beet(double _weight);
+	~Beet();
+};
 //============================================================
 
 
