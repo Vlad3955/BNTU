@@ -154,6 +154,37 @@ public:
 };
 //============================================================
 
+// Class Flavoring
+//============================================================
+//class Flavoring
+//{
+//public:
+//	Flavoring();
+//	Flavoring(string _name, double _kcal_per_100g, double _weight);
+//	string get_name() const;
+//	double get_kcal_per_100g() const;
+//	double get_weight() const;
+//	double get_total_calories() const;
+//	~Flavoring();
+//private:
+//	string name;
+//	double kcal_per_100g, weight;
+//};
+//============================================================
+
+
+class Salad
+{
+public:
+	Salad();
+	double get_total_calories() const;
+	void add_ingredients(Vegetable * veg);
+	void about_salad();
+	~Salad();
+private:
+	vector<Vegetable*> salad;
+	//Flavoring flavoring;
+};
 
 
 

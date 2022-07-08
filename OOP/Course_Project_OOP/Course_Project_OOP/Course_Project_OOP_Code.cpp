@@ -292,3 +292,61 @@ Beet::Beet(double _weight) : RootVegetable("Beet", 22, _weight) {}
 
 Beet::~Beet() {}
 //============================================================
+
+// Class Flavoring
+//============================================================
+//Flavoring::Flavoring() : kcal_per_100g(0.0), weight(0.0) {}
+//
+//Flavoring::Flavoring(string _name = "", double _kcal_per_100g = 0.0, double _weight = 0.0)
+//	: name(_name), kcal_per_100g(_kcal_per_100g), weight(_weight) {}
+//
+//string Flavoring::get_name() const
+//{
+//	return name;
+//}
+//double Flavoring::get_kcal_per_100g() const
+//{
+//	return kcal_per_100g;
+//}
+//double Flavoring::get_weight() const
+//{
+//	return weight;
+//}
+//
+//double Flavoring::get_total_calories() const
+//{
+//	return kcal_per_100g * weight / 100.0;
+//}
+//
+//Flavoring::~Flavoring() {}
+//============================================================
+
+
+Salad::Salad() {}
+
+double Salad::get_total_calories() const
+{
+	double sum = 0.0;
+	for (auto& it : salad)
+	{
+		sum += it->get_total_calories();
+	}
+	return sum;
+}
+
+void Salad::add_ingredients(Vegetable* veg)
+{
+	salad.push_back(veg);
+}
+
+void Salad::about_salad()
+{
+	cout << "Your salad ingredients: ";
+	for (auto& it : salad)
+	{
+		cout << it->get_name() << "| ";
+	}
+	cout << endl << "Total calories: " << get_total_calories() << endl;
+}
+
+Salad::~Salad() {}

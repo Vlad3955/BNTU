@@ -35,7 +35,7 @@ int main()
 	Tomato tomato(100);
 	Cucumber cucumber(100);
 	vector<Vegetable*> salad;
-	salad.push_back(&carrot);
+	/*salad.push_back(&carrot);
 	salad.push_back(&beet);
 	salad.push_back(&potato);
 	salad.push_back(&tomato);
@@ -45,7 +45,32 @@ int main()
 	{
 		sum += it->get_total_calories();
 	}
+	cout << sum;*/
+
+	Salad vinigrette;
+	vinigrette.add_ingredients(&carrot);
+	vinigrette.add_ingredients(&beet);
+	vinigrette.add_ingredients(&potato);
+	vinigrette.add_ingredients(&tomato);
+	vinigrette.add_ingredients(&cucumber);
+
+	vinigrette.about_salad();
+
+	/*int size = 5;
+	Vegetable** arrVeg = new Vegetable*[size];
+	arrVeg[0] = &carrot;
+	arrVeg[1] = &beet;
+	arrVeg[2] = &potato;
+	arrVeg[3] = &tomato;
+	arrVeg[4] = &cucumber;
+	double sum = 0.0;
+	for (size_t i = 0; i < size; i++)
+	{
+		sum += arrVeg[i]->get_total_calories();
+	}
 	cout << sum;
+	delete[] arrVeg;
+	arrVeg = nullptr;*/
 	//============================================================
 	return 0;
 }
