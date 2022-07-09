@@ -1,0 +1,6 @@
+﻿  main.cpp
+  Test_OOP_Project.vcxproj -> D:\GB\BNTU\BNTU\OOP\Test_OOP_Project\Debug\Test_OOP_Project.exe
+  Не найден файл: Course_Project_OOP_DDL.dll
+  Скопировано файлов: 0.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: выход из команды "xcopy /y /d "..\Course_Project_OOP_DLL\Debug\Course_Project_OOP_DDL.dll" "D:\GB\BNTU\BNTU\OOP\Test_OOP_Project\Debug\"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: :VCEnd" с кодом 4.
