@@ -27,8 +27,8 @@ int main()
 	for_each(vec.begin(), vec.end(), [&](const CBookCard& a) {cout << a.book_description(); });*/
 	//============================================================
 
-	//// Hierarchy vegetable
- //   //============================================================
+	// Hierarchy vegetable
+    //============================================================
 	//Carrot carrot(100);
 	//Beet beet(100);
 	//Potato potato(100);
