@@ -1,0 +1,97 @@
+#include <iostream>
+#include <cmath>
+
+
+using namespace std;
+
+void key_fill_array(int arr[], int size)
+{
+    for (size_t i = 0; i < size; i++)
+    {
+        cin >> arr[i];
+    }
+}
+
+void print_array(int arr[], int size)
+{
+    for (size_t i = 0; i < size; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+void push_back(int*& arr, int& size, const int value)
+{
+    int* newArray = new int[size + 1];
+    for (size_t i = 0; i < size; i++)
+    {
+        newArray[i] = arr[i];
+    }
+
+    newArray[size] = value;
+    size++;
+
+    delete[] arr;
+    arr = newArray;
+}
+
+
+int main() 
+{
+    int size = 10;
+    int nH = 0;
+    int nS = 0;
+    int nM = 0;
+    int* arr = new int[size];
+    int* arrH = new int[nH];
+    int* arrS = new int[nS];
+    int* arrMax = new int[nM];
+    key_fill_array(arr, size);
+    for (size_t i = 0; i < size; i++)
+    {
+        if (arr[i] == 1)
+        {
+            push_back(arrH, nH, i);
+        }
+        else if (arr[i] == 2)
+        {
+            push_back(arrS, nS, i);
+        }
+    }
+    /*for (size_t i = 0; i < nH; i++)
+    {
+        size_t j = 0;
+        int min = abs(arrH[i] - arrS[j]);
+        for (j; j < nS; j++)
+        {
+            if (abs(arrH[i] - arrS[j]) < min)
+            {
+                min = abs(arrH[i] - arrS[j]);
+            }
+            push_back(arrMax, nM, min);
+        }
+    }*/
+    for (size_t i = arrH[0]; i < arrH[nH]; i++)
+    {
+
+    }
+    int max = arrMax[0];
+    for (size_t i = 0; i < nM; i++)
+    {
+        if (arrMax[i] > max)
+        {
+            max = arrMax[i];
+        }
+    }
+    print_array(arr, size);
+    print_array(arrH, nH);
+    print_array(arrS, nS);
+    print_array(arrMax, nM);
+    cout << max;
+    delete[] arr;
+    delete[] arrH;
+    delete[] arrS;
+    delete[] arrMax;
+    return 0;
+}
