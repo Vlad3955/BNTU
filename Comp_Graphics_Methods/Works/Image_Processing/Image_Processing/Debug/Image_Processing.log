@@ -1,0 +1,60 @@
+﻿  Image.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\corecrt_math_defines.h(28,1): warning C4005: M_PI: изменение макроопределения
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.h(11): message : см. предыдущее определение "M_PI"
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.h(103,11): warning C4129: e: неизвестная escape-последовательность
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(59,10): warning C4129: e: неизвестная escape-последовательность
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(63,10): warning C4129: e: неизвестная escape-последовательность
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(94,32): warning C4018: <: несоответствие типов со знаком и без знака
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(99,33): warning C4018: <: несоответствие типов со знаком и без знака
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(107,37): warning C4244: =: преобразование "double" в "uint8_t", возможна потеря данных
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(122,32): warning C4018: <: несоответствие типов со знаком и без знака
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(130,33): warning C4018: <: несоответствие типов со знаком и без знака
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(141,37): warning C4244: =: преобразование "double" в "uint8_t", возможна потеря данных
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(156,32): warning C4018: <: несоответствие типов со знаком и без знака
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(164,33): warning C4018: <: несоответствие типов со знаком и без знака
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(175,37): warning C4244: =: преобразование "double" в "uint8_t", возможна потеря данных
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(319,31): warning C4018: <: несоответствие типов со знаком и без знака
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(321,32): warning C4018: <: несоответствие типов со знаком и без знака
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(340,59): warning C4244: инициализация: преобразование "uint64_t" в "unsigned int", возможна потеря данных
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(341,25): warning C4018: <: несоответствие типов со знаком и без знака
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(342,26): warning C4018: <: несоответствие типов со знаком и без знака
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(348,59): warning C4244: инициализация: преобразование "uint64_t" в "unsigned int", возможна потеря данных
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(358,25): warning C4018: <: несоответствие типов со знаком и без знака
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(359,26): warning C4018: <: несоответствие типов со знаком и без знака
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(373,59): warning C4244: инициализация: преобразование "uint64_t" в "unsigned int", возможна потеря данных
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(375,19): warning C4018: <: несоответствие типов со знаком и без знака
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(377,20): warning C4018: <: несоответствие типов со знаком и без знака
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(383,59): warning C4244: инициализация: преобразование "uint64_t" в "unsigned int", возможна потеря данных
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(393,25): warning C4018: <: несоответствие типов со знаком и без знака
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(394,26): warning C4018: <: несоответствие типов со знаком и без знака
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(408,59): warning C4244: инициализация: преобразование "uint64_t" в "unsigned int", возможна потеря данных
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(410,19): warning C4018: <: несоответствие типов со знаком и без знака
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(412,20): warning C4018: <: несоответствие типов со знаком и без знака
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(418,59): warning C4244: инициализация: преобразование "uint64_t" в "unsigned int", возможна потеря данных
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(428,25): warning C4018: <: несоответствие типов со знаком и без знака
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(429,26): warning C4018: <: несоответствие типов со знаком и без знака
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(469,20): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(470,21): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(471,23): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(472,25): warning C4018: <: несоответствие типов со знаком и без знака
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(473,26): warning C4018: <: несоответствие типов со знаком и без знака
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(482,20): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(483,21): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(484,23): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(486,25): warning C4018: <: несоответствие типов со знаком и без знака
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(487,26): warning C4018: <: несоответствие типов со знаком и без знака
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(490,19): warning C4244: =: преобразование "double" в "uint8_t", возможна потеря данных
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(494,12): warning C4244: =: преобразование "double" в "uint8_t", возможна потеря данных
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(495,20): warning C4018: <: несоответствие типов со знаком и без знака
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(507,21): warning C4018: <: несоответствие типов со знаком и без знака
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(522,21): warning C4018: <: несоответствие типов со знаком и без знака
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(523,13): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(533,10): warning C4129: e: неизвестная escape-последовательность
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(536,21): warning C4018: <: несоответствие типов со знаком и без знака
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(537,16): warning C4244: *=: преобразование "float" в "uint8_t", возможна потеря данных
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(538,20): warning C4244: *=: преобразование "float" в "uint8_t", возможна потеря данных
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(539,20): warning C4244: *=: преобразование "float" в "uint8_t", возможна потеря данных
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(551,10): warning C4129: e: неизвестная escape-последовательность
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(667,30): warning C4244: =: преобразование "float" в "uint8_t", возможна потеря данных
+D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Image_Processing\Image.cpp(669,46): warning C4244: =: преобразование "float" в "uint8_t", возможна потеря данных
+  Image_Processing.vcxproj -> D:\BNTU\BNTU\Comp_Graphics_Methods\Works\Image_Processing\Debug\Image_Processing.exe
