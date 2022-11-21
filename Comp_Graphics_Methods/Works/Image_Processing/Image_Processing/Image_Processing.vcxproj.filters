@@ -18,9 +18,6 @@
     <ClInclude Include="Image.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="schrift.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="stb_image.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>

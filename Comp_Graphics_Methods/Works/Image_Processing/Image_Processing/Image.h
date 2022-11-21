@@ -11,7 +11,7 @@
 #define M_PI (3.14159265358979323846)
 #endif
 
-#include "schrift.h"
+//#include "schrift.h"
 
 #define STEG_HEADER_SIZE sizeof(uint32_t) * 8
 
@@ -40,7 +40,7 @@ struct Image {
 	ImageType get_file_type(const char* filename);
 
 
-	Image& std_convolve_clamp_to_0(uint8_t channel, uint32_t ker_w, uint32_t ker_h, double ker[], uint32_t cr, uint32_t cc);
+	/*Image& std_convolve_clamp_to_0(uint8_t channel, uint32_t ker_w, uint32_t ker_h, double ker[], uint32_t cr, uint32_t cc);
 	Image& std_convolve_clamp_to_border(uint8_t channel, uint32_t ker_w, uint32_t ker_h, double ker[], uint32_t cr, uint32_t cc);
 	Image& std_convolve_cyclic(uint8_t channel, uint32_t ker_w, uint32_t ker_h, double ker[], uint32_t cr, uint32_t cc);
 
@@ -66,13 +66,13 @@ struct Image {
 
 
 	Image& diffmap(Image& img);
-	Image& diffmap_scale(Image& img, uint8_t scl = 0);
+	Image& diffmap_scale(Image& img, uint8_t scl = 0);*/
 
 
 	Image& grayscale_avg();
 	Image& grayscale_lum();
 
-	Image& color_mask(float r, float g, float b);
+	/*Image& color_mask(float r, float g, float b);
 
 
 	Image& encodeMessage(const char* message);
@@ -90,26 +90,26 @@ struct Image {
 
 
 
-	Image& resizeNN(uint16_t nw, uint16_t nh);
+	Image& resizeNN(uint16_t nw, uint16_t nh);*/
 
 
 };
 
 
-struct Font {
-	SFT sft = { NULL, 12, 12, 0, 0, SFT_DOWNWARD_Y | SFT_RENDER_IMAGE };
-	Font(const char* fontfile, uint16_t size) {
-		if ((sft.font = sft_loadfile(fontfile)) == NULL) {
-			printf("\e[31m[ERROR] Failed to load %s\e[0m\n", fontfile);
-			return;
-		}
-		setSize(size);
-	}
-	~Font() {
-		sft_freefont(sft.font);
-	}
-	void setSize(uint16_t size) {
-		sft.xScale = size;
-		sft.yScale = size;
-	}
-};
+//struct Font {
+//	SFT sft = { NULL, 12, 12, 0, 0, SFT_DOWNWARD_Y | SFT_RENDER_IMAGE };
+//	Font(const char* fontfile, uint16_t size) {
+//		if ((sft.font = sft_loadfile(fontfile)) == NULL) {
+//			printf("\e[31m[ERROR] Failed to load %s\e[0m\n", fontfile);
+//			return;
+//		}
+//		setSize(size);
+//	}
+//	~Font() {
+//		sft_freefont(sft.font);
+//	}
+//	void setSize(uint16_t size) {
+//		sft.xScale = size;
+//		sft.yScale = size;
+//	}
+//};
