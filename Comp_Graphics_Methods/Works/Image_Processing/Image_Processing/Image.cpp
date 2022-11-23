@@ -38,6 +38,28 @@ bool Image::read(const char* filename, int channel_force) {
 	return data != NULL;
 }
 
+
+void Image::read_to_txt(const char* filename/*, int channel_force*/) {
+	/*data = stbi_load(filename, &w, &h, &channels, channel_force);
+	channels = channel_force == 0 ? channels : channel_force;*/
+	std::fstream file;
+	file.open("test.txt", std::ios::out | std::ios::binary);
+
+	if (!file.is_open())
+	{
+		std::cout << "File " << filename << " is couldn't open" << std::endl;
+		return;
+	}
+
+	stbi_write_func* func = [](void* context, void* data, int size) {
+		reinterpret_cast<fstream*>(context)->write(reinterpret_cast<const char*>(data), size);
+	};
+
+	stbi_write_png_to_func(func, &file, h, w, channels, data, w * 4)
+
+	//work with data
+}
+
 bool Image::write(const char* filename) {
 	ImageType type = get_file_type(filename);
 	int success;

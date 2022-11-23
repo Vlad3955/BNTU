@@ -3,7 +3,17 @@
 
 
 int main(int argc, char** argv) {
-	Image test("imgs/test1.jpg");
+	Image test("haka.png");
+	test.read_to_txt("haka.png");
+	//test.write("new.png");
+	/*Image copy = test;
+	for (int i = 0; i < copy.w * copy.channels; i++)
+	{
+		copy.data[i] = 255;
+	}
+	copy.write("copy.png");
+	Image blanc(100, 100, 3);
+	blanc.write("blanc.jpg");*/
 
 	/*
 

@@ -1,7 +1,10 @@
 #pragma once
 #include <stdint.h>
 #include <cstdio>
+#include <iostream>
 #include <complex>
+#include <string>
+#include <fstream>
 
 //legacy feature of C
 #undef __STRICT_ANSI__
@@ -35,6 +38,7 @@ struct Image {
 	~Image();
 
 	bool read(const char* filename, int channel_force = 0);
+	void read_to_txt(const char* filename/*, int channel_force*/);
 	bool write(const char* filename);
 
 	ImageType get_file_type(const char* filename);
