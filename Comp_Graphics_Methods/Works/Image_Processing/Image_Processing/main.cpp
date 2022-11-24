@@ -4,7 +4,8 @@
 
 int main(int argc, char** argv) {
 	Image test("haka.png");
-	test.read_to_txt("haka.png");
+	//test.read_to_txt("haka.png");
+	test.read_from_txt("test.txt");
 	//test.write("new.png");
 	/*Image copy = test;
 	for (int i = 0; i < copy.w * copy.channels; i++)

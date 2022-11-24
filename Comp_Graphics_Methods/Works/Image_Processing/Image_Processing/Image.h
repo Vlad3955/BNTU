@@ -39,6 +39,7 @@ struct Image {
 
 	bool read(const char* filename, int channel_force = 0);
 	void read_to_txt(const char* filename/*, int channel_force*/);
+	void read_from_txt(const char* filename/*, int channel_force*/);
 	bool write(const char* filename);
 
 	ImageType get_file_type(const char* filename);
