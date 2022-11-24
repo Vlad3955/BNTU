@@ -131,6 +131,47 @@ void PrintStack(Stack *stack) /* Печать списка */
 }
 
 
+// Task 5
+void WriteStack(char * fname, Stack * pstk)
+{
+    FILE *f;
+    if((f = fopen(fname, "w+")) == NULL)
+    {
+        perror("Error occured while opening file");
+        return;
+    }
+    char *n = "\n";
+    Stack *tmp = pstk;
+    while (tmp)
+    {
+        //fwrite(tmp->data, sizeof(tmp), 1, f);
+        fputs(tmp->data, f);
+        fputs(n, f);
+        tmp = tmp->prev;
+    }
+    fclose(f);
+}
+
+Stack * ReadStack(char * fname)
+{
+    Stack *top = NULL;
+    Stack *tmp = (Stack*)malloc(sizeof(Stack));
+    char *data;
+    FILE *f;
+    int i = 0;
+
+    if((f = fopen(fname, "r")) == NULL)
+    {
+        perror("Error occured while opening file");
+        return;
+    }
+
+    while(fscanf(f, "%s", data[i].data) != EOF)
+    {
+        i++;
+    }
+}
+
 int main()
 {
     //Task 1
@@ -219,8 +260,10 @@ Stack *top = NULL;
     Push(&top, "abc");
     Push(&top, "efg");
     Push(&top, "mmm");
-    Pop(&top);
-    PrintStack(top);
+    //Pop(&top);
+    //PrintStack(top);
+// Task 5
+    WriteStack("test.txt", top);
 
    return 0;
 }
