@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1669310627 source:d:\bntu\bntu\os\labs\labs1_2_3\main.c
+1669356028 source:d:\bntu\bntu\os\labs\labs1_2_3\main.c
 	<stdio.h>
 	<stdlib.h>
 	<math.h>

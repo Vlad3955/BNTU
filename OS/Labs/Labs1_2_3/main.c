@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#define N 6
+//#define N 6
 
 
 // Task 2
@@ -152,25 +152,34 @@ void WriteStack(char * fname, Stack * pstk)
     fclose(f);
 }
 
-Stack * ReadStack(char * fname)
-{
-    Stack *top = NULL;
-    Stack *tmp = (Stack*)malloc(sizeof(Stack));
-    char *data;
-    FILE *f;
-    int i = 0;
-
-    if((f = fopen(fname, "r")) == NULL)
-    {
-        perror("Error occured while opening file");
-        return;
-    }
-
-    while(fscanf(f, "%s", data[i].data) != EOF)
-    {
-        i++;
-    }
-}
+//Stack * ReadStack(char * fname)
+//{
+//    Stack *top = 0;
+//    //Stack *tmp = (Stack*)malloc(sizeof(Stack));
+//    char *data[N];
+//    FILE *f;
+//    //int i = 0;
+//
+//    if((f = fopen(fname, "rt")) == NULL)
+//    {
+//        perror("Error occured while opening file");
+//        exit(1);
+//    }
+//
+////    while(fscanf(f, "%s", data[i].data) != EOF)
+////    {
+////        Push(&top, data[i].data);
+////        i++;
+////    }
+//     while (!feof(f))
+//     {
+//
+//         Push(top, fgets(data, N, f));
+//     }
+//
+//     fclose(f);
+//    return top;
+//}
 
 int main()
 {
@@ -264,6 +273,25 @@ Stack *top = NULL;
     //PrintStack(top);
 // Task 5
     WriteStack("test.txt", top);
+    //PrintStack(ReadStack("test.txt"));
+
+    FILE *file;
+    //char i=0;
+    int i = 0;
+    char *data[N];
+
+
+    if((file = fopen("test.txt", "r")) == NULL)
+    {
+        perror("Error occured while opening file");
+    }
+
+    while (fread(&top, sizeof(top), 1, file))
+    {
+
+        Push(&top, top->data);
+    }
+    PrintStack(top);
 
    return 0;
 }
