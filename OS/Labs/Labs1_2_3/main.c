@@ -277,7 +277,7 @@ Stack *top = NULL;
 
     FILE *file;
     //char i=0;
-    int i = 0;
+    //int i = 0;
     char *data[N];
 
 
@@ -286,10 +286,10 @@ Stack *top = NULL;
         perror("Error occured while opening file");
     }
 
-    while (fread(&top, sizeof(top), 1, file))
+    while ((fgets(data, N, file)) != EOF)
     {
 
-        Push(&top, top->data);
+        Push(&top, data);
     }
     PrintStack(top);
 
