@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-//#define N 6
+#define N 6
 
 
 // Task 2
@@ -268,30 +268,30 @@ int main()
 Stack *top = NULL;
     Push(&top, "abc");
     Push(&top, "efg");
-    Push(&top, "mmm");
-    //Pop(&top);
-    //PrintStack(top);
-// Task 5
-    WriteStack("test.txt", top);
-    //PrintStack(ReadStack("test.txt"));
-
-    FILE *file;
-    //char i=0;
-    //int i = 0;
-    char *data[N];
-
-
-    if((file = fopen("test.txt", "r")) == NULL)
-    {
-        perror("Error occured while opening file");
-    }
-
-    while ((fgets(data, N, file)) != EOF)
-    {
-
-        Push(&top, data);
-    }
+    Push(&top, "sss");
+    Pop(&top);
     PrintStack(top);
-
-   return 0;
+// Task 5
+//    WriteStack("test.txt", top);
+//    //PrintStack(ReadStack("test.txt"));
+//
+//    FILE *file;
+//    //char i=0;
+//    //int i = 0;
+//    char *data[N];
+//
+//
+//    if((file = fopen("test.txt", "r")) == NULL)
+//    {
+//        perror("Error occured while opening file");
+//    }
+//
+//    while ((fgets(data, N, file)) != EOF)
+//    {
+//
+//        Push(&top, data);
+//    }
+//    PrintStack(top);
+//
+  return 0;
 }
