@@ -18,14 +18,14 @@ void TCP_Server::incomingConnection(qintptr socketDescriptor)
 {
     socket = new QTcpSocket;
     socket->setSocketDescriptor(socketDescriptor);
-    connect(socket, &QTcpSocket::readyRead, this, &TCP_Server::slot_ready_read);
+    connect(socket, &QTcpSocket::readyRead, this, &TCP_Server::slotReadyRead);
     connect(socket, &QTcpSocket::disconnected, socket, &QTcpSocket::deleteLater);
 
     Sockets.push_back(socket);
     qDebug() << "client connected" << socketDescriptor;
 }
 
-void TCP_Server::slot_ready_read()
+void TCP_Server::slotReadyRead()
 {
     socket = (QTcpSocket*)sender();
     QDataStream in(socket);
@@ -41,20 +41,26 @@ void TCP_Server::slot_ready_read()
         {
             if (nextBlockSize == 0)
             {
+                qDebug() << "nextBlockSize == 0";
                 if (socket->bytesAvailable() < 2)
                 {
+                    qDebug() << "Data < 2, break.";
                     break;
                 }
                 in >> nextBlockSize;
+                qDebug() << "nextBlockSize = " << nextBlockSize;
             }
             if (socket->bytesAvailable() < nextBlockSize)
             {
+                 qDebug() << "Do not full, break.";
                 break;
             }
             QString str;
-            in >> str;
+            QTime time;
+            in >> time >> str;
             nextBlockSize = 0;
-            send_to_client(str);
+            qDebug() << str;
+            SendToClient(str);
             break;
         }
     }
@@ -64,12 +70,12 @@ void TCP_Server::slot_ready_read()
     }
 }
 
-void TCP_Server::send_to_client(QString str)
+void TCP_Server::SendToClient(QString str)
 {
     Data.clear();
     QDataStream out(&Data, QIODevice::WriteOnly);
     out.setVersion(QDataStream::Qt_6_4);
-    out << quint16(0) << str;
+    out << quint16(0) << QTime::currentTime() << str;
     out.device()->seek(0);
     out << quint16(Data.size() - sizeof(quint16));
     //socket->write(Data);

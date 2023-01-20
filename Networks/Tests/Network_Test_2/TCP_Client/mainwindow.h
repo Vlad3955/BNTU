@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include <QTcpSocket>
+#include <QDataStream>
+#include <QTime>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -27,10 +29,10 @@ private:
     Ui::MainWindow *ui;
     QTcpSocket *socket;
     QByteArray Data;
-    void send_to_server(QString str);
+    void SendToServer(QString str);
     quint16 nextBlockSize;
 
 public slots:
-    void slot_ready_read();
+    void slotReadyRead();
 };
 #endif // MAINWINDOW_H

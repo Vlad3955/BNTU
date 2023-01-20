@@ -3,6 +3,8 @@
 #include <QTcpServer>
 #include <QTcpSocket>
 #include <QVector>
+#include <QDataStream>
+#include <QTime>
 
 
 class TCP_Server : public QTcpServer
@@ -17,11 +19,11 @@ private:
     QVector<QTcpSocket*> Sockets;
     QByteArray Data;
     quint16 nextBlockSize;
-    void send_to_client(QString str);
+    void SendToClient(QString str);
 
 public slots:
     void incomingConnection(qintptr socketDescriptor) override;
-    void slot_ready_read();
+    void slotReadyRead();
 };
 
 #endif // TCP_SERVER_H
