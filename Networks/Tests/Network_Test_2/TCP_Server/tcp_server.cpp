@@ -33,10 +33,6 @@ void TCP_Server::slotReadyRead()
     if (in.status() == QDataStream::Ok)
     {
         qDebug() << "read...";
-//        QString str;
-//        in >> str;
-//        qDebug() << str;
-//        send_to_client(str);
         for (;;)
         {
             if (nextBlockSize == 0)
@@ -78,7 +74,6 @@ void TCP_Server::SendToClient(QString str)
     out << quint16(0) << QTime::currentTime() << str;
     out.device()->seek(0);
     out << quint16(Data.size() - sizeof(quint16));
-    //socket->write(Data);
     for (int i = 0; i < Sockets.size(); ++i)
     {
         Sockets[i]->write(Data);

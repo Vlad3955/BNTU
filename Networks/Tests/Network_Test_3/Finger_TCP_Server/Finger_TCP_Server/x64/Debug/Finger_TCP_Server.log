@@ -1,0 +1,8 @@
+﻿  Finger_TCP_Server.cpp
+D:\BNTU\BNTU\Networks\Tests\Network_Test_3\Finger_TCP_Server\Finger_TCP_Server\Finger_TCP_Server.cpp(180,44): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+D:\BNTU\BNTU\Networks\Tests\Network_Test_3\Finger_TCP_Server\Finger_TCP_Server\Finger_TCP_Server.cpp(207,49): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+D:\BNTU\BNTU\Networks\Tests\Network_Test_3\Finger_TCP_Server\Finger_TCP_Server\Finger_TCP_Server.cpp(213,49): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+D:\BNTU\BNTU\Networks\Tests\Network_Test_3\Finger_TCP_Server\Finger_TCP_Server\Finger_TCP_Server.cpp(222,49): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+D:\BNTU\BNTU\Networks\Tests\Network_Test_3\Finger_TCP_Server\Finger_TCP_Server\Finger_TCP_Server.cpp(229,49): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+D:\BNTU\BNTU\Networks\Tests\Network_Test_3\Finger_TCP_Server\Finger_TCP_Server\Finger_TCP_Server.cpp(246,47): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+  Finger_TCP_Server.vcxproj -> D:\BNTU\BNTU\Networks\Tests\Network_Test_3\Finger_TCP_Server\x64\Debug\Finger_TCP_Server.exe
