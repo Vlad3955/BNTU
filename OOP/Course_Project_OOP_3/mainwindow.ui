@@ -46,7 +46,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="pb_add">
     <property name="geometry">
      <rect>
       <x>610</x>
@@ -59,7 +59,7 @@
      <string>Добавить</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="pb_del">
     <property name="geometry">
      <rect>
       <x>610</x>

@@ -10,10 +10,13 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    qmultimapmodel.cpp
 
 HEADERS += \
-    mainwindow.h
+    aeroflot.h \
+    mainwindow.h \
+    qmultimapmodel.h
 
 FORMS += \
     mainwindow.ui
