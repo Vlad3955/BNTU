@@ -23,11 +23,6 @@ MainWindow::MainWindow(QWidget *parent)
         model->appendRow(QList<QStandardItem*>() << item_col_1 << item_col_2 << item_col_3);
     }
     ui->tableView_2->setModel(model);
-
-//    qmmmod = new QMultiMapModel(this);
-//    qmmmod->setMultiMap(&aerofl);
-
-//    ui->tableView_2->setModel(qmmmod);
 }
 
 MainWindow::~MainWindow()
@@ -41,26 +36,60 @@ void MainWindow::on_pb_add_clicked()
     int const row_count = model->rowCount();
     model->insertRow(row_count);
     model->setData(model->index(row_count, 3), Qt::DisplayRole);
-
-//    int const row_count = qmmmod->rowCount();
-//    qmmmod->insertRow(row_count);
-//    qmmmod->setData(model->index(row_count, 3), Qt::DisplayRole);
-
-
 }
 
 
 void MainWindow::on_pb_del_clicked()
 {
+    // Variant I
     if(!ui->tableView_2->selectionModel()->selectedIndexes().isEmpty())
     {
-        QModelIndexList indexList = ui->tableView_2->selectionModel()->selectedRows();
+        QModelIndexList indexList = ui->tableView_2->selectionModel()->selectedIndexes();
 
-        model->removeRows(indexList.last().row(), 1);
+        model->removeRow(indexList.last().row());
     }
     else
     {
         return;
     }
+
+    // Variant II
+//    if(!ui->tableView_2->selectionModel()->selectedIndexes().isEmpty())
+//    {
+//        QModelIndexList indexList = ui->tableView_2->selectionModel()->selectedRows();
+
+//        model->removeRows(indexList.last().row(), 1);
+//    }
+//    else
+//    {
+//        return;
+//    }
+}
+
+
+void MainWindow::on_pushButton_5_clicked()
+{
+    ui->tableView_2->model()->sort(0, Qt::AscendingOrder);
+}
+
+
+void MainWindow::on_pushButton_6_clicked()
+{
+    QString str = ui->lineEdit->text();
+    for (int index = 0; index < model->columnCount(); ++index)
+    {
+        QList<QStandardItem*> items = model->findItems(str,Qt::MatchExactly, 0);
+        int count = items.count();
+        if (count > 0)
+        {
+            for (int k = 0; k < count; ++k)
+            {
+                QModelIndex modelIndex = model->indexFromItem(items[k]);
+                qDebug() << "Column = " << index << "Row = " << modelIndex.row();
+            }
+        }
+    }
+
+
 }
 
