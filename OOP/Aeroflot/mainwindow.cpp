@@ -76,20 +76,30 @@ void MainWindow::on_pushButton_5_clicked()
 void MainWindow::on_pushButton_6_clicked()
 {
     QString str = ui->lineEdit->text();
+    modelSearch = new QStandardItemModel(this);
     for (int index = 0; index < model->columnCount(); ++index)
     {
-        QList<QStandardItem*> items = model->findItems(str,Qt::MatchExactly, 0);
+        QList<QStandardItem*> items = model->findItems(str,Qt::MatchExactly, index);
         int count = items.count();
         if (count > 0)
         {
+
             for (int k = 0; k < count; ++k)
             {
                 QModelIndex modelIndex = model->indexFromItem(items[k]);
+
+                QModelIndex index1 = model->index(modelIndex.row(), 0);
+                QModelIndex index2 = model->index(modelIndex.row(), 1);
+                QModelIndex index3 = model->index(modelIndex.row(), 2);
+                QStandardItem *item_col_1 = new QStandardItem(index1.data(Qt::DisplayRole).toString());
+                QStandardItem *item_col_2 = new QStandardItem(index2.data(Qt::DisplayRole).toString());
+                QStandardItem *item_col_3 = new QStandardItem(index3.data(Qt::DisplayRole).toString());
+                modelSearch->appendRow(QList<QStandardItem*>() << item_col_1 << item_col_2 << item_col_3);
+                //modelSearch->appendRow(QList<QStandardItem*>() << item_col_1);
                 qDebug() << "Column = " << index << "Row = " << modelIndex.row();
             }
         }
     }
-
-
+    ui->tableView->setModel(modelSearch);
 }
 
