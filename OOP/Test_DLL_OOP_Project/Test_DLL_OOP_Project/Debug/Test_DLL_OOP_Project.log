@@ -1,0 +1,20 @@
+﻿  Test_DLL_OOP_Project.cpp
+D:\BNTU\BNTU\OOP\Course_Project_OOP_DLL\Course_Project_OOP_DLL\Course_Project_OOP_DLL.h(37,9): warning C4251: Vegetable::name: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Vegetable"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xstring(4871): message : см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+D:\BNTU\BNTU\OOP\Course_Project_OOP_DLL\Course_Project_OOP_DLL\Course_Project_OOP_DLL.h(37,15): warning C4251: Vegetable::category: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Vegetable"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xstring(4871): message : см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+Test_DLL_OOP_Project.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: __thiscall Cucumber::Cucumber(double)" (??0Cucumber@@QAE@N@Z) в функции _main.
+Test_DLL_OOP_Project.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: virtual __thiscall Cucumber::~Cucumber(void)" (??1Cucumber@@UAE@XZ) в функции _main.
+Test_DLL_OOP_Project.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: __thiscall Potato::Potato(double)" (??0Potato@@QAE@N@Z) в функции _main.
+Test_DLL_OOP_Project.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: virtual __thiscall Potato::~Potato(void)" (??1Potato@@UAE@XZ) в функции _main.
+Test_DLL_OOP_Project.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: __thiscall Tomato::Tomato(double)" (??0Tomato@@QAE@N@Z) в функции _main.
+Test_DLL_OOP_Project.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: virtual __thiscall Tomato::~Tomato(void)" (??1Tomato@@UAE@XZ) в функции _main.
+Test_DLL_OOP_Project.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: __thiscall Carrot::Carrot(double)" (??0Carrot@@QAE@N@Z) в функции _main.
+Test_DLL_OOP_Project.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: virtual __thiscall Carrot::~Carrot(void)" (??1Carrot@@UAE@XZ) в функции _main.
+Test_DLL_OOP_Project.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: __thiscall Beet::Beet(double)" (??0Beet@@QAE@N@Z) в функции _main.
+Test_DLL_OOP_Project.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: virtual __thiscall Beet::~Beet(void)" (??1Beet@@UAE@XZ) в функции _main.
+Test_DLL_OOP_Project.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: __thiscall Salad::Salad(void)" (??0Salad@@QAE@XZ) в функции _main.
+Test_DLL_OOP_Project.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: void __thiscall Salad::add_ingredients(class Vegetable *)" (?add_ingredients@Salad@@QAEXPAVVegetable@@@Z) в функции _main.
+Test_DLL_OOP_Project.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: void __thiscall Salad::about_salad(void)" (?about_salad@Salad@@QAEXXZ) в функции _main.
+Test_DLL_OOP_Project.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: __thiscall Salad::~Salad(void)" (??1Salad@@QAE@XZ) в функции _main.
+D:\BNTU\BNTU\OOP\Test_DLL_OOP_Project\Debug\Test_DLL_OOP_Project.exe : fatal error LNK1120: неразрешенных внешних элементов: 14
