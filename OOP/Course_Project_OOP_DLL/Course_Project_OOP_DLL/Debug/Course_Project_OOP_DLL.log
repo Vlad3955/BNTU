@@ -1,8 +1,16 @@
 ﻿  pch.cpp
-D:\BNTU\BNTU\OOP\Course_Project_OOP_DLL\Course_Project_OOP_DLL\Course_Project_OOP_DLL.h(37,9): warning C4251: Vegetable::name: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Vegetable"
+C:\BNTURep\BNTU\OOP\Course_Project_OOP_DLL\Course_Project_OOP_DLL\Course_Project_OOP_DLL.h(36,9): warning C4251: Vegetable::name: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Vegetable"
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xstring(4871): message : см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
-D:\BNTU\BNTU\OOP\Course_Project_OOP_DLL\Course_Project_OOP_DLL\Course_Project_OOP_DLL.h(37,15): warning C4251: Vegetable::category: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Vegetable"
+C:\BNTURep\BNTU\OOP\Course_Project_OOP_DLL\Course_Project_OOP_DLL\Course_Project_OOP_DLL.h(36,15): warning C4251: Vegetable::category: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Vegetable"
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xstring(4871): message : см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+C:\BNTURep\BNTU\OOP\Course_Project_OOP_DLL\Course_Project_OOP_DLL\Course_Project_OOP_DLL.h(54,9): warning C4251: CucurbitaceaeVegetable::harvest_country: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "CucurbitaceaeVegetable"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xstring(4871): message : см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+C:\BNTURep\BNTU\OOP\Course_Project_OOP_DLL\Course_Project_OOP_DLL\Course_Project_OOP_DLL.h(80,9): warning C4251: NightshadeVegetable::variety: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "NightshadeVegetable"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xstring(4871): message : см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+C:\BNTURep\BNTU\OOP\Course_Project_OOP_DLL\Course_Project_OOP_DLL\Course_Project_OOP_DLL.h(113,9): warning C4251: RootVegetable::crop_year: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "RootVegetable"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xstring(4871): message : см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+C:\BNTURep\BNTU\OOP\Course_Project_OOP_DLL\Course_Project_OOP_DLL\Course_Project_OOP_DLL.h(161,21): warning C4251: Salad::salad: class "std::vector<Vegetable *,std::allocator<Vegetable *>>" должен иметь dll-интерфейс для использования клиентами class "Salad"
+C:\BNTURep\BNTU\OOP\Course_Project_OOP_DLL\Course_Project_OOP_DLL\Course_Project_OOP_DLL.h(161): message : см. объявление "std::vector<Vegetable *,std::allocator<Vegetable *>>"
   dllmain.cpp
-     Создается библиотека D:\BNTU\BNTU\OOP\Course_Project_OOP_DLL\Debug\Course_Project_OOP_DLL.lib и объект D:\BNTU\BNTU\OOP\Course_Project_OOP_DLL\Debug\Course_Project_OOP_DLL.exp
-  Course_Project_OOP_DLL.vcxproj -> D:\BNTU\BNTU\OOP\Course_Project_OOP_DLL\Debug\Course_Project_OOP_DLL.dll
+     Создается библиотека C:\BNTURep\BNTU\OOP\Course_Project_OOP_DLL\Debug\Course_Project_OOP_DLL.lib и объект C:\BNTURep\BNTU\OOP\Course_Project_OOP_DLL\Debug\Course_Project_OOP_DLL.exp
+  Course_Project_OOP_DLL.vcxproj -> C:\BNTURep\BNTU\OOP\Course_Project_OOP_DLL\Debug\Course_Project_OOP_DLL.dll

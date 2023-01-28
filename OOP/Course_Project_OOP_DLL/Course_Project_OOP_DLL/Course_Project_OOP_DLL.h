@@ -14,7 +14,6 @@
 using namespace std;
 
 
-
 // Hierarchy vegetable
 //============================================================
 // abstract class Vegetable
@@ -41,7 +40,7 @@ protected:
 
 // CucurbitaceaeVegetable classes
 //============================================================
- class CucurbitaceaeVegetable : public Vegetable
+ class DECLSPEC CucurbitaceaeVegetable : public Vegetable
 {
 public:
 	CucurbitaceaeVegetable();
@@ -55,7 +54,7 @@ protected:
 	string harvest_country;
 };
 
-class Cucumber : public CucurbitaceaeVegetable
+class DECLSPEC Cucumber : public CucurbitaceaeVegetable
 {
 public:
 	Cucumber();
@@ -67,7 +66,7 @@ public:
 
 // NightshadeVegetable classes
 //============================================================
-class NightshadeVegetable : public Vegetable
+class DECLSPEC NightshadeVegetable : public Vegetable
 {
 public:
 	NightshadeVegetable();
@@ -81,7 +80,7 @@ protected:
 	string variety;
 };
 
-class Potato : public NightshadeVegetable
+class DECLSPEC Potato : public NightshadeVegetable
 {
 public:
 	Potato();
@@ -89,7 +88,7 @@ public:
 	~Potato();
 };
 
-class Tomato : public NightshadeVegetable
+class DECLSPEC Tomato : public NightshadeVegetable
 {
 public:
 	Tomato();
@@ -100,7 +99,7 @@ public:
 
 // RootVegetable classes
 //============================================================
-class RootVegetable : public Vegetable
+class DECLSPEC RootVegetable : public Vegetable
 {
 public:
 	RootVegetable();
@@ -114,7 +113,7 @@ protected:
 	string crop_year;
 };
 
-class Carrot : public RootVegetable
+class DECLSPEC Carrot : public RootVegetable
 {
 public:
 	Carrot();
@@ -122,7 +121,7 @@ public:
 	~Carrot();
 };
 
-class Beet : public RootVegetable
+class DECLSPEC Beet : public RootVegetable
 {
 public:
 	Beet();
@@ -150,7 +149,7 @@ public:
 //============================================================
 
 
-class Salad
+class DECLSPEC Salad
 {
 public:
 	Salad();
@@ -162,3 +161,4 @@ private:
 	vector<Vegetable*> salad;
 	//Flavoring flavoring;
 };
+
