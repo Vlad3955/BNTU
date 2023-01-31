@@ -1,0 +1,15 @@
+﻿Test_DLL_OOP_Project.obj : error LNK2019: ссылка на неразрешенный внешний символ "__declspec(dllimport) public: __cdecl Cucumber::Cucumber(double)" (__imp_??0Cucumber@@QEAA@N@Z) в функции main.
+Test_DLL_OOP_Project.obj : error LNK2019: ссылка на неразрешенный внешний символ "__declspec(dllimport) public: virtual __cdecl Cucumber::~Cucumber(void)" (__imp_??1Cucumber@@UEAA@XZ) в функции main.
+Test_DLL_OOP_Project.obj : error LNK2019: ссылка на неразрешенный внешний символ "__declspec(dllimport) public: __cdecl Potato::Potato(double)" (__imp_??0Potato@@QEAA@N@Z) в функции main.
+Test_DLL_OOP_Project.obj : error LNK2019: ссылка на неразрешенный внешний символ "__declspec(dllimport) public: virtual __cdecl Potato::~Potato(void)" (__imp_??1Potato@@UEAA@XZ) в функции main.
+Test_DLL_OOP_Project.obj : error LNK2019: ссылка на неразрешенный внешний символ "__declspec(dllimport) public: __cdecl Tomato::Tomato(double)" (__imp_??0Tomato@@QEAA@N@Z) в функции main.
+Test_DLL_OOP_Project.obj : error LNK2019: ссылка на неразрешенный внешний символ "__declspec(dllimport) public: virtual __cdecl Tomato::~Tomato(void)" (__imp_??1Tomato@@UEAA@XZ) в функции main.
+Test_DLL_OOP_Project.obj : error LNK2019: ссылка на неразрешенный внешний символ "__declspec(dllimport) public: __cdecl Carrot::Carrot(double)" (__imp_??0Carrot@@QEAA@N@Z) в функции main.
+Test_DLL_OOP_Project.obj : error LNK2019: ссылка на неразрешенный внешний символ "__declspec(dllimport) public: virtual __cdecl Carrot::~Carrot(void)" (__imp_??1Carrot@@UEAA@XZ) в функции main.
+Test_DLL_OOP_Project.obj : error LNK2019: ссылка на неразрешенный внешний символ "__declspec(dllimport) public: __cdecl Beet::Beet(double)" (__imp_??0Beet@@QEAA@N@Z) в функции main.
+Test_DLL_OOP_Project.obj : error LNK2019: ссылка на неразрешенный внешний символ "__declspec(dllimport) public: virtual __cdecl Beet::~Beet(void)" (__imp_??1Beet@@UEAA@XZ) в функции main.
+Test_DLL_OOP_Project.obj : error LNK2019: ссылка на неразрешенный внешний символ "__declspec(dllimport) public: __cdecl Salad::Salad(void)" (__imp_??0Salad@@QEAA@XZ) в функции main.
+Test_DLL_OOP_Project.obj : error LNK2019: ссылка на неразрешенный внешний символ "__declspec(dllimport) public: void __cdecl Salad::add_ingredients(class Vegetable *)" (__imp_?add_ingredients@Salad@@QEAAXPEAVVegetable@@@Z) в функции main.
+Test_DLL_OOP_Project.obj : error LNK2019: ссылка на неразрешенный внешний символ "__declspec(dllimport) public: void __cdecl Salad::about_salad(void)" (__imp_?about_salad@Salad@@QEAAXXZ) в функции main.
+Test_DLL_OOP_Project.obj : error LNK2019: ссылка на неразрешенный внешний символ "__declspec(dllimport) public: __cdecl Salad::~Salad(void)" (__imp_??1Salad@@QEAA@XZ) в функции main.
+C:\BNTURep\BNTU\OOP\Test_DLL_OOP_Project\x64\Debug\Test_DLL_OOP_Project.exe : fatal error LNK1120: неразрешенных внешних элементов: 14
