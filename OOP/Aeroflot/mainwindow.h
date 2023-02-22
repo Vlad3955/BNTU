@@ -20,6 +20,7 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
+    // Struct for filling the multimap
     struct Aeroflot {
         QString dest;
         QString flight_num = 0;
