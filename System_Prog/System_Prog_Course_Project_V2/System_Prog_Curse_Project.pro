@@ -9,18 +9,16 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    autooffclass.cpp \
     main.cpp \
-    autooffclock.cpp \
     mainwindowclass.cpp \
     mythread.cpp \
-    startwindow.cpp \
     timeroffclass.cpp
 
 HEADERS += \
-    autooffclock.h \
+    autooffclass.h \
     mainwindowclass.h \
     mythread.h \
-    startwindow.h \
     timeroffclass.h
 
 # Default rules for deployment.
@@ -29,6 +27,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 FORMS += \
+    autooffclass.ui \
     mainwindowclass.ui
 
 win32::RC_FILE = ico.rc
