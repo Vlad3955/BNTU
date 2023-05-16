@@ -6,22 +6,19 @@ AutoOffClass::AutoOffClass(QWidget *parent) :
     ui(new Ui::AutoOffClass)
 {
     ui->setupUi(this);
-
-    //resize(128, 128);
     setAttribute(Qt::WA_TranslucentBackground);
     ui->label->setAttribute(Qt::WA_TranslucentBackground);
     ui->label->setPixmap(QPixmap(":/pic/alarm-clock-128.png"));
 
     QPushButton* pcmdQuit = new QPushButton("X");
     pcmdQuit->setFixedSize(16, 16);
-    QObject::connect(pcmdQuit, SIGNAL(clicked()), qApp, SLOT(quit()));
-    //setup layout
+    connect(pcmdQuit, SIGNAL(clicked()), qApp, SLOT(quit()));
     QVBoxLayout* pvbx = new QVBoxLayout;
     pvbx->addWidget(pcmdQuit);
     pvbx->addStretch(1);
     ui->label->setLayout(pvbx);
-    workOffTime();
 
+    msgBox = new QMessageBox(this);
     shutdownProcess = new QProcess(this);
     pcOfftimer = new QTimer(this);
     errorOffTimer = new QTimer(this);
@@ -37,11 +34,11 @@ AutoOffClass::AutoOffClass(QWidget *parent) :
     connect(pcOfftimer, SIGNAL(timeout()), this, SLOT(setNextValue()));
     connect(timerOff, SIGNAL(threeMenutesSignal()), this, SLOT(threeMinutesWarning()));
     connect(this, SIGNAL(finished()), this, SLOT(offPC()));
-    endLessonTime();
-
+    connect(this, SIGNAL(workOffTimeSignal()), this, SLOT(workOffTime()));
     connect(this, SIGNAL(startErrorOffTimer()), this, SLOT(errorOffTimerWork()));
     connect(errorOffTimer, SIGNAL(timeout()), this, SLOT(setErrorOffNextValue()));
     connect(this, SIGNAL(errorOff()), this, SLOT(errorOffMessage()));
+
     endLessonTime();
 }
 
@@ -68,19 +65,10 @@ void AutoOffClass::mouseMoveEvent(QMouseEvent *me)
 
 void AutoOffClass::workOffTime()
 {
-    QMessageBox msgBox;
-
-    if (QTime::currentTime().hour() >= 18 || (QTime::currentTime().hour() == 18 && QTime::currentTime().minute() >= 40) || QTime::currentTime().hour() <= 7)
-    {
-        if (QTime::currentTime().hour() == 7 && QTime::currentTime().minute() >= 35)
-        {
-            return;
-        }
-        msgBox.setText("Компьютер включен в нервбочее время. Программа будет закрыта");
-        msgBox.setDefaultButton(QMessageBox::Ok);
-        msgBox.exec();
-        qApp->exit();
-    }
+    msgBox->setText("Компьютер включен в нервбочее время. Программа будет закрыта");
+    msgBox->setDefaultButton(QMessageBox::Ok);
+    msgBox->exec();
+    exit(0);
 }
 
 void AutoOffClass::timerWork()
@@ -143,6 +131,14 @@ void AutoOffClass::endLessonTime()
         QTime alarmTime = QTime(17, 10, 0, 0);
         QTime res = QTime::currentTime();;
         emit endLesson(res.msecsTo(alarmTime) / 1000);
+    }
+    else if (QTime::currentTime().hour() >= 18 || (QTime::currentTime().hour() == 18 && QTime::currentTime().minute() >= 40) || QTime::currentTime().hour() <= 7)
+    {
+        if (QTime::currentTime().hour() == 7 && QTime::currentTime().minute() >= 35)
+        {
+            return;
+        }
+        emit workOffTimeSignal();
     }
 }
 

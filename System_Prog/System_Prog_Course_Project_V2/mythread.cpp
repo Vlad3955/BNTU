@@ -3,7 +3,7 @@
 
 MyThread::MyThread()
 {
-   qDebug() << "MyThread";
+    qDebug() << "MyThread";
 }
 
 void MyThread::run()

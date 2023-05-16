@@ -31,7 +31,6 @@ public:
     ~AutoOffClass();
 
 protected:
-    //void paintEvent(QPaintEvent *event) override;
     virtual void mousePressEvent(QMouseEvent * pe) override;
     virtual void mouseMoveEvent(QMouseEvent *me) override;
 
@@ -41,10 +40,7 @@ signals:
     void timerStart();
     void errorOff();
     void startErrorOffTimer();
-
-private:
-    void workOffTime();
-
+    void workOffTimeSignal();
 
 private slots:
     void offPC();
@@ -56,6 +52,7 @@ private slots:
     void errorOffMessage();
     void timerWork();
     void errorOffTimerWork();
+    void workOffTime();
 
 private:
     Ui::AutoOffClass *ui;
@@ -66,6 +63,7 @@ private:
     QTimer *pcOfftimer;
     QTimer *errorOffTimer;
     QProcess *shutdownProcess;
+    QMessageBox *msgBox;
     int value;
     int errorValue;
 };
