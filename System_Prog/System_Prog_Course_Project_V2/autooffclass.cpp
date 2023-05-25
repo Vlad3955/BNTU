@@ -88,7 +88,6 @@ void AutoOffClass::offPC()
     emit startErrorOffTimer();
     QStringList arguments = QStringList() << "-s" << "-t" << "10";
     shutdownProcess->start("shutdown", arguments);
-
 }
 
 void AutoOffClass::startThread(int64_t n)
@@ -132,7 +131,9 @@ void AutoOffClass::endLessonTime()
         QTime res = QTime::currentTime();;
         emit endLesson(res.msecsTo(alarmTime) / 1000);
     }
-    else if (QTime::currentTime().hour() >= 18 || (QTime::currentTime().hour() == 18 && QTime::currentTime().minute() >= 40) || QTime::currentTime().hour() <= 7)
+    else if (QTime::currentTime().hour() >= 18 || (QTime::currentTime().hour()
+             == 18 && QTime::currentTime().minute() >= 40)
+             || QTime::currentTime().hour() <= 7)
     {
         if (QTime::currentTime().hour() == 7 && QTime::currentTime().minute() >= 35)
         {
