@@ -22,7 +22,7 @@ AutoOffClass::AutoOffClass(QWidget *parent) :
     shutdownProcess = new QProcess(this);
     pcOfftimer = new QTimer(this);
     errorOffTimer = new QTimer(this);
-    value = 170;
+    value = 30;
     errorValue = 20;
     thread = new MyThread();
     timerOff = new TimerOffClass(this);
@@ -121,7 +121,7 @@ void AutoOffClass::endLessonTime()
     }
     else if (hour < 15 || (hour == 15 && minutes <= 20))
     {
-        QTime alarmTime = QTime(15, 20, 0, 0);
+        QTime alarmTime = QTime(15, 01, 0, 0);
         QTime res = QTime::currentTime();;
         emit endLesson(res.msecsTo(alarmTime) / 1000);
     }
