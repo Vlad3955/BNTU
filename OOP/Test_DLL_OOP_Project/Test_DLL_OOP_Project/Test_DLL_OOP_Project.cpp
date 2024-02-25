@@ -21,6 +21,5 @@ int main()
 	vinigrette.add_ingredients(&cucumber);
 
 	vinigrette.about_salad();
-
 	return 0;
 }
