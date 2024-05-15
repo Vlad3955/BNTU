@@ -60,8 +60,8 @@ int main()
 
             if (size_ != 0)
             {
-                //Print(ld, size_);
-                ld->Print();
+                Print(ld, size_);
+                //ld->Print();
             }
             else
             {
@@ -72,26 +72,101 @@ int main()
             Menu();
             break;
 
-        //case 3:
-        //    system("cls");
+        case 3:
+            system("cls");
 
-        //    if (size_ != 0)
-        //    {
-        //        LumberDataChange(ld, size_);
-        //    }
-        //    else
-        //    {
-        //        cout << "Данные пусты!" << endl;
-        //    }
-        //    system("pause");
-        //    system("cls");
-        //    Menu();
-        //    break;
+            if (size_ != 0)
+            {
+                LumberDataChange(ld, size_);
+            }
+            else
+            {
+                cout << "Данные пусты!" << endl;
+            }
+            system("pause");
+            system("cls");
+            Menu();
+            break;
+
+        case 4:
+            system("cls");
+
+            if (size_ != 0)
+            {
+                AddLumberData(ld, size_);
+            }
+            else
+            {
+                cout << "Данные пусты!" << endl;
+            }
+            system("pause");
+            system("cls");
+            Menu();
+            break;
+
+        case 5:
+            system("cls");
+
+            if (size_ != 0)
+            {
+                DeleteLumberData(ld, size_);
+            }
+            else
+            {
+                cout << "Данные пусты!" << endl;
+            }
+            system("pause");
+            system("cls");
+            Menu();
+            break;
+
+        case 6:
+            system("cls");
+
+            if (size_ != 0)
+            {
+                SortingLumberData(ld, size_);
+            }
+            else
+            {
+                cout << "Данные пусты!" << endl;
+            }
+            system("pause");
+            system("cls");
+            Menu();
+            break;
+
+        case 7:
+            system("cls");
+
+            if (size_ != 0)
+            {
+                /* cout << "Введите название файла: ";
+                cin >> fileName;
+                SaveLumberData(ld, size_, fileName);*/
+
+                SaveLumberData(ld, size_, "Out.txt");
+            }
+            else
+            {
+                cout << "Данные пусты!" << endl;
+            }
+            system("pause");
+            system("cls");
+            Menu();
+            break;
 
         default:
+            cout << "Пункт меню введен не верно!" << endl;
+            system("cls");
+            Menu();
             break;
         }
     }
+
+    system("cls");
+    cout << "Работа завершена!" << endl;
+    system("pause");
 
     return 0;
 }
