@@ -103,7 +103,6 @@ void LumberDataReading(LumberData* (&ld), int& n, string filename)
         }
 
         cout << "Данные считаны!" << endl;
-    
     }
     else
     {
@@ -152,6 +151,7 @@ void LumberDataChange(LumberData* ld, int n)
         cin >> supplier_.name;
         cout << "Ведите количество позиций поставляемого товара данным поставщиком: ";
         cin >> supplier_.num_of_pos;
+        supplier_.materials.clear();
         cout << "Ведите поставляемый " << supplier_.name << " материал: " << endl;
         for (int i = 0; i < supplier_.num_of_pos; i++)
         {
@@ -212,6 +212,7 @@ void AddLumberData(LumberData* (&ld), int& n)
     cin >> supplier_.name;
     cout << "Ведите количество позиций поставляемого товара данным поставщиком: ";
     cin >> supplier_.num_of_pos;
+    supplier_.materials.clear();
     cout << "Ведите поставляемый " << supplier_.name << " материал: " << endl;
     for (int i = 0; i < supplier_.num_of_pos; i++)
     {
@@ -281,11 +282,26 @@ void SortingLumberData(LumberData* ld, int n)
             if (ld[i].GetProduct().name > ld[j].GetProduct().name)
             {
                 buf = ld[i];
+                ld[i].GetSupplier().materials.clear();
                 ld[i] = ld[j];
+                ld[j].GetSupplier().materials.clear();
                 ld[j] = buf;
+                
+                // Variant 2
+                /*Supplier tempSupplierI = ld[i].GetSupplier();
+                Supplier tempSupplierJ = ld[j].GetSupplier();
+
+                buf = ld[i];
+                ld[i].GetSupplier().materials.clear();
+                ld[i] = ld[j];
+                ld[i].GetSupplier().materials = tempSupplierJ.materials;
+
+                ld[j].GetSupplier().materials.clear();
+                ld[j] = buf;
+                ld[j].GetSupplier().materials = tempSupplierI.materials;*/
 
                 numOfSorted++;
-            }
+            } 
         }
     }
 
