@@ -1,4 +1,5 @@
 ﻿#include "lumber_production.h"
+#define _CRT_SECURE_NO_WARNINGS
 
 LumberData::LumberData()
 {
@@ -62,11 +63,18 @@ LumberData::~LumberData()
 {
 }
 
+std::string LumberData::DateToString(time_t date) {
+    std::tm tm;
+    gmtime_s(&tm, &date); // Использование gmtime_s
+    char buffer[80];
+    strftime(buffer, 80, "%d-%m-%Y", &tm);
+    return std::string(buffer);
+}
+
 void LumberData::Print()
 {
     cout << "Изделие:" << endl;
     cout << " Название: " << product_.name << endl;
-    //cout << " Тип сырья: " << product_.wood_type << endl;
     cout << " Тип сырья: " << product_.type.name << endl;
     cout << " Количество: " << product_.quantity << endl;
     cout << endl;
@@ -78,9 +86,9 @@ void LumberData::Print()
 
     cout << "Продажи:" << endl;
     cout << " Название: " << product_.name << endl;
-    //cout << " Тип сырья: " << product_.wood_type << endl;
     cout << " Тип сырья: " << product_.type.name << endl;
-    cout << " Дата: " << sale_.sale_date << endl;
+    //cout << " Дата: " << sale_.sale_date << endl;
+    cout << " Дата: " << DateToString(sale_.sale_date) << endl;
     cout << " Продано: " << sale_.quantity_sold << endl;
     cout << endl;
 
@@ -98,9 +106,9 @@ void LumberData::Print()
 
     cout << "Отложеные продажи:" << endl;
     cout << " Название: " << deferred_sale_.sale.product.name << endl;
-    //cout << " Тип сырья: " << product_.wood_type << endl;
     cout << " Тип сырья: " << deferred_sale_.sale.product.type.name << endl;
-    cout << " Дата: " << deferred_sale_.sale.sale_date << endl;
+    //cout << " Дата: " << deferred_sale_.sale.sale_date << endl;
+    cout << " Дата: " << DateToString(deferred_sale_.sale.sale_date) << endl;
     cout << " Ожидаемое количество: " << deferred_sale_.sale.quantity_sold << endl;
     cout << " Причина: " << deferred_sale_.reason << endl;
     cout << endl;

@@ -6,13 +6,11 @@
 #include <fstream>
 #include <Windows.h>
 
-using namespace std;
+#include <ctime>
+#include <sstream>
+#include <iomanip>
 
-//struct Product {
-//    std::string name;
-//    std::string wood_type;
-//    int quantity;
-//};
+using namespace std;
 
 struct RawMaterial {
     std::string name;
@@ -39,7 +37,6 @@ struct Supplier {
     Supplier() {}
     Supplier(const Supplier& other) : name(other.name), num_of_pos(other.num_of_pos), materials(other.materials) {}
 
-    // Оператор присваивания
     Supplier& operator=(const Supplier& other) {
         if (this != &other) {
             name = other.name;
@@ -55,7 +52,6 @@ struct DeferredSale {
     std::string reason;
 };
 
-
 class LumberData
 {
 public:
@@ -64,6 +60,7 @@ public:
         DeferredSale deferred_sale);
 	~LumberData();
 
+    std::string DateToString(time_t date);
     void Print();
     void LumberDataEntry(Product product, RawMaterial raw_material, Sale sale, Supplier supplier,
         DeferredSale deferred_sale);

@@ -1,6 +1,9 @@
 #pragma once
 #include "lumber_production.h"
 
+time_t StringToDate(const std::string& dateStr);
+std::string DateToString(time_t date);
+
 void LumberDataEntry(LumberData* (&ld), int& n);
 void LumberDataReading(LumberData* (&ld), int& n, string filename);
 void Print(LumberData* ld, int n);

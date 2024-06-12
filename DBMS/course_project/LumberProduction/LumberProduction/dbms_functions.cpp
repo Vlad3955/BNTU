@@ -1,4 +1,20 @@
 #include "dbms_functions.h"
+#define _CRT_SECURE_NO_WARNINGS
+
+time_t StringToDate(const std::string& dateStr) {
+    std::tm tm = {};
+    std::istringstream ss(dateStr);
+    ss >> std::get_time(&tm, "%d-%m-%Y");
+    return mktime(&tm);
+}
+
+std::string DateToString(time_t date) {
+    std::tm tm;
+    gmtime_s(&tm, &date); // »спользование gmtime_s
+    char buffer[80];
+    strftime(buffer, 80, "%d-%m-%Y", &tm);
+    return std::string(buffer);
+}
 
 void LumberDataEntry(LumberData* (&ld), int& n)
 {
@@ -15,6 +31,7 @@ void LumberDataEntry(LumberData* (&ld), int& n)
 
     for (int i = 0; i < n; i++)
     {
+        string date;
         cout << "¬едите через пробел название продукта, тип сырь€ и количество: ";
         cin >> product_.name >> product_.type.name >> product_.quantity;
 
@@ -22,7 +39,9 @@ void LumberDataEntry(LumberData* (&ld), int& n)
         cin >> raw_material_.name >> raw_material_.quantity;
 
         cout << "¬едите через пробел название проданого продукта, тип сырь€, дату и количество: ";
-        cin >> sale_.product.name >> sale_.product.type.name >> sale_.sale_date >> sale_.quantity_sold;
+        //cin >> sale_.product.name >> sale_.product.type.name >> sale_.sale_date >> sale_.quantity_sold;
+        cin >> sale_.product.name >> sale_.product.type.name >> date >> sale_.quantity_sold;
+        sale_.sale_date = StringToDate(date);
 
         cout << "¬едите название поставщика: ";
         cin >> supplier_.name;
@@ -57,8 +76,10 @@ void LumberDataEntry(LumberData* (&ld), int& n)
         
         cout << "¬едите через пробел название продукта отложеной продажи, тип сырь€, дата, количество и причина: ";
         cin >> deferred_sale_.sale.product.name >> deferred_sale_.sale.product.type.name 
-            >> deferred_sale_.sale.sale_date >> deferred_sale_.sale.quantity_sold 
+            //>> deferred_sale_.sale.sale_date >> deferred_sale_.sale.quantity_sold 
+            >> date >> deferred_sale_.sale.quantity_sold
             >> deferred_sale_.reason;
+        deferred_sale_.sale.sale_date = StringToDate(date);
         ld[i].LumberDataEntry(product_, raw_material_, sale_, supplier_, deferred_sale_);
 
         cout << "____________________________________________________________________\n";
@@ -83,9 +104,12 @@ void LumberDataReading(LumberData* (&ld), int& n, string filename)
 
         for (int i = 0; i < n; i++)
         {
+            string date;
             reading >> product_.name >> product_.type.name >> product_.quantity;
             reading >> raw_material_.name >> raw_material_.quantity;
-            reading >> sale_.product.name >> sale_.product.type.name >> sale_.sale_date >> sale_.quantity_sold;
+            //reading >> sale_.product.name >> sale_.product.type.name >> sale_.sale_date >> sale_.quantity_sold;
+            reading >> sale_.product.name >> sale_.product.type.name >> date >> sale_.quantity_sold;
+            sale_.sale_date = StringToDate(date);
             reading >> supplier_.name;
             reading >> supplier_.num_of_pos;
             supplier_.materials.clear();
@@ -97,8 +121,10 @@ void LumberDataReading(LumberData* (&ld), int& n, string filename)
                 supplier_.materials.push_back(rm);
             }
             reading >> deferred_sale_.sale.product.name >> deferred_sale_.sale.product.type.name
-                    >> deferred_sale_.sale.sale_date >> deferred_sale_.sale.quantity_sold
+                    //>> deferred_sale_.sale.sale_date >> deferred_sale_.sale.quantity_sold
+                    >> date >> deferred_sale_.sale.quantity_sold
                     >> deferred_sale_.reason;
+            deferred_sale_.sale.sale_date = StringToDate(date);
             ld[i].LumberDataEntry(product_, raw_material_, sale_, supplier_, deferred_sale_);
         }
 
@@ -152,6 +178,7 @@ void LumberDataChange(LumberData* ld, int n)
         cout << "¬едите количество позиций поставл€емого товара данным поставщиком: ";
         cin >> supplier_.num_of_pos;
         supplier_.materials.clear();
+        ld[_n].GetSupplier().materials.clear();
         cout << "¬едите поставл€емый " << supplier_.name << " материал: " << endl;
         for (int i = 0; i < supplier_.num_of_pos; i++)
         {
@@ -280,15 +307,15 @@ void SortingLumberData(LumberData* ld, int n)
         for (int j = i + 1; j < n; j++)
         {
             if (ld[i].GetProduct().name > ld[j].GetProduct().name)
-            {
+            {/*
                 buf = ld[i];
                 ld[i].GetSupplier().materials.clear();
                 ld[i] = ld[j];
                 ld[j].GetSupplier().materials.clear();
-                ld[j] = buf;
+                ld[j] = buf;*/
                 
                 // Variant 2
-                /*Supplier tempSupplierI = ld[i].GetSupplier();
+                Supplier tempSupplierI = ld[i].GetSupplier();
                 Supplier tempSupplierJ = ld[j].GetSupplier();
 
                 buf = ld[i];
@@ -298,7 +325,7 @@ void SortingLumberData(LumberData* ld, int n)
 
                 ld[j].GetSupplier().materials.clear();
                 ld[j] = buf;
-                ld[j].GetSupplier().materials = tempSupplierI.materials;*/
+                ld[j].GetSupplier().materials = tempSupplierI.materials;
 
                 numOfSorted++;
             } 
@@ -320,7 +347,8 @@ void SaveLumberData(LumberData* ld, int n, string filename)
         {
             record << ld[i].GetProduct().name << " " << ld[i].GetProduct().type.name << " " << ld[i].GetProduct().quantity << endl;
             record << ld[i].GetRawMaterial().name << " " << ld[i].GetRawMaterial().quantity << endl;
-            record << ld[i].GetSale().product.name << " " << ld[i].GetSale().product.type.name << " " << ld[i].GetSale().sale_date << " " << ld[i].GetSale().quantity_sold << endl;
+            //record << ld[i].GetSale().product.name << " " << ld[i].GetSale().product.type.name << " " << ld[i].GetSale().sale_date << " " << ld[i].GetSale().quantity_sold << endl;
+            record << ld[i].GetSale().product.name << " " << ld[i].GetSale().product.type.name << " " << DateToString(ld[i].GetSale().sale_date) << " " << ld[i].GetSale().quantity_sold << endl;
             record << ld[i].GetSupplier().name << endl;
             record << ld[i].GetSupplier().num_of_pos << endl;
             for (auto & it : ld[i].GetSupplier().materials)
@@ -328,7 +356,8 @@ void SaveLumberData(LumberData* ld, int n, string filename)
                 record << it.name << " " << it.quantity << endl;
             }
             record << ld[i].GetDeferredSale().sale.product.name << " " << ld[i].GetDeferredSale().sale.product.type.name << " "
-                << ld[i].GetDeferredSale().sale.sale_date << " " << ld[i].GetDeferredSale().sale.quantity_sold << " "
+                //<< ld[i].GetDeferredSale().sale.sale_date << " " << ld[i].GetDeferredSale().sale.quantity_sold << " "
+                << DateToString(ld[i].GetDeferredSale().sale.sale_date) << " " << ld[i].GetDeferredSale().sale.quantity_sold << " "
                 << ld[i].GetDeferredSale().reason;
 
             if (i < n -1)
